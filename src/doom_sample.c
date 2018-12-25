@@ -5,7 +5,7 @@
 #include "SDL2/SDL.h"
 
 /* Define window size */
-#define W 608
+#define W 640
 #define H 480
 /* Define various vision related constants */
 #define EyeHeight  6    // Camera height from floor when standing
@@ -276,19 +276,19 @@ int main()
 {
     LoadData();
 
-    SDL_Window   *win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
-    // surface = SDL_GetWindowSurface(win);
+    SDL_Window   *win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, W, H, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    surface = SDL_GetWindowSurface(win);
   
     //surface = SDL_SetVideoMode(W, H, 32, 0);
 
               /* Create a Render */   
-    SDL_Renderer *render = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    //SDL_Renderer *render = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
         // if (render == NULL) {
         //     printf("NULL RENDERER\n");
         //     return 1;
         // }
-        SDL_Texture *texture = NULL;
+        //SDL_Texture *texture = NULL;
 
     //SDL_EnableKeyRepeat(150, 30);
 
@@ -302,21 +302,21 @@ int main()
     for(;;)
     {
         // surface = (SDL_Surface *)malloc(sizeof(SDL_Surface *) * 1);
-        printf("renderer : %p    texture : %p    surf : %p\n", render, texture, surface);
-        SDL_LockSurface(surface);//<<<<< surface NULL segment !!!!
+        // printf("renderer : %p    texture : %p    surf : %p\n", render, texture, surface);
+        //SDL_LockSurface(surface);//<<<<< surface NULL segment !!!!
         // SDL_memset(surface->pixels, 0, surface->h * surface->pitch);
-        printf("1  renderer : %p    texture : %p    surf : %p\n", render, texture, surface);
+        //printf("1  renderer : %p    texture : %p    surf : %p\n", render, texture, surface);
         DrawScreen();
-        SDL_UnlockSurface(surface);
-        printf("2  renderer : %p    texture : %p    surf : %p\n", render, texture, surface);
+        //SDL_UnlockSurface(surface);
+        //printf("2  renderer : %p    texture : %p    surf : %p\n", render, texture, surface);
 
         /* Upload surface to render, and then, free the surface */
-        texture = SDL_CreateTextureFromSurface(render, surface);
-        SDL_FreeSurface(surface);
+        //texture = SDL_CreateTextureFromSurface(render, surface);
+        //SDL_FreeSurface(surface);
         //     /* Draw the render on window */
-        SDL_RenderClear(render); // Fill render with color
-        SDL_RenderCopy(render, texture, NULL, NULL); // Copy the texture into render
-        SDL_RenderPresent(render); // Show render on window
+        //SDL_RenderClear(render); // Fill render with color
+        //SDL_RenderCopy(render, texture, NULL, NULL); // Copy the texture into render
+        //SDL_RenderPresent(render); // Show render on window
 
 
 
