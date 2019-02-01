@@ -1,6 +1,6 @@
 NAME = doom
 
-FILES =	doom_sample
+FILES =	doom_sample2
  
 
 #add
