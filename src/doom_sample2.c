@@ -53,12 +53,12 @@ typedef struct player
     float anglecos;
     float yaw;   // Looking towards (and sin() and cos() thereof)
     unsigned int sector;                        // Which sector the player is currently in
-    unsigned int NumSectors;
+    unsigned int num_sectors;
 }           player;
 
 typedef struct  item
 {
-    int sectorno;
+    int sectno;
     int sx1;
     int sx2;
 }               item;
@@ -72,6 +72,10 @@ typedef struct  screen
 
     int ytop[W];
     int ybottom[W];
+
+    player *player;
+    sectors *sector;
+    SDL_Surface *surface;
 }               screen;
 
 typedef struct  move_events
@@ -95,7 +99,15 @@ typedef struct  view_events
     float move_vec[2];
 }               view_events;
 
-
+typedef struct  line
+{
+    int x;
+    int y1;
+    int y2;
+    int top;
+    int middle;
+    int bottom;
+}               line;
 
 
 
@@ -107,11 +119,17 @@ typedef struct  view_events
 #define CLAMP(a, mi, ma)      MIN(MAX(a, mi), ma)         // CLAMP: CLAMP value into set range.
 #define VXS(x0, y0, x1, y1)    ((x0 * y1) - (x1 * y0))   // VXS: Vector cross product
 // OVERLAP:  DeterMINe whether the two number ranges OVERLAP.
-#define OVERLAP(a0, a1, b0, b1) (MIN(a0, a1) <= MAX(b0, b1) && MIN(b0, b1) <= MAX(a0, a1))
-// INTERSECT_BOX: DeterMINe whether two 2D-boxes INTERSECT.
 
+#define MVM(a0, a1, b0, b1) (MIN(a0, a1) <= MAX(b0, b1))
+#define MAM(a0, a1, b0, b1) (MIN(b0, b1) <= MAX(a0, a1))
+#define OVERLAP(a0, a1, b0, b1) (MVM(a0, a1, b0, b1) && MAM(a0, a1, b0, b1))
+
+#define YAW(y, z, pyaw) (y + z * pyaw)
+
+#define PROJECTION(t, y, yaw, scl) (H / 2) - (int)(YAW(t, y, yaw) * scl);
 
 #define SECT (&sectors[player->sector])
+#define SECTNOW (&sectors[scrn.now.sectno])
 #define VERT  SECT->vertex
 
 
@@ -251,18 +269,18 @@ player player_init(float x, float y, float angle, unsigned int n){
     return (player);
 }
 
-static void LoadData(player *player, sectors **sector)
+static sectors *LoadData(player *player)
 {
 
 ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    sectors *sectors = *sector;
+    sectors *sectors;
 
     FILE* fp = fopen("map.txt", "rt");//map-clear
     if(!fp) { perror("map.txt"); exit(1); }
     char Buf[256], word[256], *ptr;
     struct xy* vert = NULL, v;
     int n, m, NumVertices = 0;
-    unsigned int NumSectors = 0;
+    unsigned int num_sectors = 0;
     while(fgets(Buf, sizeof Buf, fp))
         switch(sscanf(ptr = Buf, "%32s%n", word, &n) == 1 ? word[0] : '\0')
         {
@@ -271,18 +289,15 @@ static void LoadData(player *player, sectors **sector)
                     { vert = realloc(vert, ++NumVertices * sizeof(*vert)); vert[NumVertices-1] = v; }
                 break;
             case 's': // sector
-                sectors = realloc(sectors, ++NumSectors * sizeof(*sectors));
-                struct sectors* sect = &sectors[NumSectors-1];
+                sectors = realloc(sectors, ++num_sectors * sizeof(*sectors));
+                struct sectors* sect = &sectors[num_sectors-1];
                 int* num = NULL;
                 sscanf(ptr += n, "%f%f%n", &sect->floor,&sect->ceil, &n);
                 for(m=0; sscanf(ptr += n, "%32s%n", word, &n) == 1 && word[0] != '#'; ){ 
                     num = realloc(num, ++m * sizeof(*num)); 
                     num[m-1] = word[0]=='x' ? -1 : atoi(word); 
-                    // printf("%d_%d\n", num[m-1], (m-1));
                 }
-                // printf("%d=\n", m);
                 sect->npoints   = m /= 2;
-                // printf("%d\n", m);
                 sect->neighbors = malloc( (m  ) * sizeof(*sect->neighbors) );
                 sect->vertex    = malloc( (m+1) * sizeof(*sect->vertex)    );
                 for(n=0; n<m; ++n) {
@@ -299,17 +314,16 @@ static void LoadData(player *player, sectors **sector)
                 *player = player_init(v.x, v.y, angle, n); // TODO: Range checking
                 player->where.z = sectors[player->sector].floor + EYE_HEIGHT;
         }
-        player->NumSectors = NumSectors;
-
-        printf("%u * %f\n", (&sectors[NumSectors-1])->npoints,(&sectors[NumSectors-1])->floor);printf("!!!!!!!!!!!!!\n");
+        player->num_sectors = num_sectors;
     fclose(fp);
     free(vert);
+    return (sectors);
 }
 static void UnloadData(sectors *sectors, player *player)
 {
-    for(unsigned a=0; a<player->NumSectors; ++a) free(sectors[a].vertex);
-    for(unsigned a=0; a<player->NumSectors; ++a) free(sectors[a].neighbors);
-    player->NumSectors = 0;
+    for(unsigned a=0; a<player->num_sectors; ++a) free(sectors[a].vertex);
+    for(unsigned a=0; a<player->num_sectors; ++a) free(sectors[a].neighbors);
+    player->num_sectors = 0;
     free(sectors);
     sectors    = NULL;
    
@@ -328,22 +342,40 @@ static void UnloadData(sectors *sectors, player *player)
 ///////         DRAW
 //////////////////////////////////////////////////////////////////
 
+void line_set_area(line *l, int x, int y1, int y2){
+    l->x = x;
+    l->y1 = y1;
+    l->y2 = y2;
+}
 
-// static SDL_Surface *surface = NULL;
+void line_set_color(line *l, int top, int middle, int bottom){
+    l->top = top;
+    l->middle = middle;
+    l->bottom = bottom;
+}
 
 /* vline: Draw a vertical line on screen, with a different color pixel in top & bottom */
-static void vline(int x, int y1,int y2, int top,int middle,int bottom, SDL_Surface *surface)
+static void vline(line l, SDL_Surface *surface)
 {
-    int *pix = (int*) surface->pixels;
-    y1 = CLAMP(y1, 0, H-1);
-    y2 = CLAMP(y2, 0, H-1);
-    if(y2 == y1)
-        pix[y1*W+x] = middle;
-    else if(y2 > y1)
+    int *pix;
+    int cy1;
+    int cy2;
+    unsigned int y;
+
+    pix = (int *) surface->pixels;
+    cy1 = CLAMP(l.y1, 0, H - 1);
+    cy2 = CLAMP(l.y2, 0, H - 1);
+    if(cy2 == cy1)
+        pix[cy1 * W + l.x] = l.middle;
+    else if(cy2 > cy1)
     {
-        pix[y1*W+x] = top;
-        for(int y=y1+1; y<y2; ++y) pix[y*W+x] = middle;
-        pix[y2*W+x] = bottom;
+        pix[cy1 * W + l.x] = l.top;
+        y = cy1 + 1;
+        while (y < cy2){
+            pix[y * W + l.x] = l.middle;
+            y++;
+        }
+        pix[cy2 * W + l.x] = l.bottom;
     }
 }
 
@@ -380,10 +412,13 @@ void frustrum(xy *t1, xy *t2){
 }
 
 
-screen screen_init(unsigned int player_sector){
+screen screen_init(SDL_Surface *surface, player *player, sectors *sector){
     screen scrn;
     unsigned int i;
 
+    scrn.player = player;
+    scrn.surface = surface;
+    scrn.sector = sector;
     scrn.head = scrn.queue;
     scrn.tail = scrn.queue;
     i = 0;
@@ -393,7 +428,7 @@ screen screen_init(unsigned int player_sector){
         i++;
     }
     /* Begin whole-screen rendering from where the player is. */
-    scrn.head->sectorno = player_sector;
+    scrn.head->sectno = player->sector;
     scrn.head->sx1 = 0;
     scrn.head->sx2 = W - 1;
     if(++scrn.head == (scrn.queue + MAX_QUE))
@@ -401,121 +436,255 @@ screen screen_init(unsigned int player_sector){
     return (scrn);
 }
 
-static void DrawScreen(SDL_Surface *surface, player *player, sectors *sectors)
+xy get_endpoints(xy vertex, player *player){
+    xy v;
+    float endx;
+    float endy;
+
+    v.x = vertex.x - player->where.x;
+    v.y = vertex.y - player->where.y;
+    /* Rotate them around the player's view */
+    endx = (v.x * player->anglesin - v.y * player->anglecos);
+    endy = (v.x * player->anglecos + v.y * player->anglesin);
+    return (new_xy(endx, endy));
+}
+
+int get_perspective(xy *scale, xy t){
+    scale->x = H_FOV / t.y;
+    scale->y = V_FOV / t.y;    
+    return (W / 2 - (int)(t.x * scale->x));
+}
+
+typedef struct  floor_ceiling_heights
 {
-    screen scrn;
-    int renderedsectors[player->NumSectors];
+    float yceil;
+    float yfloor;
+    int neighbor;
+    float nyceil;
+    float nyfloor;
+}               floor_ceiling_heights;
 
-    unsigned int s;
+floor_ceiling_heights get_relative_heights(screen scrn, int s, int sect_no){
+    floor_ceiling_heights fch;
 
-    scrn = screen_init(player->sector);
+    fch.yceil  = scrn.sector[sect_no].ceil  - scrn.player->where.z;
+    fch.yfloor = scrn.sector[sect_no].floor - scrn.player->where.z;
+    /* Check the edge type. neighbor=-1 means wall, other=boundary between two sectors. */
+    fch.neighbor = scrn.sector[sect_no].neighbors[s];
+    fch.nyceil = 0;
+    fch.nyfloor = 0;
+    ////////   ATTENTION !!! NO NEIGHBORS !!!
+    if(fch.neighbor >= 0) // Is another sector showing through this portal?
+    {
+        fch.nyceil  = scrn.sector[fch.neighbor].ceil  - scrn.player->where.z;
+        fch.nyfloor = scrn.sector[fch.neighbor].floor - scrn.player->where.z;
+    }
+    return (fch);
+}
+
+typedef struct  floor_ceiling_coordinates
+{
+    int y1a;
+    int y1b;
+
+    int y2a;
+    int y2b;
+
+    int ny1a;
+    int ny1b;
+
+    int ny2a;
+    int ny2b;
+}               floor_ceiling_coordinates;
+
+floor_ceiling_coordinates project_heights(screen scrn, floor_ceiling_heights fch, xy scale1, xy scale2, xy t1, xy t2){
+    floor_ceiling_coordinates fcc;
+
+    fcc.y1a = PROJECTION(fch.yceil, t1.y, scrn.player->yaw, scale1.y);
+    fcc.y1b = PROJECTION(fch.yfloor, t1.y, scrn.player->yaw, scale1.y);
+
+    fcc.y2a = PROJECTION(fch.yceil, t2.y, scrn.player->yaw,scale2.y);
+    fcc.y2b = PROJECTION(fch.yfloor, t2.y, scrn.player->yaw, scale2.y);
+    /* The same for the neighboring sector */
+    fcc.ny1a = PROJECTION(fch.nyceil, t1.y, scrn.player->yaw, scale1.y);
+    fcc.ny1b = PROJECTION(fch.nyfloor, t1.y, scrn.player->yaw,scale1.y);
+
+    fcc.ny2a = PROJECTION(fch.nyceil, t2.y, scrn.player->yaw, scale2.y);
+    fcc.ny2b = PROJECTION(fch.nyfloor, t2.y, scrn.player->yaw, scale2.y);
+    return (fcc);
+}
+
+typedef struct  wall_x
+{
+    int z;
+
+    int ya;
+    int cya;
+
+    int yb;
+    int cyb;
+
+    int nya;
+    int cnya;
+
+    int nyb;
+    int cnyb;
+
+}               wall_x;
+
+void set_x_coordinate(screen scrn, int x, wall_x *wx, floor_ceiling_coordinates fcc, xy t1, xy t2, int x1, int x2){
+    /* Calculate the Z coordinate for this point. (Only used for lighting.) */
+    wx->z = ((x - x1) * (t2.y - t1.y) / (x2 - x1) + t1.y) * 8;
+    /* Acquire the Y coordinates for our ceiling & floor for this X coordinate. CLAMP them. */
+    wx->ya = (x - x1) * (fcc.y2a - fcc.y1a) / (x2-x1) + fcc.y1a;
+    wx->cya = CLAMP(wx->ya, scrn.ytop[x],scrn.ybottom[x]); // top
+    wx->yb = (x - x1) * (fcc.y2b - fcc.y1b) / (x2-x1) + fcc.y1b;
+    wx->cyb = CLAMP(wx->yb, scrn.ytop[x],scrn.ybottom[x]); // bottom
+}
+
+wall_x render_floor_ceiling(screen scrn, int x, floor_ceiling_coordinates fcc, xy t1, xy t2, int x1, int x2){
+    line l;
+    wall_x wx;
+
+    set_x_coordinate(scrn, x, &wx, fcc, t1, t2, x1, x2);
+    /* Render ceiling: everything above this sector's ceiling height. */
+    line_set_area(&l, x, scrn.ytop[x], (wx.cya - 1));
+    line_set_color(&l, 0x111111, 0x222222, 0x111111);
+    vline(l, scrn.surface);
+    /* Render floor: everything below this sector's floor height. */
+    line_set_area(&l, x, (wx.cyb + 1), scrn.ybottom[x]);
+    line_set_color(&l, 0x0000FF, 0x0000AA, 0x0000FF);
+    vline(l, scrn.surface);
+    return (wx);
+}
+
+void set_neighbor_x_coordinate(screen scrn, int x, wall_x *wx, floor_ceiling_coordinates fcc, int x1, int x2){
+    /* Same for _their_ floor and ceiling */
+    wx->nya = (x - x1) * (fcc.ny2a - fcc.ny1a) / (x2 - x1) + fcc.ny1a;
+    wx->cnya = CLAMP(wx->nya, scrn.ytop[x], scrn.ybottom[x]);
+    wx->nyb = (x - x1) * (fcc.ny2b - fcc.ny1b) / (x2 - x1) + fcc.ny1b;
+    wx->cnyb = CLAMP(wx->nyb, scrn.ytop[x], scrn.ybottom[x]);
+}
+
+void render_neighbor_wall(screen scrn, int x, wall_x *wx, floor_ceiling_coordinates fcc, int x1, int x2){
+    line l;
+
+    set_neighbor_x_coordinate(scrn, x, wx, fcc, x1, x2);
+    /* If our ceiling is higher than their ceiling, render upper wall */
+    unsigned r1 = 0x010101 * (255 - wx->z);
+    unsigned r2 = 0x040007 * (31 - (wx->z / 8));
+    line_set_area(&l, x, wx->cya, (wx->cya - 1));
+    line_set_color(&l, 0, ((x == x1||x == x2) ? 0 : r1), 0);
+    vline(l, scrn.surface); // Between our and their ceiling
+    scrn.ytop[x] = CLAMP(MAX(wx->cya, wx->cnya), scrn.ytop[x], H-1);   // Shrink the remaining window below these ceilings
+    /* If our floor is lower than their floor, render bottom wall */   
+    line_set_area(&l, x, (wx->cyb + 1), wx->cyb);
+    line_set_color(&l, 0, ((x == x1||x == x2) ? 0 : r2), 0);
+    vline(l, scrn.surface); // Between their and our floor    
+    scrn.ybottom[x] = CLAMP(MIN(wx->cyb, wx->cnyb), 0, scrn.ybottom[x]); // Shrink the remaining window above these floors
+}
+
+void render_wall(screen scrn, int x, int neighbor, floor_ceiling_coordinates fcc, xy t1, xy t2, int x1, int x2){
+    wall_x wx;
+    line l;
+
+    wx = render_floor_ceiling(scrn, x, fcc, t1, t2, x1, x2);
+    /* Is there another sector behind this edge? */
+    if(neighbor >= 0)//if(fch.neighbor >= 0)
+        render_neighbor_wall(scrn, x, &wx, fcc, x1, x2);
+    else
+    {
+        /* There's no neighbor. Render wall from top (cya = ceiling level) to bottom (cyb = floor level). */
+        unsigned r = 0x010101 * (255 - wx.z);
+        line_set_area(&l, x, wx.cya, wx.cyb);
+        line_set_color(&l, 0, ((x == x1||x == x2) ? 0 : r), 0);
+        vline(l, scrn.surface);
+    }
+}
+
+void render_visible(screen scrn, int s, int sect_no, xy t1, xy t2, xy scale1, xy scale2, int x1, int x2){
+    int beginx;
+    int endx;
+    int x;
+
+    // Only render if it's visible
+    if(!(x1 >= x2 || x2 < scrn.now.sx1 || x1 > scrn.now.sx2)) {
+    /* Acquire the floor and ceiling heights, relative to where the player's view is */
+        floor_ceiling_heights fch;
+        fch = get_relative_heights(scrn, s, sect_no);
+        /* Project our ceiling & floor heights into screen coordinates (Y coordinate) */
+        floor_ceiling_coordinates fcc;
+        fcc = project_heights(scrn, fch, scale1, scale2, t1, t2);
+        /* Render the wall. */
+        beginx = MAX(x1, scrn.now.sx1);
+        endx = MIN(x2, scrn.now.sx2);
+        x = beginx;
+        while(x <= endx)
+        {
+            render_wall(scrn, x, fch.neighbor, fcc, t1, t2, x1, x2);
+            x++;
+        }
+        /* Schedule the neighboring sector for rendering within the window formed by this wall. */
+        if((fch.neighbor >= 0) && (endx >= beginx) && ((scrn.head + MAX_QUE + 1 - scrn.tail) % MAX_QUE))
+        {
+            scrn.head->sectno = fch.neighbor;
+            scrn.head->sx1 = beginx;
+            scrn.head->sx2 = endx;
+            if(++scrn.head == (scrn.queue + MAX_QUE)) 
+                scrn.head = scrn.queue;
+        }
+    }
+}
+
+void render(screen scrn){    
+    int s;
+    int sect_no;
 
     s = 0;
-    while (s < player->NumSectors)
-        renderedsectors[s++] = 0;
+    sect_no = scrn.now.sectno;
+    /* Render each wall of this sector that is facing towards player-> */// for s in sector's edges
+    while(s < scrn.sector[sect_no].npoints)
+    {
+        /* Acquire the x,y coordinates of the two endpoints (vertices) of this edge of the sector */
+        xy t1 = get_endpoints(scrn.sector[sect_no].vertex[s + 0], scrn.player);
+        xy t2 = get_endpoints(scrn.sector[sect_no].vertex[s + 1], scrn.player);
+        /* Is the wall at least partially in front of the player? */
+        if(!(t1.y <= 0 && t2.y <= 0)) {
+        /* If it's partially behind the player, clip it against player's view frustrum */
+            frustrum(&t1, &t2);
+            /* Do perspective transformation */
+            xy scale1;
+            int x1 = get_perspective(&scale1, t1);
+            xy scale2;
+            int x2 = get_perspective(&scale2, t2);
+            render_visible(scrn, s, sect_no, t1, t2, scale1, scale2, x1, x2);
+        }
+        s++;
+    } 
+}
 
+void draw_screen(SDL_Surface *surface, player *player, sectors *sector)
+{
+    screen scrn;
+    unsigned int s;
+    int renderedsectors[player->num_sectors];
+
+    scrn = screen_init(surface, player, sector);
+    s = 0;
+    while (s < player->num_sectors)
+        renderedsectors[s++] = 0;
     while(scrn.head != scrn.tail) // render any other scrn.queued sectors
     {
         /* Pick a sector & slice from the scrn.queue to draw */
         scrn.now = *scrn.tail;
-        if(++scrn.tail == scrn.queue+MAX_QUE) scrn.tail = scrn.queue;
+        if(++scrn.tail == scrn.queue+MAX_QUE)
+            scrn.tail = scrn.queue;
 
-        if(renderedsectors[scrn.now.sectorno] & 0x21) continue; // Odd = still rendering, 0x20 = give up
-        ++renderedsectors[scrn.now.sectorno];
-        struct sectors*  sect = &sectors[scrn.now.sectorno];
-        /* Render each wall of this sector that is facing towards player-> */
-
-
-        ///////////// SEGMENT !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-printf("  * %p\n", sect);printf("!!!!!!!!!!!!!\n");
-        ////////////////////    sect->npoints   ////////////////
-        for(s = 0; s < sect->npoints; ++s)
-        {
-            /* Acquire the x,y coordinates of the two endpoints (vertices) of this edge of the sector */
-            float vx1 = sect->vertex[s+0].x - player->where.x, vy1 = sect->vertex[s+0].y - player->where.y;
-            float vx2 = sect->vertex[s+1].x - player->where.x, vy2 = sect->vertex[s+1].y - player->where.y;
-            /* Rotate them around the player's view */
-            float pcos = player->anglecos, psin = player->anglesin;
-
-            xy t1 = new_xy((vx1 * psin - vy1 * pcos), (vx1 * pcos + vy1 * psin));
-            xy t2 = new_xy((vx2 * psin - vy2 * pcos), (vx2 * pcos + vy2 * psin));
-            /* Is the wall at least partially in front of the player? */
-            if(t1.y <= 0 && t2.y <= 0) continue;
-            /* If it's partially behind the player, clip it against player's view frustrum */
-            frustrum(&t1, &t2);
-
-            /* Do perspective transformation */
-            float xscale1 = H_FOV / t1.y, yscale1 = V_FOV / t1.y;    
-            int x1 = W / 2 - (int)(t1.x * xscale1);
-            float xscale2 = H_FOV / t2.y, yscale2 = V_FOV / t2.y;    
-            int x2 = W / 2 - (int)(t2.x * xscale2);
-            if(x1 >= x2 || x2 < scrn.now.sx1 || x1 > scrn.now.sx2) continue; // Only render if it's visible
-            /* Acquire the floor and ceiling heights, relative to where the player's view is */
-            float yceil  = sect->ceil  - player->where.z;
-            float yfloor = sect->floor - player->where.z;
-            /* Check the edge type. neighbor=-1 means wall, other=boundary between two sectors. */
-            int neighbor = sect->neighbors[s];
-            float nyceil=0, nyfloor=0;
-            ////////   ATTENTION !!! NO NEIGHBORS !!!
-            if(neighbor >= 0) // Is another sector showing through this portal?
-            {
-                nyceil  = sectors[neighbor].ceil  - player->where.z;
-                nyfloor = sectors[neighbor].floor - player->where.z;
-            }
-            /* Project our ceiling & floor heights into screen coordinates (Y coordinate) */
-            #define Yaw(y,z) (y + z * player->yaw)
-            int y1a  = H/2 - (int)(Yaw(yceil, t1.y) * yscale1);
-            int y1b = H/2 - (int)(Yaw(yfloor, t1.y) * yscale1);
-            int y2a  = H/2 - (int)(Yaw(yceil, t2.y) * yscale2);
-            int y2b = H/2 - (int)(Yaw(yfloor, t2.y) * yscale2);
-            /* The same for the neighboring sector */
-            int ny1a = H/2 - (int)(Yaw(nyceil, t1.y) * yscale1), ny1b = H/2 - (int)(Yaw(nyfloor, t1.y) * yscale1);
-            int ny2a = H/2 - (int)(Yaw(nyceil, t2.y) * yscale2), ny2b = H/2 - (int)(Yaw(nyfloor, t2.y) * yscale2);
-
-            /* Render the wall. */
-            int beginx = MAX(x1, scrn.now.sx1), endx = MIN(x2, scrn.now.sx2);
-            for(int x = beginx; x <= endx; ++x)
-            {
-                /* Calculate the Z coordinate for this point. (Only used for lighting.) */
-                int z = ((x - x1) * (t2.y - t1.y) / (x2-x1) + t1.y) * 8;
-                /* Acquire the Y coordinates for our ceiling & floor for this X coordinate. CLAMP them. */
-                int ya = (x - x1) * (y2a-y1a) / (x2-x1) + y1a, cya = CLAMP(ya, scrn.ytop[x],scrn.ybottom[x]); // top
-                int yb = (x - x1) * (y2b-y1b) / (x2-x1) + y1b, cyb = CLAMP(yb, scrn.ytop[x],scrn.ybottom[x]); // bottom
-
-                /* Render ceiling: everything above this sector's ceiling height. */
-                vline(x, scrn.ytop[x], cya-1, 0x111111 ,0x222222,0x111111, surface);
-                /* Render floor: everything below this sector's floor height. */
-                vline(x, cyb+1, scrn.ybottom[x], 0x0000FF,0x0000AA,0x0000FF, surface);
-
-                /* Is there another sector behind this edge? */
-                if(neighbor >= 0)
-                {
-                    /* Same for _their_ floor and ceiling */
-                    int nya = (x - x1) * (ny2a-ny1a) / (x2-x1) + ny1a, cnya = CLAMP(nya, scrn.ytop[x],scrn.ybottom[x]);
-                    int nyb = (x - x1) * (ny2b-ny1b) / (x2-x1) + ny1b, cnyb = CLAMP(nyb, scrn.ytop[x],scrn.ybottom[x]);
-                    /* If our ceiling is higher than their ceiling, render upper wall */
-                    unsigned r1 = 0x010101 * (255-z), r2 = 0x040007 * (31-z/8);
-                    vline(x, cya, cnya-1, 0, x==x1||x==x2 ? 0 : r1, 0, surface); // Between our and their ceiling
-                    scrn.ytop[x] = CLAMP(MAX(cya, cnya), scrn.ytop[x], H-1);   // Shrink the remaining window below these ceilings
-                    /* If our floor is lower than their floor, render bottom wall */
-                    vline(x, cnyb+1, cyb, 0, x==x1||x==x2 ? 0 : r2, 0, surface); // Between their and our floor
-                    scrn.ybottom[x] = CLAMP(MIN(cyb, cnyb), 0, scrn.ybottom[x]); // Shrink the remaining window above these floors
-                }
-                else
-                {
-                    /* There's no neighbor. Render wall from top (cya = ceiling level) to bottom (cyb = floor level). */
-                    unsigned r = 0x010101 * (255-z);
-                    vline(x, cya, cyb, 0, x==x1||x==x2 ? 0 : r, 0, surface);
-                }
-            }
-            /* Schedule the neighboring sector for rendering within the window formed by this wall. */
-            if(neighbor >= 0 && endx >= beginx && (scrn.head+MAX_QUE+1-scrn.tail)%MAX_QUE)
-            {
-                *scrn.head = (struct item) { neighbor, beginx, endx };
-                if(++scrn.head == scrn.queue+MAX_QUE) scrn.head = scrn.queue;
-            }
-        } // for s in sector's edges
-    ++renderedsectors[scrn.now.sectorno];
+        if(!(renderedsectors[scrn.now.sectno] & 0x21)) { // Odd = still rendering, 0x20 = give up
+            ++renderedsectors[scrn.now.sectno];
+            render(scrn);            
+        }
+    ++renderedsectors[scrn.now.sectno];
     } 
 }
 
@@ -767,7 +936,7 @@ int main()
 
     sectors = NULL;
     me = move_events_init();
-    LoadData(&player, &sectors);
+    sectors = LoadData(&player);
     win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED, 
                                     SDL_WINDOWPOS_CENTERED, 
                                     W, H, SDL_WINDOW_OPENGL);
@@ -775,7 +944,7 @@ int main()
     SDL_ShowCursor(SDL_DISABLE);
     while(1)
     {
-        DrawScreen(surface, &player, sectors);
+        draw_screen(surface, &player, sectors);
         SDL_UpdateWindowSurface(win);
         me.eyeheight = (me.ducking) ? DUCK_HEIGHT : EYE_HEIGHT;
         /* Vertical collision detection */
