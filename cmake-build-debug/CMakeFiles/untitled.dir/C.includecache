@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/firewizard/CLionProjects/untitled/doom.h
+stdio.h
+-
+
+/Users/firewizard/CLionProjects/untitled/main.c
+doom.h
+/Users/firewizard/CLionProjects/untitled/doom.h
+
