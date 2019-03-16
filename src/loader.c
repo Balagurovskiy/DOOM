@@ -115,5 +115,25 @@ texture_set_s   texture_init()
     txt_set.uppertextures = load_image("txt/wall3.ppm");
     txt_set.lowertextures = load_image("txt/wall.ppm");
     //TODO --NULL CHECK
+
+    int i = 0;
+    while(i < 1024)
+    {
+        txt_set.f[i] = (int *)malloc(1024 * sizeof(int*));
+        txt_set.u[i] = (int *)malloc(1024 * sizeof(int*));
+        txt_set.c[i] = (int *)malloc(1024 * sizeof(int*));
+        txt_set.l[i] = (int *)malloc(1024 * sizeof(int*));
+        int j = 0;
+        while(j < 1024)
+        {
+            txt_set.f[i][j] = 11571537;
+            txt_set.u[i][j] = 9261883;
+            txt_set.c[i][j] = 12030530;
+            txt_set.l[i][j] = 7815191;
+            j++;
+        }
+        i++;
+    }
+
     return (txt_set);
 }

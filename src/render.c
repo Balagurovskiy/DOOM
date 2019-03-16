@@ -1,3 +1,4 @@
+
 #include "defines.h"
 #include "doom.h"
 #include "render.h"
@@ -76,7 +77,6 @@ scaler_s scaler_init(a, b, c, d, f)
     return (s);
 }
 
-// scaler_next: Return (b++ - a) * (f-d) / (c-a) + d using the initial values passed to scaler_init().
 int scaler_next(scaler_s *s)
 {
     s->cache += s->fd;
@@ -108,7 +108,7 @@ edge_s edge_init(player *player, sectors *sect, int s)
     return (edge);
 }
 
-void view_intersection_with_wall(edge_s *edge)
+void view_intersection_with_wall(screen *scrn)
 {
     xy i1;
     xy i2;
@@ -118,46 +118,46 @@ void view_intersection_with_wall(edge_s *edge)
 //             xy org1;
 //             xy org2;
 /////////////////
-    if (edge->t1.z <= 0 || edge->t2.z <= 0) {
+    if (scrn->edge.t1.z <= 0 || scrn->edge.t2.z <= 0) {
         // Find an intersetion between the wall and the approximate edges of player's view
-        i1 = intersect(EDGE_T(edge->t1), EDGE_T(edge->t2),
+        i1 = intersect(EDGE_T(scrn->edge.t1), EDGE_T(scrn->edge.t2),
                 new_xy(-NEAR_SIDE, NEARZ), new_xy(-FAR_SIDE, FARZ));
-        i2 = intersect(EDGE_T(edge->t1), EDGE_T(edge->t2),
+        i2 = intersect(EDGE_T(scrn->edge.t1), EDGE_T(scrn->edge.t2),
                 new_xy(NEAR_SIDE, NEARZ), new_xy(FAR_SIDE, FARZ));
 /////////////////TextureMapping
-//            u0 = 0;
-//            u1 = 1023;
-//            org1.x = edge->t1.x;
-//            org1.y = edge->t1.z;
-//            org2.x = edge->t2.x;
-//            org2.y = edge->t2.z;
+        scrn->txt_data.u0 = 0;
+        scrn->txt_data.u1 = 1023;
+        scrn->txt_data.org1.x = scrn->edge.t1.x;
+        scrn->txt_data.org1.y = scrn->edge.t1.z;
+        scrn->txt_data.org2.x = scrn->edge.t2.x;
+        scrn->txt_data.org2.y = scrn->edge.t2.z;
 /////////////////
-        if (edge->t1.z < NEARZ) {
+        if (scrn->edge.t1.z < NEARZ) {
             if (i1.y > 0) {
-                edge->t1.x = i1.x;
-                edge->t1.z = i1.y;
+                scrn->edge.t1.x = i1.x;
+                scrn->edge.t1.z = i1.y;
             } else {
-                edge->t1.x = i2.x;
-                edge->t1.z = i2.y;
+                scrn->edge.t1.x = i2.x;
+                scrn->edge.t1.z = i2.y;
             }
         }
-        if (edge->t2.z < NEARZ) {
+        if (scrn->edge.t2.z < NEARZ) {
             if (i1.y > 0) {
-                edge->t2.x = i1.x;
-                edge->t2.z = i1.y;
+                scrn->edge.t2.x = i1.x;
+                scrn->edge.t2.z = i1.y;
             } else {
-                edge->t2.x = i2.x;
-                edge->t2.z = i2.y;
+                scrn->edge.t2.x = i2.x;
+                scrn->edge.t2.z = i2.y;
             }
         }
 /////////////////TextureMapping
-//                 if(ABS(edge->t2.x - edge->t1.x) > ABS(edge->t2.z - edge->t1.z)) {
-//                     u0 = (edge->t1.x - org1.x) * 1023 / (org2.x - org1.x);
-//                     u1 = (edge->t2.x - org1.x) * 1023 / (org2.x - org1.x);
-//                 }else {
-//                     u0 = (edge->t1.z - org1.y) * 1023 / (org2.y - org1.y);
-//                     u1 = (edge->t2.z - org1.y) * 1023 / (org2.y - org1.y);
-//                 }
+                 if(ABS(scrn->edge.t2.x - scrn->edge.t1.x) > ABS(scrn->edge.t2.z - scrn->edge.t1.z)) {
+                     scrn->txt_data.u0 = (scrn->edge.t1.x - scrn->txt_data.org1.x) * 1023 / (scrn->txt_data.org2.x - scrn->txt_data.org1.x);
+                     scrn->txt_data.u1 = (scrn->edge.t2.x - scrn->txt_data.org1.x) * 1023 / (scrn->txt_data.org2.x - scrn->txt_data.org1.x);
+                 }else {
+                     scrn->txt_data.u0 = (scrn->edge.t1.z - scrn->txt_data.org1.y) * 1023 / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
+                     scrn->txt_data.u1 = (scrn->edge.t2.z - scrn->txt_data.org1.y) * 1023 / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
+                 }
 /////////////////
     }
 }
@@ -236,23 +236,23 @@ void set_heights_y(heights_s *h, player *pl, edge_s edge, perspective_s p)
     h->neighb_yb = scaler_init(p.x1, h->beginx, p.x2, y1b, y2b);
 }
 
-heights_s heights_init(screen *scrn, perspective_s perspect, edge_s edge, int s)
+heights_s heights_init(screen *scrn, perspective_s perspect, int s)
 {
     heights_s heights;
 
     set_heights_x(&heights, perspect, scrn);
     set_heights_floor_ceil(&heights, scrn->player, SECT_NOW, -2);
     set_heights_floor_ceil(&heights, scrn->player, SECT_NGHBR_NOW(s), HAS_NGHBR_NOW(s));
-    set_heights_y(&heights, scrn->player, edge, perspect);
+    set_heights_y(&heights, scrn->player, scrn->edge, perspect);
     return (heights);
 }
 
-wall_s wall_init(screen *scrn, heights_s *heights, int x)
+wall_s wall_init(screen *scrn, heights_s *heights, int x, perspective_s persp)
 {
     wall_s wall;
 
     /////////////////  TextureMapping
-    //                 wall.txtx = (u0*((x2-x)*e.t2.z) + u1*((x-x1)*tz1)) / ((x2-x)*e.t2.z + (x-x1)*tz1);
+                    scrn->txt_data.txtx = (scrn->txt_data.u0 * ((persp.x2 - x) * scrn->edge.t2.z) + scrn->txt_data.u1*((x - persp.x1)*scrn->edge.t1.z)) / ((persp.x2 - x) * scrn->edge.t2.z + (x - persp.x1) * scrn->edge.t1.z);
     /////////////////
     ///////////////// ! NOT ! TextureMapping
     /* Calculate the Z coordinate for this point. (Only used for lighting.) */
@@ -282,7 +282,7 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
 
     for (int x = heights.beginx; x <= heights.endx; ++x) {
 
-        wall = wall_init(scrn, &heights, x);
+        wall = wall_init(scrn, &heights, x, perspect);
 
         /////////////////  TextureMapping
         // Texture-mapping for floors and ceilings is not very optimal in my program.
@@ -358,25 +358,24 @@ void schedule(screen *scrn, heights_s heights, int s)
 
 void render(screen *scrn)
 {
-    edge_s edge;
     heights_s heights;
     perspective_s perspect;
 
     /* Render each wall of this sector that is facing towards player-> */
     for(int s = 0; s < SECT_NOW->npoints; ++s)
     {
-        edge = edge_init(scrn->player, SECT_NOW, s);
+        scrn->edge = edge_init(scrn->player, SECT_NOW, s);
         /* Is the wall at least partially in front of the player? */
-        if (IS_FRONT(edge))
+        if (IS_FRONT(scrn->edge))
         {
             /* If it's partially behind the player, clip it against player's view frustrum */
-                view_intersection_with_wall(&edge);
+                view_intersection_with_wall(scrn);
             /* Do perspect transformation */
-                perspect = perspective_init(edge);
+                perspect = perspective_init(scrn->edge);
                 if (perspect.x1 < perspect.x2) {
                     if (perspect.x2 > scrn->now.sx1 && perspect.x1 < scrn->now.sx2) {
                         /* Acquire and transform the floor and ceiling heights */
-                        heights = heights_init(scrn, perspect, edge, s);
+                        heights = heights_init(scrn, perspect, s);
                         /* Render the wall. */
                         render_the_wall(scrn, perspect, heights, s);
                         /* Schedule the other sector for rendering within the window formed by this wall. */
@@ -393,7 +392,7 @@ void draw_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t)
     unsigned int s;
     int renderedsectors[pl->num_sectors];
 
-    scrn = screen_init(srf, pl, sct, t);//printf("%p \n",scrn.txt->ceiltexture);
+    scrn = screen_init(srf, pl, sct, t);
     s = 0;
     while (s < pl->num_sectors)
          renderedsectors[s++] = 0;

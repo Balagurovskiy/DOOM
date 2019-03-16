@@ -14,6 +14,24 @@ typedef struct  item
     int sx2;
 }               item;
 
+typedef  struct edge
+{
+    xy v1;
+    xy v2;
+    float pcos;
+    float psin;
+    xyz t1;
+    xyz t2;
+}               edge_s;
+
+typedef struct  txt_data_s
+{
+         int u0;
+         int u1;
+         xy org1;
+         xy org2;
+         int txtx;
+}               txt_data_s;
 typedef struct  screen
 {
     item queue[MAX_QUE];
@@ -29,9 +47,11 @@ typedef struct  screen
     SDL_Surface *surface;
 
     texture_set_s *txt;
+    txt_data_s     txt_data;
+
+    edge_s  edge;
 
 }               screen;
-
 
 
 // #ifdef TextureMapping
@@ -63,15 +83,7 @@ typedef struct  line_s
     int bottom;
 }               line_s;
 
-typedef  struct edge
-{
-    xy v1;
-    xy v2;
-    float pcos;
-    float psin;
-    xyz t1;
-    xyz t2;
-}               edge_s;
+
 
 typedef  struct perspective
 {
@@ -116,7 +128,6 @@ typedef struct wall
     int nyb;
     int cnya;
     int cnyb;
-    int txtx;
 }              wall_s;
 
 void draw_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t);
