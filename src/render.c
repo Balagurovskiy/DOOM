@@ -34,21 +34,7 @@ static screen screen_init(SDL_Surface *surface, player *player, sectors *sector,
      return (scrn);
  }
 
-//static void vline2(SDL_Surface *surface, int x, int y1,int y2, scaler_s ty,unsigned txtx, const struct TextureSet* t)
-//{
-//    int *pix = (int*) surface->pixels;
-//    y1 = CLAMP(y1, 0, H-1);
-//    y2 = CLAMP(y2, 0, H-1);
-//    pix += y1 * W + x;
-//
-//    for(int y = y1; y <= y2; ++y)
-//    {
-//        unsigned txty = scaler_next(&ty);
-//
-//        *pix = t->texture[txtx % 1024][txty % 1024];
-//        pix += W;
-//    }
-//}
+
 
 static void line(SDL_Surface *surface, int x, int y1,int y2, int top,int middle,int bottom)
 {
@@ -88,6 +74,21 @@ int scaler_next(scaler_s *s)
     return s->result;
 }
 
+static void line2(SDL_Surface *surface, int x, int y1,int y2, scaler_s ty,unsigned txtx, int *t[])
+{
+    int *pix = (int*) surface->pixels;
+    y1 = CLAMP(y1, 0, H-1);
+    y2 = CLAMP(y2, 0, H-1);
+    pix += y1 * W + x;
+
+    for(int y = y1; y <= y2; ++y)
+    {
+        unsigned txty = scaler_next(&ty);
+
+        *pix = t[txtx % 1024][txty % 1024];
+        pix += W;
+    }
+}
 
 edge_s edge_init(player *player, sectors *sect, int s)
 {
@@ -256,7 +257,7 @@ wall_s wall_init(screen *scrn, heights_s *heights, int x, perspective_s persp)
     /////////////////
     ///////////////// ! NOT ! TextureMapping
     /* Calculate the Z coordinate for this point. (Only used for lighting.) */
-    wall.z = scaler_next(&(heights->z));
+//    wall.z = scaler_next(&(heights->z));
     /////////////////
     /* Acquire the Y coordinates for our floor & ceiling for this X coordinate */
     wall.ya = scaler_next(&(heights->ya));
@@ -295,17 +296,35 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
         /////////////////
 //               for(int y=scrn->ytop[x]; y<=scrn->ybottom[x]; ++y)
 //               {
-//                   if(y >= wall.cya && y <= cyb) { y = cyb; continue; }
+//                   if(y >= wall.cya && y <= wall.cyb) { y = wall.cyb; continue; }
 //                   float hei = y < wall.cya ? heights.yceil    : heights.yfloor;
 //                   float mapx, mapz;
 //                   CeilingFloorScreenCoordinatesToMapCoordinates(hei, x,y,  mapx,mapz);
 //                   unsigned txtx = (mapx * 256), txtz = (mapz * 256);
 //                   const struct TextureSet* txt = y < wall.cya ? sect->ceiltexture : sect->floortexture;
+//
+//             int pel = txt->texture[txtz % 1024][txtx % 1024];
+//
+//             ((int*)surface->pixels)[y*W+x] = pel;
+//         }
+//
+//        for(int y=scrn->ytop[x]; y<=scrn->ybottom[x]; ++y)
+//        {
+//            if(y >= wall.cya && y <= wall.cyb)
+//            {
+//                y = wall.cyb;
+//                continue;
+//            }
+//            float hei = y < wall.cya ? heights.yceil    : heights.yfloor;
+//            float mapx, mapz;
+////            CeilingFloorScreenCoordinatesToMapCoordinates(hei, x,y,  mapx,mapz);
+//            unsigned txtx = (mapx * 256), txtz = (mapz * 256);
+//            int **txt = y < wall.cya ? scrn->txt->c : scrn->txt->f;
+//
+//            int pel = txt[txtz % 1024][txtx % 1024];
 
-            // int pel = txt->texture[txtz % 1024][txtx % 1024];
-
-            // ((int*)surface->pixels)[y*W+x] = pel;
-        // }
+//            ((int*)scrn->surface->pixels)[y*W+x] = pel;
+//        }
         ///////////////// ELSE
         /* Render ceiling: everything above this sector's ceiling height. */
         line(scrn->surface, x, scrn->ytop[x], wall.cya - 1, 0x111111, 0x222222, 0x111111);
@@ -321,24 +340,27 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
             /* If our ceiling is higher than their ceiling, render upper wall */
             ///////////////// TextureMapping
             //                     line2(x, wall.cya, wall.cnya-1, (scaler_s)scaler_init(wall.ya,wall.cya,wall.yb, 0,1023), wall.txtx, &sect->uppertextures[s]);
+            line2(scrn->surface,x, wall.cya, wall.cnya-1, (scaler_s)scaler_init(wall.ya,wall.cya,wall.yb, 0,1023),  scrn->txt_data.txtx, scrn->txt->u);
             ///////////////// ELSE
-            line(scrn->surface, x, wall.cya, wall.cnya - 1, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R1(wall.z), 0);
+//            line(scrn->surface, x, wall.cya, wall.cnya - 1, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R1(wall.z), 0);
             /////////////////
             scrn->ytop[x] = CLAMP(MAX(wall.cya, wall.cnya), scrn->ytop[x], H - 1);
 
             // If our floor is lower than their floor, render bottom wall
             ///////////////// TextureMapping
             //                     line2(x, wall.cnyb+1, wall.cyb, (scaler_s)scaler_init(wall.ya,cnyb+1,wall.yb, 0,1023), wall.txtx, &sect->lowertextures[s]);
+            line2(scrn->surface,x, wall.cnyb+1, wall.cyb, (scaler_s)scaler_init(wall.ya,wall.cya+1,wall.yb, 0,1023),  scrn->txt_data.txtx, scrn->txt->l);
             ///////////////// ELSE
-            line(scrn->surface, x, wall.cnyb + 1, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R2(wall.z), 0);
+//            line(scrn->surface, x, wall.cnyb + 1, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R2(wall.z), 0);
             /////////////////
             scrn->ybottom[x] = CLAMP(MIN(wall.cyb, wall.cnyb), 0, scrn->ybottom[x]);
         } else {
             /* There's no neighbor. Render wall. */
             ///////////////// TextureMapping
             //                     line2(x, cya,cyb, (scaler_s_s)scaler_init(ya,cya,yb, 0,1023), txtx, &sect->uppertextures[s]);
+            line2(scrn->surface,x, wall.cya, wall.cyb, (scaler_s)scaler_init(wall.ya,wall.cya+1,wall.yb, 0,1023),  scrn->txt_data.txtx, scrn->txt->u);
             ///////////////// ELSE
-            line(scrn->surface, x, wall.cya, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R(wall.z), 0);
+//            line(scrn->surface, x, wall.cya, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R(wall.z), 0);
             /////////////////
         }
     }
