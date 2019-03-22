@@ -59,14 +59,11 @@ typedef struct  texture_set_s
     SDL_Surface *ceiltexture;
     SDL_Surface *uppertextures;
     SDL_Surface *lowertextures;
+    int          size;
 
-    int *f[1024];
-    int *u[1024];
-    int *c[1024];
-    int *l[1024];
 }               texture_set_s;
 
-void draw_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t);
+void render_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t);
 void event(sectors *sectors, player *player);
 
 void        quit();

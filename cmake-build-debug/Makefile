@@ -366,6 +366,222 @@ src/render.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render.c.s
 .PHONY : src/render.c.s
 
+src/render_floor_ceil.o: src/render_floor_ceil.c.o
+
+.PHONY : src/render_floor_ceil.o
+
+# target to build an object file
+src/render_floor_ceil.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_floor_ceil.c.o
+.PHONY : src/render_floor_ceil.c.o
+
+src/render_floor_ceil.i: src/render_floor_ceil.c.i
+
+.PHONY : src/render_floor_ceil.i
+
+# target to preprocess a source file
+src/render_floor_ceil.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_floor_ceil.c.i
+.PHONY : src/render_floor_ceil.c.i
+
+src/render_floor_ceil.s: src/render_floor_ceil.c.s
+
+.PHONY : src/render_floor_ceil.s
+
+# target to generate assembly for a file
+src/render_floor_ceil.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_floor_ceil.c.s
+.PHONY : src/render_floor_ceil.c.s
+
+src/render_heights.o: src/render_heights.c.o
+
+.PHONY : src/render_heights.o
+
+# target to build an object file
+src/render_heights.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_heights.c.o
+.PHONY : src/render_heights.c.o
+
+src/render_heights.i: src/render_heights.c.i
+
+.PHONY : src/render_heights.i
+
+# target to preprocess a source file
+src/render_heights.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_heights.c.i
+.PHONY : src/render_heights.c.i
+
+src/render_heights.s: src/render_heights.c.s
+
+.PHONY : src/render_heights.s
+
+# target to generate assembly for a file
+src/render_heights.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_heights.c.s
+.PHONY : src/render_heights.c.s
+
+src/render_line.o: src/render_line.c.o
+
+.PHONY : src/render_line.o
+
+# target to build an object file
+src/render_line.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_line.c.o
+.PHONY : src/render_line.c.o
+
+src/render_line.i: src/render_line.c.i
+
+.PHONY : src/render_line.i
+
+# target to preprocess a source file
+src/render_line.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_line.c.i
+.PHONY : src/render_line.c.i
+
+src/render_line.s: src/render_line.c.s
+
+.PHONY : src/render_line.s
+
+# target to generate assembly for a file
+src/render_line.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_line.c.s
+.PHONY : src/render_line.c.s
+
+src/render_perspective.o: src/render_perspective.c.o
+
+.PHONY : src/render_perspective.o
+
+# target to build an object file
+src/render_perspective.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_perspective.c.o
+.PHONY : src/render_perspective.c.o
+
+src/render_perspective.i: src/render_perspective.c.i
+
+.PHONY : src/render_perspective.i
+
+# target to preprocess a source file
+src/render_perspective.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_perspective.c.i
+.PHONY : src/render_perspective.c.i
+
+src/render_perspective.s: src/render_perspective.c.s
+
+.PHONY : src/render_perspective.s
+
+# target to generate assembly for a file
+src/render_perspective.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_perspective.c.s
+.PHONY : src/render_perspective.c.s
+
+src/render_scaler.o: src/render_scaler.c.o
+
+.PHONY : src/render_scaler.o
+
+# target to build an object file
+src/render_scaler.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_scaler.c.o
+.PHONY : src/render_scaler.c.o
+
+src/render_scaler.i: src/render_scaler.c.i
+
+.PHONY : src/render_scaler.i
+
+# target to preprocess a source file
+src/render_scaler.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_scaler.c.i
+.PHONY : src/render_scaler.c.i
+
+src/render_scaler.s: src/render_scaler.c.s
+
+.PHONY : src/render_scaler.s
+
+# target to generate assembly for a file
+src/render_scaler.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_scaler.c.s
+.PHONY : src/render_scaler.c.s
+
+src/render_towards.o: src/render_towards.c.o
+
+.PHONY : src/render_towards.o
+
+# target to build an object file
+src/render_towards.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_towards.c.o
+.PHONY : src/render_towards.c.o
+
+src/render_towards.i: src/render_towards.c.i
+
+.PHONY : src/render_towards.i
+
+# target to preprocess a source file
+src/render_towards.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_towards.c.i
+.PHONY : src/render_towards.c.i
+
+src/render_towards.s: src/render_towards.c.s
+
+.PHONY : src/render_towards.s
+
+# target to generate assembly for a file
+src/render_towards.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_towards.c.s
+.PHONY : src/render_towards.c.s
+
+src/render_wall.o: src/render_wall.c.o
+
+.PHONY : src/render_wall.o
+
+# target to build an object file
+src/render_wall.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall.c.o
+.PHONY : src/render_wall.c.o
+
+src/render_wall.i: src/render_wall.c.i
+
+.PHONY : src/render_wall.i
+
+# target to preprocess a source file
+src/render_wall.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall.c.i
+.PHONY : src/render_wall.c.i
+
+src/render_wall.s: src/render_wall.c.s
+
+.PHONY : src/render_wall.s
+
+# target to generate assembly for a file
+src/render_wall.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall.c.s
+.PHONY : src/render_wall.c.s
+
+src/render_wall_intersection.o: src/render_wall_intersection.c.o
+
+.PHONY : src/render_wall_intersection.o
+
+# target to build an object file
+src/render_wall_intersection.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall_intersection.c.o
+.PHONY : src/render_wall_intersection.c.o
+
+src/render_wall_intersection.i: src/render_wall_intersection.c.i
+
+.PHONY : src/render_wall_intersection.i
+
+# target to preprocess a source file
+src/render_wall_intersection.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall_intersection.c.i
+.PHONY : src/render_wall_intersection.c.i
+
+src/render_wall_intersection.s: src/render_wall_intersection.c.s
+
+.PHONY : src/render_wall_intersection.s
+
+# target to generate assembly for a file
+src/render_wall_intersection.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall_intersection.c.s
+.PHONY : src/render_wall_intersection.c.s
+
 src/utils_intersection.o: src/utils_intersection.c.o
 
 .PHONY : src/utils_intersection.o
@@ -483,6 +699,30 @@ help:
 	@echo "... src/render.o"
 	@echo "... src/render.i"
 	@echo "... src/render.s"
+	@echo "... src/render_floor_ceil.o"
+	@echo "... src/render_floor_ceil.i"
+	@echo "... src/render_floor_ceil.s"
+	@echo "... src/render_heights.o"
+	@echo "... src/render_heights.i"
+	@echo "... src/render_heights.s"
+	@echo "... src/render_line.o"
+	@echo "... src/render_line.i"
+	@echo "... src/render_line.s"
+	@echo "... src/render_perspective.o"
+	@echo "... src/render_perspective.i"
+	@echo "... src/render_perspective.s"
+	@echo "... src/render_scaler.o"
+	@echo "... src/render_scaler.i"
+	@echo "... src/render_scaler.s"
+	@echo "... src/render_towards.o"
+	@echo "... src/render_towards.i"
+	@echo "... src/render_towards.s"
+	@echo "... src/render_wall.o"
+	@echo "... src/render_wall.i"
+	@echo "... src/render_wall.s"
+	@echo "... src/render_wall_intersection.o"
+	@echo "... src/render_wall_intersection.i"
+	@echo "... src/render_wall_intersection.s"
 	@echo "... src/utils_intersection.o"
 	@echo "... src/utils_intersection.i"
 	@echo "... src/utils_intersection.s"

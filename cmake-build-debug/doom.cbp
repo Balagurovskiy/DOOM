@@ -94,6 +94,15 @@
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render.h">
 			<Option target="doom"/>
 		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render_heights.h">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render_scaler.h">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render_wall.h">
+			<Option target="doom"/>
+		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/utils.h">
 			<Option target="doom"/>
 		</Unit>
@@ -122,6 +131,30 @@
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_floor_ceil.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_heights.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_line.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_perspective.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_scaler.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_towards.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_wall.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_wall_intersection.c">
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/utils_intersection.c">

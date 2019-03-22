@@ -9,6 +9,14 @@ FILES =  main \
          event_key_moves \
          utils_point_side \
          render \
+         render_towards \
+         render_wall \
+         render_wall_intersection \
+         render_line \
+         render_scaler \
+         render_heights \
+         render_floor_ceil \
+         render_perspective \
          event_mouse_view \
          utils_xyz \
          loader
@@ -18,6 +26,9 @@ H = 	doom \
         defines\
         events \
         render \
+        render_scaler \
+        render_heights \
+        render_wall \
         utils \
 		
 HEADERS = -I./inc

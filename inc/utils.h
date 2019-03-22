@@ -30,4 +30,6 @@ float point_side(xy p, xy xy0, xy xy1);
 
 float point_side_handle(xy p, xy d, xy* vert, int s);
 
+int intersert_circle_bound(xy line_p0, xy line_pn, xy center, float radius);
+
 #endif

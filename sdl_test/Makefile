@@ -6,7 +6,7 @@ FILES =  test
 H = 	doom \
         defines\
         events \
-        render \
+        render_towards \
         utils \
 		
 HEADERS = -I./inc

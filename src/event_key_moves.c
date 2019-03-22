@@ -37,13 +37,13 @@ void move_player(xy d, player *player, sectors *sector)
      */
     p = new_xy(player->where.x, player->where.y);
     s = 0;
-    while (s < PLAYER_SECT->npoints){
+    while (s < PLAYER_SECT.npoints){
         // printf("%d * %d\n", sect->neighbors[s],s);
-        if(PLAYER_SECT->neighbors[s] >= 0
+        if(PLAYER_SECT.neighbors[s] >= 0
         && intersect_box_handle(p, d, VERT, s)
                 && point_side_handle(p, d, VERT, s) < 0)
         {
-            player->sector = PLAYER_SECT->neighbors[s];
+            player->sector = PLAYER_SECT.neighbors[s];
             break;
         }
         s++;

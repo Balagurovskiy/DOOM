@@ -42,3 +42,24 @@ xy intersect(xy xy1, xy xy2, xy xy3, xy xy4){
             (xy3.x - xy4.x), (xy3.y - xy4.y));
     return (new_xy((x0 / xy), (y0 / xy)));
 }
+
+int intersert_circle_bound(xy line_p0, xy line_pn, xy center, float radius)
+{
+    line_p0.x -= center.x;
+    line_p0.y -= center.y;
+    line_pn.x -= center.x;
+    line_pn.y -= center.y;
+
+    float dx = line_pn.x - line_p0.x;
+    float dy = line_pn.y - line_p0.y;
+
+    float a_ = dx * dx + dy * dy;
+    float b_ = 2.0 * (line_p0.x * dx + line_p0.y * dy);
+    float c_ = line_p0.x * line_p0.x + line_p0.y * line_p0.y - radius * radius;
+
+    if (-b_ < 0.0)
+        return (c_ < 0.0);
+    if (-b_ < (2.0 * a_))
+        return ((4.0 * a_ * c_ - b_ * b_) < 0.0);
+    return ((a_ + b_ + c_) < 0.0);
+}

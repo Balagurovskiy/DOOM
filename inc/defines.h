@@ -13,7 +13,7 @@
 #define H 480//720
 /* Define various vision related constants */
 #define EYE_HEIGHT  6    // Camera height from floor when standing
-#define DUCK_HEIGHT 2.5  // And when crouching
+#define DUCK_HEIGHT 3.5  // And when crouching
 #define HEAD_MARGIN 1    // How much room there is above camera before the scrn.head hits the ceiling
 #define KNEE_HEIGHT 2    // How tall obstacles the player can simply walk over without jumping
 #define H_FOV (1.0 * 0.73f*H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)
@@ -33,10 +33,10 @@
 
 #define YAW(y, z, pyaw) (y + z * pyaw)
 
-#define PLAYER_SECT (&sector[player->sector])
-#define PLAYER_NGHBR(s) PLAYER_SECT->neighbors[s]
+#define PLAYER_SECT sector[player->sector]
+#define PLAYER_NGHBR(s) (&PLAYER_SECT)->neighbors[s]
 #define PLAYER_NGHBR_SECT(s) sector[PLAYER_NGHBR(s)]
-#define VERT PLAYER_SECT->vertex
+#define VERT (&PLAYER_SECT)->vertex
 
 #define SECT_NOW (&scrn->sector[scrn->now.sectorno])
 #define NGHBR_NOW(s) SECT_NOW->neighbors[s]

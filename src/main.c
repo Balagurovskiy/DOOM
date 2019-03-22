@@ -40,13 +40,13 @@ void doom_init(SDL_Window *win, SDL_Surface *surface)
     sector = init_map(5);
     // sector_print(5, sector);
     txt_set = texture_init();
-    player = init_player(new_xy(2.0, 9.0), 0, sector, 0, 5);
+    player = init_player(new_xy(2.0, 5.0), 5, sector, 0, 5);
     //-------------------------------------------
     if (sector == NULL)
         return ;
     while(1)
     {
-        draw_screen(surface, &player, sector, &txt_set);
+        render_screen(surface, &player, sector, &txt_set);
         SDL_UpdateWindowSurface(win);
         event(sector, &player);
         SDL_Delay(10);
@@ -59,17 +59,19 @@ int main()
     SDL_Surface     *surface;
 
 
-    win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED, 
-                                    SDL_WINDOWPOS_CENTERED, 
+    win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED,
+                                    SDL_WINDOWPOS_CENTERED,
                                     W, H, SDL_WINDOW_OPENGL);
     surface = SDL_GetWindowSurface(win);
-    
+
     SDL_ShowCursor(SDL_DISABLE);
     doom_init(win, surface);
     quit();
+
     return 0;
 }
 
- //TODO
- // add collision while crouching under low cieling (+)
- // add collision in corners (-)
+        //TODO
+        // add collision while crouching under low cieling (+)
+        // add collision when stend up after crouching (+)
+        // add collision in corners (-)

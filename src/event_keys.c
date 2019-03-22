@@ -22,18 +22,25 @@ void jump_duck_key_event(move_events *me, player *player, unsigned int sym, SDL_
             player->velocity.z += 0.5;
             me->falling = 1;
         }
-        if(sym == SDLK_LCTRL || sym == SDLK_LCTRL){
-            me->ducking = e.type == SDL_KEYDOWN;
-            me->falling = 1;
+    if(sym == SDLK_RCTRL || sym == SDLK_LCTRL){
+//        me->ducking = (e.type == SDL_KEYDOWN);
+        if (e.type == SDL_KEYDOWN){
+            if (me->ducking)
+                me->ducking = 0;
+            else
+                me->ducking = 1;
         }
+        me->falling = 1;
+
+    }
 }
 
-void key_events(move_events *me, player *player){
-    SDL_Event e;
+void key_events(move_events *me, player *player){    SDL_Event e;
     
     while(SDL_PollEvent(&e)){
         unsigned int sym = e.key.keysym.sym;
         if (e.type == SDL_KEYDOWN || e.type == SDL_KEYUP){
+
             move_key_event(me, sym, e);
             jump_duck_key_event(me, player, sym, e);
             if(sym == SDLK_ESCAPE)

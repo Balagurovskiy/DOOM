@@ -11,7 +11,10 @@ include_directories(inc/)
 add_executable(doom inc/doom.h
                     inc/defines.h
                     inc/events.h
-                    inc/render.h
+        inc/render.h
+        inc/render_scaler.h
+        inc/render_heights.h
+        inc/render_wall.h
                     inc/utils.h
                     src/main.c
                     src/event_key_collision.c
@@ -21,7 +24,15 @@ add_executable(doom inc/doom.h
                     src/event_keys.c
                     src/event_key_moves.c
                     src/utils_point_side.c
-                    src/render.c
+        src/render.c
+        src/render_towards.c
+        src/render_wall.c
+        src/render_wall_intersection.c
+        src/render_line.c
+        src/render_scaler.c
+        src/render_heights.c
+        src/render_floor_ceil.c
+        src/render_perspective.c
                     src/event_mouse_view.c
                     src/utils_xyz.c
                     src/loader.c)

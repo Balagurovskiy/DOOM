@@ -13,11 +13,12 @@ void view_event(move_events *me, view_events *ve, player *player, sectors *secto
 
 view_events view_events_init(move_events *me);
 
-void vert_collision_detection(move_events *me, player *player, sectors *sectors);
+void vert_collision_detection(move_events *me, player *player, sectors *sector);
 
 void hor_collision_detection(move_events *me, player *player, sectors *sectors);
 
-void bumping(move_events *me, player *player, sectors *sectors, xy *d, unsigned int s);
+void bumping(move_events *me, player *player,
+             sectors *sector, xy *d, int can_bump, unsigned int s);
 
 void move_player(xy d,player *player, sectors *sectors);
 
