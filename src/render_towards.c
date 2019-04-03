@@ -49,7 +49,7 @@ void render_towards(screen *scrn)
         scrn->edge = edge_init(scrn->player, SECT_NOW, s);
         /* Is the wall at least partially in front of the player? */
         scrn->txt_data.u0 = 0;
-        scrn->txt_data.u1 = 1023;
+        scrn->txt_data.u1 = (scrn->txt->size - 1);
         if (IS_FRONT(scrn->edge))
         {
             /* If it's partially behind the player, clip it against player's view frustrum */

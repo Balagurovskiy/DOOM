@@ -2,7 +2,7 @@
 #include "doom.h"
 #include "utils.h"
 
-// POINT_SIDE: DeterMINe which side of a line the point is on. Return value: <0, =0 or >0.
+// POINT_SIDE: DeterMINe which side of a shaded_line the point is on. Return value: <0, =0 or >0.
 float point_side(xy p, xy xy0, xy xy1){
     float x1_x0;
     float y1_y0;

@@ -18,10 +18,13 @@ void move_key_event(move_events *me, unsigned int sym, SDL_Event e){
 
 void jump_duck_key_event(move_events *me, player *player, unsigned int sym, SDL_Event e){
     if(sym == ' ')
-        if(me->ground) {
+    {
+//        me->wsad[0] = e.type == SDL_KEYDOWN;
+        if (me->ground) {
             player->velocity.z += 0.5;
             me->falling = 1;
         }
+    }
     if(sym == SDLK_RCTRL || sym == SDLK_LCTRL){
 //        me->ducking = (e.type == SDL_KEYDOWN);
         if (e.type == SDL_KEYDOWN){
@@ -35,18 +38,19 @@ void jump_duck_key_event(move_events *me, player *player, unsigned int sym, SDL_
     }
 }
 
-void key_events(move_events *me, player *player){    SDL_Event e;
-    
+void key_events(move_events *me, player *player, sectors *s)
+{
+    SDL_Event e;
+    unsigned int sym;
     while(SDL_PollEvent(&e)){
-        unsigned int sym = e.key.keysym.sym;
+        sym = e.key.keysym.sym;
         if (e.type == SDL_KEYDOWN || e.type == SDL_KEYUP){
-
             move_key_event(me, sym, e);
             jump_duck_key_event(me, player, sym, e);
             if(sym == SDLK_ESCAPE)
-                quit();
+                player->exit_doom = 1;
         }         
         if (e.type == SDL_QUIT)
-            quit();
+            player->exit_doom = 1;
     }
 }

@@ -21,7 +21,7 @@ void hor_collision_detection(move_events *me, player *player, sectors *sector){
         while (s < (&PLAYER_SECT)->npoints){
             p.x = p.x + d.x;
             p.y = p.y + d.y;
-            int icb = intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, 0.5);
+            int icb = intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, THICC);
             if(icb )
                 collision_count++;
             s++;
@@ -29,10 +29,12 @@ void hor_collision_detection(move_events *me, player *player, sectors *sector){
         p = new_xy(player->where.x, player->where.y);
         s = 0;
         while (s < (&PLAYER_SECT)->npoints){
+
             p.x = p.x + d.x;
             p.y = p.y + d.y;
-            int icb = intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, 0.5);
-            if(icb ) {
+            int point = point_side_handle(p, d, VERT, s);
+            int icb = intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, THICC);
+            if(icb && point < 0) {
                     bumping(me, player, sector, &d,(collision_count == 1), s);
             }
             s++;
@@ -63,7 +65,7 @@ void vert_collision_detection(move_events *me, player *player, sectors *sector){
     {
         player->velocity.z -= 0.05f; /* Add gravity */
         nextz = player->where.z + player->velocity.z;
-        if(EYE_HEIGHT > PLAYER_SECT.ceil)
+        if(EYE_HEIGHT+PLAYER_SECT.floor > PLAYER_SECT.ceil)
         {
             player->where.z = DUCK_HEIGHT;
             me->falling = 1;
@@ -77,7 +79,7 @@ void vert_collision_detection(move_events *me, player *player, sectors *sector){
             me->falling = 0;
             me->ground  = 1;
         }
-        else if(player->velocity.z > 0 && nextz > PLAYER_SECT.ceil) // When going up
+        else if(player->velocity.z > 0 && (EYE_HEIGHT+PLAYER_SECT.floor+player->velocity.z) > PLAYER_SECT.ceil) // When going up
         {
 
             /* Prevent jumping above ceiling */

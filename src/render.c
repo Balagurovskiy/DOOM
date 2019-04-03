@@ -37,11 +37,11 @@ void render_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t)
 {
     screen scrn;
     unsigned int s;
-    int renderedsectors[pl->num_sectors];
+    int renderedsectors[pl->total_sectors];
 
     scrn = screen_init(srf, pl, sct, t);
     s = 0;
-    while (s < pl->num_sectors)
+    while (s < pl->total_sectors)
          renderedsectors[s++] = 0;
     while(scrn.head != scrn.tail)
     {

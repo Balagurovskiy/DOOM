@@ -48,11 +48,11 @@ void view_intersection_with_wall(screen *scrn)
         }
 /////////////////TextureMapping
         if(ABS(scrn->edge.t2.x - scrn->edge.t1.x) > ABS(scrn->edge.t2.z - scrn->edge.t1.z)) {
-            scrn->txt_data.u0 = (scrn->edge.t1.x - scrn->txt_data.org1.x) * 1023 / (scrn->txt_data.org2.x - scrn->txt_data.org1.x);
-            scrn->txt_data.u1 = (scrn->edge.t2.x - scrn->txt_data.org1.x) * 1023 / (scrn->txt_data.org2.x - scrn->txt_data.org1.x);
+            scrn->txt_data.u0 = (scrn->edge.t1.x - scrn->txt_data.org1.x) * (scrn->txt->size - 1) / (scrn->txt_data.org2.x - scrn->txt_data.org1.x);
+            scrn->txt_data.u1 = (scrn->edge.t2.x - scrn->txt_data.org1.x) * (scrn->txt->size - 1) / (scrn->txt_data.org2.x - scrn->txt_data.org1.x);
         }else {
-            scrn->txt_data.u0 = (scrn->edge.t1.z - scrn->txt_data.org1.y) * 1023 / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
-            scrn->txt_data.u1 = (scrn->edge.t2.z - scrn->txt_data.org1.y) * 1023 / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
+            scrn->txt_data.u0 = (scrn->edge.t1.z - scrn->txt_data.org1.y) * (scrn->txt->size - 1) / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
+            scrn->txt_data.u1 = (scrn->edge.t2.z - scrn->txt_data.org1.y) * (scrn->txt->size - 1) / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
         }
 /////////////////
     }

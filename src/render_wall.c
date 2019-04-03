@@ -38,13 +38,20 @@ void set_neighbor_wall(wall_s *wall, screen *scrn, heights_s *heights, int x)
     wall->cnyb = CLAMP(wall->nyb, scrn->ytop[x], scrn->ybottom[x]);
 }
 
+static void render_wall_line(screen *scrn, txt_line_s tl, scaler_set_s ss, SDL_Surface *t)
+{
+    tl.scale_ty = scaler_init(ss, 0, (scrn->txt->size - 1));
+    textured_line(scrn, tl, t);
+}
 
 void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, int s)
 {
     wall_s wall;
+    int x = heights.beginx;
 
-    for (int x = heights.beginx; x <= heights.endx; ++x) {
-
+//    for (int x = heights.beginx; x <= heights.endx; ++x) {
+    while (++x <= heights.endx)
+    {
         wall = wall_init(scrn, &heights, x, perspect);
         /////////////////  TextureMapping
         // Texture-mapping for floors and ceilings is not very optimal in my program.
@@ -58,37 +65,49 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
         render_floor_ceil(scrn, wall, heights, x);
         ///////////////// ELSE
         /* Render ceiling: everything above this sector's ceiling height. */
-//        line(scrn->surface, x, scrn->ytop[x], wall.cya - 1, 0x111111, 0x222222, 0x111111);
+//        shaded_line(scrn->surface, x, scrn->ytop[x], wall.cya - 1, 0x111111, 0x222222, 0x111111);
         /* Render floor: everything below this sector's floor height. */
-//        line(scrn->surface, x, wall.cyb + 1, scrn->ybottom[x], 0x0000FF, 0x0000AA, 0x0000FF);
+//        shaded_line(scrn->surface, x, wall.cyb + 1, scrn->ybottom[x], 0x0000FF, 0x0000AA, 0x0000FF);
         /////////////////
 
         /* Is there another sector behind this edge? */
-        if (HAS_NGHBR_NOW(s)) {
+        if (HAS_NGHBR_NOW(s))
+        {
             /* Same for _their_ floor and ceiling */
             set_neighbor_wall(&wall, scrn, &heights, x);
             /* If our ceiling is higher than their ceiling, render_towards upper wall */
             ///////////////// TextureMapping
-            line2(scrn,x, wall.cya, wall.cnya-1, (scaler_s)scaler_init(wall.ya,wall.cya,wall.yb, 0,1023),  scrn->txt_data.txtx, scrn->txt->uppertextures);
+            render_wall_line(scrn,
+                            set_textured_line2(x, wall.cya, (wall.cnya - 1)),
+                            set_scaler(wall.ya, wall.cya, wall.yb),
+                            scrn->txt->uppertextures);
             ///////////////// ELSE
-//            line(scrn->surface, x, wall.cya, wall.cnya - 1, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R1(wall.z), 0);
+//            shaded_line(scrn->surface, x, wall.cya, wall.cnya - 1, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R1(wall.z), 0);
             /////////////////
             scrn->ytop[x] = CLAMP(MAX(wall.cya, wall.cnya), scrn->ytop[x], H - 1);
 
             // If our floor is lower than their floor, render_towards bottom wall
             ///////////////// TextureMapping
-            line2(scrn,x, wall.cnyb+1, wall.cyb, (scaler_s)scaler_init(wall.ya,wall.cnyb+1,wall.yb, 0,1023),  scrn->txt_data.txtx, scrn->txt->lowertextures);
+            render_wall_line(scrn,
+                             set_textured_line2(x, (wall.cnyb + 1), wall.cyb),
+                             set_scaler(wall.ya, (wall.cnyb + 1), wall.yb),
+                             scrn->txt->lowertextures);
+
             ///////////////// ELSE
-//            line(scrn->surface, x, wall.cnyb + 1, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R2(wall.z), 0);
+//            shaded_line(scrn->surface, x, wall.cnyb + 1, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R2(wall.z), 0);
             /////////////////
             scrn->ybottom[x] = CLAMP(MIN(wall.cyb, wall.cnyb), 0, scrn->ybottom[x]);
         } else {
             /* There's no neighbor. Render wall. */
             ///////////////// TextureMapping
-            line2(scrn,x, wall.cya, wall.cyb, (scaler_s)scaler_init(wall.ya,wall.cya,wall.yb, 0,1023),  scrn->txt_data.txtx, scrn->txt->uppertextures);
+             render_wall_line(scrn,
+                             set_textured_line2(x, wall.cya, wall.cyb),
+                             set_scaler(wall.ya, wall.cya, wall.yb),
+                             scrn->txt->uppertextures);
             ///////////////// ELSE
-//            line(scrn->surface, x, wall.cya, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R(wall.z), 0);
+//            shaded_line(scrn->surface, x, wall.cya, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R(wall.z), 0);
             /////////////////
         }
     }
 }
+
