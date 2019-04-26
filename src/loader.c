@@ -7,7 +7,7 @@ void sector_init(sectors* s, int sx[], int sy[], int n[])
 {
     int i = 0;
 
-    s->neighbors = (char *)malloc((s->npoints + 1) * sizeof(*s->neighbors));
+    s->neighbors = (int *)malloc((s->npoints + 1) * sizeof(*s->neighbors));
     s->vertex = (xy *)malloc((s->npoints + 1) * sizeof(*s->vertex));
     while (i < (s->npoints + 1)){
         s->vertex[i].x = sx[i];
@@ -63,12 +63,12 @@ void sector_init(sectors* s, int sx[], int sy[], int n[])
 //
 //    return (sector);
 //}
-sectors* init_map(int num_sectors)
+sectors* init_map()
 {
     sectors* sector;
     sectors* sect;
 
-    sector = malloc(num_sectors * sizeof(*sector));
+    sector = malloc(5 * sizeof(*sector));
 
     sect = &sector[0];
     sect->npoints = 4;
@@ -76,7 +76,7 @@ sectors* init_map(int num_sectors)
     sect->ceil = 13;
     int sector0x[] =    {0.0,    0.0,    6.0,    5.0,    0.0};
     int sector0y[] =    {15.0,   0.0,    5.0,    10.0,   15.0};
-    int neighbors0[] =  {-1,     1,      3,      4,     0};
+    int neighbors0[] =  {-1,     1,      3,      4,     -1};
     sector_init(sect, sector0x, sector0y, neighbors0);
 
     sect = &sector[1];
@@ -214,6 +214,15 @@ sectors* m1() {
     int neighbors2[] =  {1,     -1,    -1,     -1,     0};
     sector_init(sect, sector2x, sector2y, neighbors2);
 
+    sect = &sector[3];
+    sect->npoints = 2;
+    sect->floor = 0;
+    sect->ceil = 15;
+    int sector3x[] =    {5,     6,      5};
+    int sector3y[] =    {1,     1,      1};
+    int neighbors3[] =  {-1,    -1,     -1};
+    sector_init(sect, sector3x, sector3y, neighbors3);
+
     return (sector);
 }
 texture_set_s   t2()
@@ -308,6 +317,24 @@ sectors* m3() {
     int neighbors1[] = {-1,     -1,   0,    -1, 0};
     sector_init(sect, sector1x, sector1y, neighbors1);
 
+
+    return (sector);
+}
+
+sectors* sprite_test() {
+    sectors *sector;
+    sectors *sect;
+
+    sector = malloc(1 * sizeof(*sector));
+
+    sect = &sector[0];
+    sect->npoints = 2;
+    sect->floor = 0;
+    sect->ceil = 15;
+    int sector0x[] =    {5,     6,      5};
+    int sector0y[] =    {1,     1,      1};
+    int neighbors0[] =  {-1,    -1,     -1};
+    sector_init(sect, sector0x, sector0y, neighbors0);
 
     return (sector);
 }

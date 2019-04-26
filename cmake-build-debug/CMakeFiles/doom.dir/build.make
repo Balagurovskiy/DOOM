@@ -57,9 +57,360 @@ include CMakeFiles/doom.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/doom.dir/flags.make
 
+CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o: ../src/parser/ft_lib/for_each_gnl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/for_each_gnl.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/for_each_gnl.c > CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/for_each_gnl.c -o CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o: ../src/parser/ft_lib/get_next_line.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/get_next_line.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/get_next_line.c > CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/get_next_line.c -o CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.s
+
+CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o: ../src/parser/map_sector_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/map_sector_utils.c
+
+CMakeFiles/doom.dir/src/parser/map_sector_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/map_sector_utils.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/map_sector_utils.c > CMakeFiles/doom.dir/src/parser/map_sector_utils.c.i
+
+CMakeFiles/doom.dir/src/parser/map_sector_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/map_sector_utils.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/map_sector_utils.c -o CMakeFiles/doom.dir/src/parser/map_sector_utils.c.s
+
+CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o: ../src/parser/map_vertex_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/map_vertex_utils.c
+
+CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/map_vertex_utils.c > CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.i
+
+CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/map_vertex_utils.c -o CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.s
+
+CMakeFiles/doom.dir/src/parser/parser.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/parser.c.o: ../src/parser/parser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/doom.dir/src/parser/parser.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/parser.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/parser.c
+
+CMakeFiles/doom.dir/src/parser/parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/parser.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/parser.c > CMakeFiles/doom.dir/src/parser/parser.c.i
+
+CMakeFiles/doom.dir/src/parser/parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/parser.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/parser.c -o CMakeFiles/doom.dir/src/parser/parser.c.s
+
+CMakeFiles/doom.dir/src/parser/parser_level.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/parser_level.c.o: ../src/parser/parser_level.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/doom.dir/src/parser/parser_level.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/parser_level.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/parser_level.c
+
+CMakeFiles/doom.dir/src/parser/parser_level.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/parser_level.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/parser_level.c > CMakeFiles/doom.dir/src/parser/parser_level.c.i
+
+CMakeFiles/doom.dir/src/parser/parser_level.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/parser_level.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/parser_level.c -o CMakeFiles/doom.dir/src/parser/parser_level.c.s
+
+CMakeFiles/doom.dir/src/parser/parser_sector.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/parser_sector.c.o: ../src/parser/parser_sector.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/doom.dir/src/parser/parser_sector.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/parser_sector.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/parser_sector.c
+
+CMakeFiles/doom.dir/src/parser/parser_sector.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/parser_sector.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/parser_sector.c > CMakeFiles/doom.dir/src/parser/parser_sector.c.i
+
+CMakeFiles/doom.dir/src/parser/parser_sector.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/parser_sector.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/parser_sector.c -o CMakeFiles/doom.dir/src/parser/parser_sector.c.s
+
+CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o: ../src/parser/parser_str_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/parser_str_utils.c
+
+CMakeFiles/doom.dir/src/parser/parser_str_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/parser_str_utils.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/parser_str_utils.c > CMakeFiles/doom.dir/src/parser/parser_str_utils.c.i
+
+CMakeFiles/doom.dir/src/parser/parser_str_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/parser_str_utils.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/parser_str_utils.c -o CMakeFiles/doom.dir/src/parser/parser_str_utils.c.s
+
+CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o: ../src/parser/parsed_data_connector.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/parsed_data_connector.c
+
+CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/parsed_data_connector.c > CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.i
+
+CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/parsed_data_connector.c -o CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.s
+
+CMakeFiles/doom.dir/src/parser/parser_utils.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/parser_utils.c.o: ../src/parser/parser_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/doom.dir/src/parser/parser_utils.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/parser_utils.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/parser_utils.c
+
+CMakeFiles/doom.dir/src/parser/parser_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/parser_utils.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/parser_utils.c > CMakeFiles/doom.dir/src/parser/parser_utils.c.i
+
+CMakeFiles/doom.dir/src/parser/parser_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/parser_utils.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/parser_utils.c -o CMakeFiles/doom.dir/src/parser/parser_utils.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o: ../src/parser/ft_lib/ft_atoi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_atoi.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_atoi.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_atoi.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o: ../src/parser/ft_lib/ft_lstnew.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lstnew.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lstnew.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lstnew.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o: ../src/parser/ft_lib/ft_list_add.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_add.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_add.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_add.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o: ../src/parser/ft_lib/ft_list_clear.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_clear.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_clear.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_clear.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o: ../src/parser/ft_lib/ft_lst_delone.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lst_delone.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lst_delone.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lst_delone.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o: ../src/parser/ft_lib/ft_memdel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memdel.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memdel.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memdel.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o: ../src/parser/ft_lib/ft_str_contains.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_str_contains.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_str_contains.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_str_contains.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o: ../src/parser/ft_lib/ft_strlen.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strlen.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strlen.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strlen.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o: ../src/parser/ft_lib/ft_strjoin.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strjoin.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strjoin.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strjoin.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o: ../src/parser/ft_lib/ft_strequ.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strequ.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strequ.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strequ.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o: ../src/parser/ft_lib/ft_strchr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strchr.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strchr.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strchr.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o: ../src/parser/ft_lib/ft_strdel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdel.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdel.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdel.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o: ../src/parser/ft_lib/ft_strdup.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdup.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdup.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdup.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o: ../src/parser/ft_lib/ft_strsub.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strsub.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strsub.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strsub.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o: ../src/parser/ft_lib/ft_splinter.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_splinter.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_splinter.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_splinter.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o: ../src/parser/ft_lib/ft_putstr.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_putstr.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_putstr.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_putstr.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.s
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o: CMakeFiles/doom.dir/flags.make
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o: ../src/parser/ft_lib/ft_memcpy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o   -c /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memcpy.c
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memcpy.c > CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.i
+
+CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memcpy.c -o CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.s
+
 CMakeFiles/doom.dir/src/main.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/main.c.o: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/doom.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/doom.dir/src/main.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/main.c.o   -c /Users/firewizard/CLionProjects/untitled/src/main.c
 
 CMakeFiles/doom.dir/src/main.c.i: cmake_force
@@ -72,7 +423,7 @@ CMakeFiles/doom.dir/src/main.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/event_key_collision.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/event_key_collision.c.o: ../src/event_key_collision.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/doom.dir/src/event_key_collision.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/doom.dir/src/event_key_collision.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/event_key_collision.c.o   -c /Users/firewizard/CLionProjects/untitled/src/event_key_collision.c
 
 CMakeFiles/doom.dir/src/event_key_collision.c.i: cmake_force
@@ -85,7 +436,7 @@ CMakeFiles/doom.dir/src/event_key_collision.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/event_key_bumping.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/event_key_bumping.c.o: ../src/event_key_bumping.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/doom.dir/src/event_key_bumping.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/doom.dir/src/event_key_bumping.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/event_key_bumping.c.o   -c /Users/firewizard/CLionProjects/untitled/src/event_key_bumping.c
 
 CMakeFiles/doom.dir/src/event_key_bumping.c.i: cmake_force
@@ -98,7 +449,7 @@ CMakeFiles/doom.dir/src/event_key_bumping.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/event.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/event.c.o: ../src/event.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/doom.dir/src/event.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/doom.dir/src/event.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/event.c.o   -c /Users/firewizard/CLionProjects/untitled/src/event.c
 
 CMakeFiles/doom.dir/src/event.c.i: cmake_force
@@ -111,7 +462,7 @@ CMakeFiles/doom.dir/src/event.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/utils_intersection.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/utils_intersection.c.o: ../src/utils_intersection.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/doom.dir/src/utils_intersection.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/doom.dir/src/utils_intersection.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/utils_intersection.c.o   -c /Users/firewizard/CLionProjects/untitled/src/utils_intersection.c
 
 CMakeFiles/doom.dir/src/utils_intersection.c.i: cmake_force
@@ -124,7 +475,7 @@ CMakeFiles/doom.dir/src/utils_intersection.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/event_keys.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/event_keys.c.o: ../src/event_keys.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/doom.dir/src/event_keys.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/doom.dir/src/event_keys.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/event_keys.c.o   -c /Users/firewizard/CLionProjects/untitled/src/event_keys.c
 
 CMakeFiles/doom.dir/src/event_keys.c.i: cmake_force
@@ -137,7 +488,7 @@ CMakeFiles/doom.dir/src/event_keys.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/event_key_moves.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/event_key_moves.c.o: ../src/event_key_moves.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/doom.dir/src/event_key_moves.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/doom.dir/src/event_key_moves.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/event_key_moves.c.o   -c /Users/firewizard/CLionProjects/untitled/src/event_key_moves.c
 
 CMakeFiles/doom.dir/src/event_key_moves.c.i: cmake_force
@@ -150,7 +501,7 @@ CMakeFiles/doom.dir/src/event_key_moves.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/utils_point_side.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/utils_point_side.c.o: ../src/utils_point_side.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/doom.dir/src/utils_point_side.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/doom.dir/src/utils_point_side.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/utils_point_side.c.o   -c /Users/firewizard/CLionProjects/untitled/src/utils_point_side.c
 
 CMakeFiles/doom.dir/src/utils_point_side.c.i: cmake_force
@@ -163,7 +514,7 @@ CMakeFiles/doom.dir/src/utils_point_side.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render.c.o: ../src/render.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/doom.dir/src/render.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/doom.dir/src/render.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render.c
 
 CMakeFiles/doom.dir/src/render.c.i: cmake_force
@@ -176,7 +527,7 @@ CMakeFiles/doom.dir/src/render.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_towards.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_towards.c.o: ../src/render_towards.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/doom.dir/src/render_towards.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/doom.dir/src/render_towards.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_towards.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_towards.c
 
 CMakeFiles/doom.dir/src/render_towards.c.i: cmake_force
@@ -189,7 +540,7 @@ CMakeFiles/doom.dir/src/render_towards.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_wall.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_wall.c.o: ../src/render_wall.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/doom.dir/src/render_wall.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/doom.dir/src/render_wall.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_wall.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_wall.c
 
 CMakeFiles/doom.dir/src/render_wall.c.i: cmake_force
@@ -202,7 +553,7 @@ CMakeFiles/doom.dir/src/render_wall.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_wall_intersection.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_wall_intersection.c.o: ../src/render_wall_intersection.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/doom.dir/src/render_wall_intersection.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/doom.dir/src/render_wall_intersection.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_wall_intersection.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_wall_intersection.c
 
 CMakeFiles/doom.dir/src/render_wall_intersection.c.i: cmake_force
@@ -215,7 +566,7 @@ CMakeFiles/doom.dir/src/render_wall_intersection.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_line.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_line.c.o: ../src/render_line.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/doom.dir/src/render_line.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/doom.dir/src/render_line.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_line.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_line.c
 
 CMakeFiles/doom.dir/src/render_line.c.i: cmake_force
@@ -228,7 +579,7 @@ CMakeFiles/doom.dir/src/render_line.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_scaler.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_scaler.c.o: ../src/render_scaler.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/doom.dir/src/render_scaler.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/doom.dir/src/render_scaler.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_scaler.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_scaler.c
 
 CMakeFiles/doom.dir/src/render_scaler.c.i: cmake_force
@@ -241,7 +592,7 @@ CMakeFiles/doom.dir/src/render_scaler.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_heights.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_heights.c.o: ../src/render_heights.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/doom.dir/src/render_heights.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/doom.dir/src/render_heights.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_heights.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_heights.c
 
 CMakeFiles/doom.dir/src/render_heights.c.i: cmake_force
@@ -254,7 +605,7 @@ CMakeFiles/doom.dir/src/render_heights.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_floor_ceil.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_floor_ceil.c.o: ../src/render_floor_ceil.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/doom.dir/src/render_floor_ceil.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/doom.dir/src/render_floor_ceil.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_floor_ceil.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_floor_ceil.c
 
 CMakeFiles/doom.dir/src/render_floor_ceil.c.i: cmake_force
@@ -267,7 +618,7 @@ CMakeFiles/doom.dir/src/render_floor_ceil.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/render_perspective.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/render_perspective.c.o: ../src/render_perspective.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/doom.dir/src/render_perspective.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/doom.dir/src/render_perspective.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/render_perspective.c.o   -c /Users/firewizard/CLionProjects/untitled/src/render_perspective.c
 
 CMakeFiles/doom.dir/src/render_perspective.c.i: cmake_force
@@ -280,7 +631,7 @@ CMakeFiles/doom.dir/src/render_perspective.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/event_mouse_view.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/event_mouse_view.c.o: ../src/event_mouse_view.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/doom.dir/src/event_mouse_view.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/doom.dir/src/event_mouse_view.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/event_mouse_view.c.o   -c /Users/firewizard/CLionProjects/untitled/src/event_mouse_view.c
 
 CMakeFiles/doom.dir/src/event_mouse_view.c.i: cmake_force
@@ -293,7 +644,7 @@ CMakeFiles/doom.dir/src/event_mouse_view.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/utils_xyz.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/utils_xyz.c.o: ../src/utils_xyz.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/doom.dir/src/utils_xyz.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/doom.dir/src/utils_xyz.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/utils_xyz.c.o   -c /Users/firewizard/CLionProjects/untitled/src/utils_xyz.c
 
 CMakeFiles/doom.dir/src/utils_xyz.c.i: cmake_force
@@ -306,7 +657,7 @@ CMakeFiles/doom.dir/src/utils_xyz.c.s: cmake_force
 
 CMakeFiles/doom.dir/src/loader.c.o: CMakeFiles/doom.dir/flags.make
 CMakeFiles/doom.dir/src/loader.c.o: ../src/loader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/doom.dir/src/loader.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/doom.dir/src/loader.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/doom.dir/src/loader.c.o   -c /Users/firewizard/CLionProjects/untitled/src/loader.c
 
 CMakeFiles/doom.dir/src/loader.c.i: cmake_force
@@ -319,6 +670,33 @@ CMakeFiles/doom.dir/src/loader.c.s: cmake_force
 
 # Object files for target doom
 doom_OBJECTS = \
+"CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o" \
+"CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o" \
+"CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o" \
+"CMakeFiles/doom.dir/src/parser/parser.c.o" \
+"CMakeFiles/doom.dir/src/parser/parser_level.c.o" \
+"CMakeFiles/doom.dir/src/parser/parser_sector.c.o" \
+"CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o" \
+"CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o" \
+"CMakeFiles/doom.dir/src/parser/parser_utils.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o" \
+"CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o" \
 "CMakeFiles/doom.dir/src/main.c.o" \
 "CMakeFiles/doom.dir/src/event_key_collision.c.o" \
 "CMakeFiles/doom.dir/src/event_key_bumping.c.o" \
@@ -343,6 +721,33 @@ doom_OBJECTS = \
 # External object files for target doom
 doom_EXTERNAL_OBJECTS =
 
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o
+doom: CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o
+doom: CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o
+doom: CMakeFiles/doom.dir/src/parser/parser.c.o
+doom: CMakeFiles/doom.dir/src/parser/parser_level.c.o
+doom: CMakeFiles/doom.dir/src/parser/parser_sector.c.o
+doom: CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o
+doom: CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o
+doom: CMakeFiles/doom.dir/src/parser/parser_utils.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o
+doom: CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o
 doom: CMakeFiles/doom.dir/src/main.c.o
 doom: CMakeFiles/doom.dir/src/event_key_collision.c.o
 doom: CMakeFiles/doom.dir/src/event_key_bumping.c.o
@@ -366,7 +771,7 @@ doom: CMakeFiles/doom.dir/src/loader.c.o
 doom: CMakeFiles/doom.dir/build.make
 doom: /usr/local/lib/libSDL2.dylib
 doom: CMakeFiles/doom.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking C executable doom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/firewizard/CLionProjects/untitled/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking C executable doom"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/doom.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

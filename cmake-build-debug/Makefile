@@ -339,6 +339,735 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/parser/ft_lib/for_each_gnl.o: src/parser/ft_lib/for_each_gnl.c.o
+
+.PHONY : src/parser/ft_lib/for_each_gnl.o
+
+# target to build an object file
+src/parser/ft_lib/for_each_gnl.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.o
+.PHONY : src/parser/ft_lib/for_each_gnl.c.o
+
+src/parser/ft_lib/for_each_gnl.i: src/parser/ft_lib/for_each_gnl.c.i
+
+.PHONY : src/parser/ft_lib/for_each_gnl.i
+
+# target to preprocess a source file
+src/parser/ft_lib/for_each_gnl.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.i
+.PHONY : src/parser/ft_lib/for_each_gnl.c.i
+
+src/parser/ft_lib/for_each_gnl.s: src/parser/ft_lib/for_each_gnl.c.s
+
+.PHONY : src/parser/ft_lib/for_each_gnl.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/for_each_gnl.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/for_each_gnl.c.s
+.PHONY : src/parser/ft_lib/for_each_gnl.c.s
+
+src/parser/ft_lib/ft_atoi.o: src/parser/ft_lib/ft_atoi.c.o
+
+.PHONY : src/parser/ft_lib/ft_atoi.o
+
+# target to build an object file
+src/parser/ft_lib/ft_atoi.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.o
+.PHONY : src/parser/ft_lib/ft_atoi.c.o
+
+src/parser/ft_lib/ft_atoi.i: src/parser/ft_lib/ft_atoi.c.i
+
+.PHONY : src/parser/ft_lib/ft_atoi.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_atoi.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.i
+.PHONY : src/parser/ft_lib/ft_atoi.c.i
+
+src/parser/ft_lib/ft_atoi.s: src/parser/ft_lib/ft_atoi.c.s
+
+.PHONY : src/parser/ft_lib/ft_atoi.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_atoi.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_atoi.c.s
+.PHONY : src/parser/ft_lib/ft_atoi.c.s
+
+src/parser/ft_lib/ft_list_add.o: src/parser/ft_lib/ft_list_add.c.o
+
+.PHONY : src/parser/ft_lib/ft_list_add.o
+
+# target to build an object file
+src/parser/ft_lib/ft_list_add.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.o
+.PHONY : src/parser/ft_lib/ft_list_add.c.o
+
+src/parser/ft_lib/ft_list_add.i: src/parser/ft_lib/ft_list_add.c.i
+
+.PHONY : src/parser/ft_lib/ft_list_add.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_list_add.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.i
+.PHONY : src/parser/ft_lib/ft_list_add.c.i
+
+src/parser/ft_lib/ft_list_add.s: src/parser/ft_lib/ft_list_add.c.s
+
+.PHONY : src/parser/ft_lib/ft_list_add.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_list_add.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_add.c.s
+.PHONY : src/parser/ft_lib/ft_list_add.c.s
+
+src/parser/ft_lib/ft_list_clear.o: src/parser/ft_lib/ft_list_clear.c.o
+
+.PHONY : src/parser/ft_lib/ft_list_clear.o
+
+# target to build an object file
+src/parser/ft_lib/ft_list_clear.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.o
+.PHONY : src/parser/ft_lib/ft_list_clear.c.o
+
+src/parser/ft_lib/ft_list_clear.i: src/parser/ft_lib/ft_list_clear.c.i
+
+.PHONY : src/parser/ft_lib/ft_list_clear.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_list_clear.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.i
+.PHONY : src/parser/ft_lib/ft_list_clear.c.i
+
+src/parser/ft_lib/ft_list_clear.s: src/parser/ft_lib/ft_list_clear.c.s
+
+.PHONY : src/parser/ft_lib/ft_list_clear.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_list_clear.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_list_clear.c.s
+.PHONY : src/parser/ft_lib/ft_list_clear.c.s
+
+src/parser/ft_lib/ft_lst_delone.o: src/parser/ft_lib/ft_lst_delone.c.o
+
+.PHONY : src/parser/ft_lib/ft_lst_delone.o
+
+# target to build an object file
+src/parser/ft_lib/ft_lst_delone.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.o
+.PHONY : src/parser/ft_lib/ft_lst_delone.c.o
+
+src/parser/ft_lib/ft_lst_delone.i: src/parser/ft_lib/ft_lst_delone.c.i
+
+.PHONY : src/parser/ft_lib/ft_lst_delone.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_lst_delone.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.i
+.PHONY : src/parser/ft_lib/ft_lst_delone.c.i
+
+src/parser/ft_lib/ft_lst_delone.s: src/parser/ft_lib/ft_lst_delone.c.s
+
+.PHONY : src/parser/ft_lib/ft_lst_delone.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_lst_delone.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_lst_delone.c.s
+.PHONY : src/parser/ft_lib/ft_lst_delone.c.s
+
+src/parser/ft_lib/ft_lstnew.o: src/parser/ft_lib/ft_lstnew.c.o
+
+.PHONY : src/parser/ft_lib/ft_lstnew.o
+
+# target to build an object file
+src/parser/ft_lib/ft_lstnew.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.o
+.PHONY : src/parser/ft_lib/ft_lstnew.c.o
+
+src/parser/ft_lib/ft_lstnew.i: src/parser/ft_lib/ft_lstnew.c.i
+
+.PHONY : src/parser/ft_lib/ft_lstnew.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_lstnew.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.i
+.PHONY : src/parser/ft_lib/ft_lstnew.c.i
+
+src/parser/ft_lib/ft_lstnew.s: src/parser/ft_lib/ft_lstnew.c.s
+
+.PHONY : src/parser/ft_lib/ft_lstnew.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_lstnew.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_lstnew.c.s
+.PHONY : src/parser/ft_lib/ft_lstnew.c.s
+
+src/parser/ft_lib/ft_memcpy.o: src/parser/ft_lib/ft_memcpy.c.o
+
+.PHONY : src/parser/ft_lib/ft_memcpy.o
+
+# target to build an object file
+src/parser/ft_lib/ft_memcpy.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.o
+.PHONY : src/parser/ft_lib/ft_memcpy.c.o
+
+src/parser/ft_lib/ft_memcpy.i: src/parser/ft_lib/ft_memcpy.c.i
+
+.PHONY : src/parser/ft_lib/ft_memcpy.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_memcpy.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.i
+.PHONY : src/parser/ft_lib/ft_memcpy.c.i
+
+src/parser/ft_lib/ft_memcpy.s: src/parser/ft_lib/ft_memcpy.c.s
+
+.PHONY : src/parser/ft_lib/ft_memcpy.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_memcpy.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_memcpy.c.s
+.PHONY : src/parser/ft_lib/ft_memcpy.c.s
+
+src/parser/ft_lib/ft_memdel.o: src/parser/ft_lib/ft_memdel.c.o
+
+.PHONY : src/parser/ft_lib/ft_memdel.o
+
+# target to build an object file
+src/parser/ft_lib/ft_memdel.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.o
+.PHONY : src/parser/ft_lib/ft_memdel.c.o
+
+src/parser/ft_lib/ft_memdel.i: src/parser/ft_lib/ft_memdel.c.i
+
+.PHONY : src/parser/ft_lib/ft_memdel.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_memdel.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.i
+.PHONY : src/parser/ft_lib/ft_memdel.c.i
+
+src/parser/ft_lib/ft_memdel.s: src/parser/ft_lib/ft_memdel.c.s
+
+.PHONY : src/parser/ft_lib/ft_memdel.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_memdel.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_memdel.c.s
+.PHONY : src/parser/ft_lib/ft_memdel.c.s
+
+src/parser/ft_lib/ft_putstr.o: src/parser/ft_lib/ft_putstr.c.o
+
+.PHONY : src/parser/ft_lib/ft_putstr.o
+
+# target to build an object file
+src/parser/ft_lib/ft_putstr.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.o
+.PHONY : src/parser/ft_lib/ft_putstr.c.o
+
+src/parser/ft_lib/ft_putstr.i: src/parser/ft_lib/ft_putstr.c.i
+
+.PHONY : src/parser/ft_lib/ft_putstr.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_putstr.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.i
+.PHONY : src/parser/ft_lib/ft_putstr.c.i
+
+src/parser/ft_lib/ft_putstr.s: src/parser/ft_lib/ft_putstr.c.s
+
+.PHONY : src/parser/ft_lib/ft_putstr.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_putstr.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_putstr.c.s
+.PHONY : src/parser/ft_lib/ft_putstr.c.s
+
+src/parser/ft_lib/ft_splinter.o: src/parser/ft_lib/ft_splinter.c.o
+
+.PHONY : src/parser/ft_lib/ft_splinter.o
+
+# target to build an object file
+src/parser/ft_lib/ft_splinter.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.o
+.PHONY : src/parser/ft_lib/ft_splinter.c.o
+
+src/parser/ft_lib/ft_splinter.i: src/parser/ft_lib/ft_splinter.c.i
+
+.PHONY : src/parser/ft_lib/ft_splinter.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_splinter.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.i
+.PHONY : src/parser/ft_lib/ft_splinter.c.i
+
+src/parser/ft_lib/ft_splinter.s: src/parser/ft_lib/ft_splinter.c.s
+
+.PHONY : src/parser/ft_lib/ft_splinter.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_splinter.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_splinter.c.s
+.PHONY : src/parser/ft_lib/ft_splinter.c.s
+
+src/parser/ft_lib/ft_str_contains.o: src/parser/ft_lib/ft_str_contains.c.o
+
+.PHONY : src/parser/ft_lib/ft_str_contains.o
+
+# target to build an object file
+src/parser/ft_lib/ft_str_contains.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.o
+.PHONY : src/parser/ft_lib/ft_str_contains.c.o
+
+src/parser/ft_lib/ft_str_contains.i: src/parser/ft_lib/ft_str_contains.c.i
+
+.PHONY : src/parser/ft_lib/ft_str_contains.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_str_contains.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.i
+.PHONY : src/parser/ft_lib/ft_str_contains.c.i
+
+src/parser/ft_lib/ft_str_contains.s: src/parser/ft_lib/ft_str_contains.c.s
+
+.PHONY : src/parser/ft_lib/ft_str_contains.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_str_contains.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_str_contains.c.s
+.PHONY : src/parser/ft_lib/ft_str_contains.c.s
+
+src/parser/ft_lib/ft_strchr.o: src/parser/ft_lib/ft_strchr.c.o
+
+.PHONY : src/parser/ft_lib/ft_strchr.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strchr.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.o
+.PHONY : src/parser/ft_lib/ft_strchr.c.o
+
+src/parser/ft_lib/ft_strchr.i: src/parser/ft_lib/ft_strchr.c.i
+
+.PHONY : src/parser/ft_lib/ft_strchr.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strchr.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.i
+.PHONY : src/parser/ft_lib/ft_strchr.c.i
+
+src/parser/ft_lib/ft_strchr.s: src/parser/ft_lib/ft_strchr.c.s
+
+.PHONY : src/parser/ft_lib/ft_strchr.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strchr.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strchr.c.s
+.PHONY : src/parser/ft_lib/ft_strchr.c.s
+
+src/parser/ft_lib/ft_strdel.o: src/parser/ft_lib/ft_strdel.c.o
+
+.PHONY : src/parser/ft_lib/ft_strdel.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strdel.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.o
+.PHONY : src/parser/ft_lib/ft_strdel.c.o
+
+src/parser/ft_lib/ft_strdel.i: src/parser/ft_lib/ft_strdel.c.i
+
+.PHONY : src/parser/ft_lib/ft_strdel.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strdel.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.i
+.PHONY : src/parser/ft_lib/ft_strdel.c.i
+
+src/parser/ft_lib/ft_strdel.s: src/parser/ft_lib/ft_strdel.c.s
+
+.PHONY : src/parser/ft_lib/ft_strdel.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strdel.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdel.c.s
+.PHONY : src/parser/ft_lib/ft_strdel.c.s
+
+src/parser/ft_lib/ft_strdup.o: src/parser/ft_lib/ft_strdup.c.o
+
+.PHONY : src/parser/ft_lib/ft_strdup.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strdup.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.o
+.PHONY : src/parser/ft_lib/ft_strdup.c.o
+
+src/parser/ft_lib/ft_strdup.i: src/parser/ft_lib/ft_strdup.c.i
+
+.PHONY : src/parser/ft_lib/ft_strdup.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strdup.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.i
+.PHONY : src/parser/ft_lib/ft_strdup.c.i
+
+src/parser/ft_lib/ft_strdup.s: src/parser/ft_lib/ft_strdup.c.s
+
+.PHONY : src/parser/ft_lib/ft_strdup.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strdup.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strdup.c.s
+.PHONY : src/parser/ft_lib/ft_strdup.c.s
+
+src/parser/ft_lib/ft_strequ.o: src/parser/ft_lib/ft_strequ.c.o
+
+.PHONY : src/parser/ft_lib/ft_strequ.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strequ.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.o
+.PHONY : src/parser/ft_lib/ft_strequ.c.o
+
+src/parser/ft_lib/ft_strequ.i: src/parser/ft_lib/ft_strequ.c.i
+
+.PHONY : src/parser/ft_lib/ft_strequ.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strequ.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.i
+.PHONY : src/parser/ft_lib/ft_strequ.c.i
+
+src/parser/ft_lib/ft_strequ.s: src/parser/ft_lib/ft_strequ.c.s
+
+.PHONY : src/parser/ft_lib/ft_strequ.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strequ.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strequ.c.s
+.PHONY : src/parser/ft_lib/ft_strequ.c.s
+
+src/parser/ft_lib/ft_strjoin.o: src/parser/ft_lib/ft_strjoin.c.o
+
+.PHONY : src/parser/ft_lib/ft_strjoin.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strjoin.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.o
+.PHONY : src/parser/ft_lib/ft_strjoin.c.o
+
+src/parser/ft_lib/ft_strjoin.i: src/parser/ft_lib/ft_strjoin.c.i
+
+.PHONY : src/parser/ft_lib/ft_strjoin.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strjoin.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.i
+.PHONY : src/parser/ft_lib/ft_strjoin.c.i
+
+src/parser/ft_lib/ft_strjoin.s: src/parser/ft_lib/ft_strjoin.c.s
+
+.PHONY : src/parser/ft_lib/ft_strjoin.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strjoin.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strjoin.c.s
+.PHONY : src/parser/ft_lib/ft_strjoin.c.s
+
+src/parser/ft_lib/ft_strlen.o: src/parser/ft_lib/ft_strlen.c.o
+
+.PHONY : src/parser/ft_lib/ft_strlen.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strlen.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.o
+.PHONY : src/parser/ft_lib/ft_strlen.c.o
+
+src/parser/ft_lib/ft_strlen.i: src/parser/ft_lib/ft_strlen.c.i
+
+.PHONY : src/parser/ft_lib/ft_strlen.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strlen.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.i
+.PHONY : src/parser/ft_lib/ft_strlen.c.i
+
+src/parser/ft_lib/ft_strlen.s: src/parser/ft_lib/ft_strlen.c.s
+
+.PHONY : src/parser/ft_lib/ft_strlen.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strlen.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strlen.c.s
+.PHONY : src/parser/ft_lib/ft_strlen.c.s
+
+src/parser/ft_lib/ft_strsub.o: src/parser/ft_lib/ft_strsub.c.o
+
+.PHONY : src/parser/ft_lib/ft_strsub.o
+
+# target to build an object file
+src/parser/ft_lib/ft_strsub.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.o
+.PHONY : src/parser/ft_lib/ft_strsub.c.o
+
+src/parser/ft_lib/ft_strsub.i: src/parser/ft_lib/ft_strsub.c.i
+
+.PHONY : src/parser/ft_lib/ft_strsub.i
+
+# target to preprocess a source file
+src/parser/ft_lib/ft_strsub.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.i
+.PHONY : src/parser/ft_lib/ft_strsub.c.i
+
+src/parser/ft_lib/ft_strsub.s: src/parser/ft_lib/ft_strsub.c.s
+
+.PHONY : src/parser/ft_lib/ft_strsub.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/ft_strsub.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/ft_strsub.c.s
+.PHONY : src/parser/ft_lib/ft_strsub.c.s
+
+src/parser/ft_lib/get_next_line.o: src/parser/ft_lib/get_next_line.c.o
+
+.PHONY : src/parser/ft_lib/get_next_line.o
+
+# target to build an object file
+src/parser/ft_lib/get_next_line.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.o
+.PHONY : src/parser/ft_lib/get_next_line.c.o
+
+src/parser/ft_lib/get_next_line.i: src/parser/ft_lib/get_next_line.c.i
+
+.PHONY : src/parser/ft_lib/get_next_line.i
+
+# target to preprocess a source file
+src/parser/ft_lib/get_next_line.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.i
+.PHONY : src/parser/ft_lib/get_next_line.c.i
+
+src/parser/ft_lib/get_next_line.s: src/parser/ft_lib/get_next_line.c.s
+
+.PHONY : src/parser/ft_lib/get_next_line.s
+
+# target to generate assembly for a file
+src/parser/ft_lib/get_next_line.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/ft_lib/get_next_line.c.s
+.PHONY : src/parser/ft_lib/get_next_line.c.s
+
+src/parser/map_sector_utils.o: src/parser/map_sector_utils.c.o
+
+.PHONY : src/parser/map_sector_utils.o
+
+# target to build an object file
+src/parser/map_sector_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/map_sector_utils.c.o
+.PHONY : src/parser/map_sector_utils.c.o
+
+src/parser/map_sector_utils.i: src/parser/map_sector_utils.c.i
+
+.PHONY : src/parser/map_sector_utils.i
+
+# target to preprocess a source file
+src/parser/map_sector_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/map_sector_utils.c.i
+.PHONY : src/parser/map_sector_utils.c.i
+
+src/parser/map_sector_utils.s: src/parser/map_sector_utils.c.s
+
+.PHONY : src/parser/map_sector_utils.s
+
+# target to generate assembly for a file
+src/parser/map_sector_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/map_sector_utils.c.s
+.PHONY : src/parser/map_sector_utils.c.s
+
+src/parser/map_vertex_utils.o: src/parser/map_vertex_utils.c.o
+
+.PHONY : src/parser/map_vertex_utils.o
+
+# target to build an object file
+src/parser/map_vertex_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.o
+.PHONY : src/parser/map_vertex_utils.c.o
+
+src/parser/map_vertex_utils.i: src/parser/map_vertex_utils.c.i
+
+.PHONY : src/parser/map_vertex_utils.i
+
+# target to preprocess a source file
+src/parser/map_vertex_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.i
+.PHONY : src/parser/map_vertex_utils.c.i
+
+src/parser/map_vertex_utils.s: src/parser/map_vertex_utils.c.s
+
+.PHONY : src/parser/map_vertex_utils.s
+
+# target to generate assembly for a file
+src/parser/map_vertex_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/map_vertex_utils.c.s
+.PHONY : src/parser/map_vertex_utils.c.s
+
+src/parser/parsed_data_connector.o: src/parser/parsed_data_connector.c.o
+
+.PHONY : src/parser/parsed_data_connector.o
+
+# target to build an object file
+src/parser/parsed_data_connector.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.o
+.PHONY : src/parser/parsed_data_connector.c.o
+
+src/parser/parsed_data_connector.i: src/parser/parsed_data_connector.c.i
+
+.PHONY : src/parser/parsed_data_connector.i
+
+# target to preprocess a source file
+src/parser/parsed_data_connector.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.i
+.PHONY : src/parser/parsed_data_connector.c.i
+
+src/parser/parsed_data_connector.s: src/parser/parsed_data_connector.c.s
+
+.PHONY : src/parser/parsed_data_connector.s
+
+# target to generate assembly for a file
+src/parser/parsed_data_connector.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parsed_data_connector.c.s
+.PHONY : src/parser/parsed_data_connector.c.s
+
+src/parser/parser.o: src/parser/parser.c.o
+
+.PHONY : src/parser/parser.o
+
+# target to build an object file
+src/parser/parser.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser.c.o
+.PHONY : src/parser/parser.c.o
+
+src/parser/parser.i: src/parser/parser.c.i
+
+.PHONY : src/parser/parser.i
+
+# target to preprocess a source file
+src/parser/parser.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser.c.i
+.PHONY : src/parser/parser.c.i
+
+src/parser/parser.s: src/parser/parser.c.s
+
+.PHONY : src/parser/parser.s
+
+# target to generate assembly for a file
+src/parser/parser.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser.c.s
+.PHONY : src/parser/parser.c.s
+
+src/parser/parser_level.o: src/parser/parser_level.c.o
+
+.PHONY : src/parser/parser_level.o
+
+# target to build an object file
+src/parser/parser_level.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_level.c.o
+.PHONY : src/parser/parser_level.c.o
+
+src/parser/parser_level.i: src/parser/parser_level.c.i
+
+.PHONY : src/parser/parser_level.i
+
+# target to preprocess a source file
+src/parser/parser_level.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_level.c.i
+.PHONY : src/parser/parser_level.c.i
+
+src/parser/parser_level.s: src/parser/parser_level.c.s
+
+.PHONY : src/parser/parser_level.s
+
+# target to generate assembly for a file
+src/parser/parser_level.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_level.c.s
+.PHONY : src/parser/parser_level.c.s
+
+src/parser/parser_sector.o: src/parser/parser_sector.c.o
+
+.PHONY : src/parser/parser_sector.o
+
+# target to build an object file
+src/parser/parser_sector.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_sector.c.o
+.PHONY : src/parser/parser_sector.c.o
+
+src/parser/parser_sector.i: src/parser/parser_sector.c.i
+
+.PHONY : src/parser/parser_sector.i
+
+# target to preprocess a source file
+src/parser/parser_sector.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_sector.c.i
+.PHONY : src/parser/parser_sector.c.i
+
+src/parser/parser_sector.s: src/parser/parser_sector.c.s
+
+.PHONY : src/parser/parser_sector.s
+
+# target to generate assembly for a file
+src/parser/parser_sector.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_sector.c.s
+.PHONY : src/parser/parser_sector.c.s
+
+src/parser/parser_str_utils.o: src/parser/parser_str_utils.c.o
+
+.PHONY : src/parser/parser_str_utils.o
+
+# target to build an object file
+src/parser/parser_str_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_str_utils.c.o
+.PHONY : src/parser/parser_str_utils.c.o
+
+src/parser/parser_str_utils.i: src/parser/parser_str_utils.c.i
+
+.PHONY : src/parser/parser_str_utils.i
+
+# target to preprocess a source file
+src/parser/parser_str_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_str_utils.c.i
+.PHONY : src/parser/parser_str_utils.c.i
+
+src/parser/parser_str_utils.s: src/parser/parser_str_utils.c.s
+
+.PHONY : src/parser/parser_str_utils.s
+
+# target to generate assembly for a file
+src/parser/parser_str_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_str_utils.c.s
+.PHONY : src/parser/parser_str_utils.c.s
+
+src/parser/parser_utils.o: src/parser/parser_utils.c.o
+
+.PHONY : src/parser/parser_utils.o
+
+# target to build an object file
+src/parser/parser_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_utils.c.o
+.PHONY : src/parser/parser_utils.c.o
+
+src/parser/parser_utils.i: src/parser/parser_utils.c.i
+
+.PHONY : src/parser/parser_utils.i
+
+# target to preprocess a source file
+src/parser/parser_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_utils.c.i
+.PHONY : src/parser/parser_utils.c.i
+
+src/parser/parser_utils.s: src/parser/parser_utils.c.s
+
+.PHONY : src/parser/parser_utils.s
+
+# target to generate assembly for a file
+src/parser/parser_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_utils.c.s
+.PHONY : src/parser/parser_utils.c.s
+
 src/render.o: src/render.c.o
 
 .PHONY : src/render.o
@@ -696,6 +1425,87 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser/ft_lib/for_each_gnl.o"
+	@echo "... src/parser/ft_lib/for_each_gnl.i"
+	@echo "... src/parser/ft_lib/for_each_gnl.s"
+	@echo "... src/parser/ft_lib/ft_atoi.o"
+	@echo "... src/parser/ft_lib/ft_atoi.i"
+	@echo "... src/parser/ft_lib/ft_atoi.s"
+	@echo "... src/parser/ft_lib/ft_list_add.o"
+	@echo "... src/parser/ft_lib/ft_list_add.i"
+	@echo "... src/parser/ft_lib/ft_list_add.s"
+	@echo "... src/parser/ft_lib/ft_list_clear.o"
+	@echo "... src/parser/ft_lib/ft_list_clear.i"
+	@echo "... src/parser/ft_lib/ft_list_clear.s"
+	@echo "... src/parser/ft_lib/ft_lst_delone.o"
+	@echo "... src/parser/ft_lib/ft_lst_delone.i"
+	@echo "... src/parser/ft_lib/ft_lst_delone.s"
+	@echo "... src/parser/ft_lib/ft_lstnew.o"
+	@echo "... src/parser/ft_lib/ft_lstnew.i"
+	@echo "... src/parser/ft_lib/ft_lstnew.s"
+	@echo "... src/parser/ft_lib/ft_memcpy.o"
+	@echo "... src/parser/ft_lib/ft_memcpy.i"
+	@echo "... src/parser/ft_lib/ft_memcpy.s"
+	@echo "... src/parser/ft_lib/ft_memdel.o"
+	@echo "... src/parser/ft_lib/ft_memdel.i"
+	@echo "... src/parser/ft_lib/ft_memdel.s"
+	@echo "... src/parser/ft_lib/ft_putstr.o"
+	@echo "... src/parser/ft_lib/ft_putstr.i"
+	@echo "... src/parser/ft_lib/ft_putstr.s"
+	@echo "... src/parser/ft_lib/ft_splinter.o"
+	@echo "... src/parser/ft_lib/ft_splinter.i"
+	@echo "... src/parser/ft_lib/ft_splinter.s"
+	@echo "... src/parser/ft_lib/ft_str_contains.o"
+	@echo "... src/parser/ft_lib/ft_str_contains.i"
+	@echo "... src/parser/ft_lib/ft_str_contains.s"
+	@echo "... src/parser/ft_lib/ft_strchr.o"
+	@echo "... src/parser/ft_lib/ft_strchr.i"
+	@echo "... src/parser/ft_lib/ft_strchr.s"
+	@echo "... src/parser/ft_lib/ft_strdel.o"
+	@echo "... src/parser/ft_lib/ft_strdel.i"
+	@echo "... src/parser/ft_lib/ft_strdel.s"
+	@echo "... src/parser/ft_lib/ft_strdup.o"
+	@echo "... src/parser/ft_lib/ft_strdup.i"
+	@echo "... src/parser/ft_lib/ft_strdup.s"
+	@echo "... src/parser/ft_lib/ft_strequ.o"
+	@echo "... src/parser/ft_lib/ft_strequ.i"
+	@echo "... src/parser/ft_lib/ft_strequ.s"
+	@echo "... src/parser/ft_lib/ft_strjoin.o"
+	@echo "... src/parser/ft_lib/ft_strjoin.i"
+	@echo "... src/parser/ft_lib/ft_strjoin.s"
+	@echo "... src/parser/ft_lib/ft_strlen.o"
+	@echo "... src/parser/ft_lib/ft_strlen.i"
+	@echo "... src/parser/ft_lib/ft_strlen.s"
+	@echo "... src/parser/ft_lib/ft_strsub.o"
+	@echo "... src/parser/ft_lib/ft_strsub.i"
+	@echo "... src/parser/ft_lib/ft_strsub.s"
+	@echo "... src/parser/ft_lib/get_next_line.o"
+	@echo "... src/parser/ft_lib/get_next_line.i"
+	@echo "... src/parser/ft_lib/get_next_line.s"
+	@echo "... src/parser/map_sector_utils.o"
+	@echo "... src/parser/map_sector_utils.i"
+	@echo "... src/parser/map_sector_utils.s"
+	@echo "... src/parser/map_vertex_utils.o"
+	@echo "... src/parser/map_vertex_utils.i"
+	@echo "... src/parser/map_vertex_utils.s"
+	@echo "... src/parser/parsed_data_connector.o"
+	@echo "... src/parser/parsed_data_connector.i"
+	@echo "... src/parser/parsed_data_connector.s"
+	@echo "... src/parser/parser.o"
+	@echo "... src/parser/parser.i"
+	@echo "... src/parser/parser.s"
+	@echo "... src/parser/parser_level.o"
+	@echo "... src/parser/parser_level.i"
+	@echo "... src/parser/parser_level.s"
+	@echo "... src/parser/parser_sector.o"
+	@echo "... src/parser/parser_sector.i"
+	@echo "... src/parser/parser_sector.s"
+	@echo "... src/parser/parser_str_utils.o"
+	@echo "... src/parser/parser_str_utils.i"
+	@echo "... src/parser/parser_str_utils.s"
+	@echo "... src/parser/parser_utils.o"
+	@echo "... src/parser/parser_utils.i"
+	@echo "... src/parser/parser_utils.s"
 	@echo "... src/render.o"
 	@echo "... src/render.i"
 	@echo "... src/render.s"

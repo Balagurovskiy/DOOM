@@ -17,14 +17,7 @@ void shaded_line(SDL_Surface *surface, int x, int y1, int y2, int top, int middl
     }
 }
 
-void set_textured_line(txt_line_s *tl, int x, int y1, int y2)
-{
-    tl->x = x;
-    tl->y1 = y1;
-    tl->y2 = y2;
-}
-
-txt_line_s set_textured_line2(int x, int y1, int y2)
+txt_line_s set_textured_line(int x, int y1, int y2)
 {
     txt_line_s tl;
 
@@ -34,7 +27,26 @@ txt_line_s set_textured_line2(int x, int y1, int y2)
     return (tl);
 }
 
-void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t)
+int		fade_to_black(int col, double curr, double max)
+{
+    double	rgb[3];
+    double	amount;
+
+    if (curr < 0)
+        return (curr);
+    if (curr >= max)
+        return (0x0);
+    rgb[0] = col & 255;
+    rgb[1] = (col >> 8) & 255;
+    rgb[2] = (col >> 16) & 255;
+    amount = (max - curr) / max;
+    rgb[0] *= amount;
+    rgb[1] *= amount;
+    rgb[2] *= amount;
+    return ((((int)rgb[2]) << 16) + ((int)rgb[1] << 8) + rgb[0]);
+}
+
+void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t, int z)
 {
     int y;
     int *pixels;
@@ -50,7 +62,8 @@ void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t)
     {
         txt_y = scaler_next(&(tl.scale_ty)) % scrn->txt->size;
         txt_x = scrn->txt_data.txtx % scrn->txt->size;
-        *pixels = ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x];
+        *pixels = fade_to_black( ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x], z, 110);//tl.y1 , tl.y2  ///,  z , 50
+//        *pixels = ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x];
         pixels += W;
         ++y;
     }

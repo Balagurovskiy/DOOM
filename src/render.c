@@ -57,3 +57,4 @@ void render_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t)
         }
     }
 }
+

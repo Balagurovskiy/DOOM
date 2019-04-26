@@ -60,7 +60,6 @@ typedef struct  screen
 
 }               screen;
 
-
 typedef struct  line_s
 {
     int x;
@@ -70,6 +69,15 @@ typedef struct  line_s
     int middle;
     int bottom;
 }               line_s;
+
+typedef struct  txt_line_s
+{
+    int x;
+    int y1;
+    int y2;
+    scaler_s scale_ty;
+    SDL_Surface *texture;
+}               txt_line_s;
 
 typedef struct perspective
 {
@@ -92,8 +100,10 @@ void render_towards(screen *scrn);
 //heights_s heights_init(screen *scrn, perspective_s perspect, int s);
 
 //render_line.c
-void line(SDL_Surface *surface, int x, int y1,int y2, int top,int middle,int bottom);
-void line2(screen *scrn, int x, int y1,int y2, scaler_s ty,unsigned txtx, SDL_Surface *t);
+void shaded_line(SDL_Surface *surface, int x, int y1, int y2, int top, int middle, int bottom);
+
+txt_line_s set_textured_line(int x, int y1, int y2);
+void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t, int z);
 
 
 

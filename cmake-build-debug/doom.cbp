@@ -91,6 +91,12 @@
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/events.h">
 			<Option target="doom"/>
 		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/libft.h">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/parser.h">
+			<Option target="doom"/>
+		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render.h">
 			<Option target="doom"/>
 		</Unit>
@@ -128,6 +134,87 @@
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/main.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/for_each_gnl.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_atoi.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_add.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_clear.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lst_delone.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lstnew.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memcpy.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memdel.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_putstr.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_splinter.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_str_contains.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strchr.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdel.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdup.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strequ.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strjoin.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strlen.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strsub.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/get_next_line.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/map_sector_utils.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/map_vertex_utils.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parsed_data_connector.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_level.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_sector.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_str_utils.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_utils.c">
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render.c">

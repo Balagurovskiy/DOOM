@@ -5,6 +5,14 @@
 # include "render.h"
 # include "render_heights.h"
 
+
+typedef struct ceiling_floor
+{
+    float hei;
+    float mapx;
+    float mapz;
+}              ceiling_floor_s;
+
 typedef struct wall
 {
     int z;
@@ -17,6 +25,8 @@ typedef struct wall
     int cnya;
     int cnyb;
 }              wall_s;
+
+int		fade_to_black(int col, double curr, double max);
 
 //render_wall.c
 void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, int s);

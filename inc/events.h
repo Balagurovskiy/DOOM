@@ -3,7 +3,29 @@
 #ifndef EVENTS_H
 # define EVENTS_H
 
-void event(sectors *sectors, player *player);
+
+typedef struct  move_events
+{
+    int wsad[4];
+    int ground;
+    int falling;
+    int moving;
+    int ducking;
+
+    float eyeheight;
+    float yaw;
+}               move_events;
+
+typedef struct  view_events
+{
+    int x;
+    int y;
+    int pushing;
+    float acceleration;
+    float move_vec[2];
+}              view_events;
+
+void events(sectors *sectors, player *player);
 
 void view_event(move_events *me, view_events *ve, player *player, sectors *sectors);
 
@@ -22,7 +44,7 @@ void bumping(move_events *me, player *player,
 
 void move_player(xy d,player *player, sectors *sectors);
 
-void key_events(move_events *me, player *player);
+void key_events(move_events *me, player *player, sectors *s);
 
 void jump_duck_key_event(move_events *me, player *player, unsigned int sym, SDL_Event e);
 
