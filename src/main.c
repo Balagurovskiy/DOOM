@@ -1,4 +1,3 @@
-
 #include "defines.h"
 #include "doom.h"
 #include "render.h"
@@ -59,51 +58,51 @@ xy find_midd_point(sectors sct)
     return (start);
 }
 
-level_s *init_levels()
-{
-    level_s *levels;
-    levels = (level_s *)malloc(sizeof(*levels) * 3);
-
-    levels[0].init_sectors = (sectors *(*)())init_map;
-    levels[0].init_textures = (texture_set_s (*)())t1;
-    levels[0].end[0] = 3;//if player sector == end you need to change level
-    levels[0].end[1] = -1;
-    levels[0].end[2] = -1;
-    levels[0].next_level[0] = 1;//index of next level
-    levels[0].next_level[1] = -1;
-    levels[0].next_level[2] = -1;
-    levels[0].start[0] = 0;// start sector in next level
-    levels[0].start[1] = -1;
-    levels[0].start[2] = -1;
-    levels[0].sectors = 5;//total sectors in level
-
-    levels[1].init_sectors = (sectors *(*)())init_map;
-    levels[1].init_textures = (texture_set_s (*)())t2;
-    levels[1].end[0] = 3;
-    levels[1].end[1] = -1;
-    levels[1].end[2] = -1;
-    levels[1].next_level[0] = 2;
-    levels[1].next_level[1] = -1;
-    levels[1].next_level[2] = -1;
-    levels[1].start[0] = 0;
-    levels[1].start[1] = -1;
-    levels[1].start[2] = -1;
-    levels[1].sectors = 5;
-
-    levels[2].init_sectors = (sectors *(*)())init_map;
-    levels[2].init_textures = (texture_set_s (*)())t3;
-    levels[2].end[0] = 3;
-    levels[2].end[1] = -1;
-    levels[2].end[2] = -1;
-    levels[2].next_level[0] = 0;
-    levels[2].next_level[1] = -1;
-    levels[2].next_level[2] = -1;
-    levels[2].start[0] = 0;
-    levels[2].start[1] = -1;
-    levels[2].start[2] = -1;
-    levels[2].sectors = 5;
-    return(levels);
-}
+//level_s *init_levels()
+//{
+//    level_s *levels;
+//    levels = (level_s *)malloc(sizeof(*levels) * 3);
+//
+//    levels[0].init_sectors = (sectors *(*)())init_map;
+//    levels[0].init_textures = (texture_set_s (*)())t1;
+//    levels[0].end[0] = 3;//if player sector == end you need to change level
+//    levels[0].end[1] = -1;
+//    levels[0].end[2] = -1;
+//    levels[0].next_level[0] = 1;//index of next level
+//    levels[0].next_level[1] = -1;
+//    levels[0].next_level[2] = -1;
+//    levels[0].start[0] = 0;// start sector in next level
+//    levels[0].start[1] = -1;
+//    levels[0].start[2] = -1;
+//    levels[0].sectors = 5;//total sectors in level
+//
+//    levels[1].init_sectors = (sectors *(*)())init_map;
+//    levels[1].init_textures = (texture_set_s (*)())t2;
+//    levels[1].end[0] = 3;
+//    levels[1].end[1] = -1;
+//    levels[1].end[2] = -1;
+//    levels[1].next_level[0] = 2;
+//    levels[1].next_level[1] = -1;
+//    levels[1].next_level[2] = -1;
+//    levels[1].start[0] = 0;
+//    levels[1].start[1] = -1;
+//    levels[1].start[2] = -1;
+//    levels[1].sectors = 5;
+//
+//    levels[2].init_sectors = (sectors *(*)())init_map;
+//    levels[2].init_textures = (texture_set_s (*)())t3;
+//    levels[2].end[0] = 3;
+//    levels[2].end[1] = -1;
+//    levels[2].end[2] = -1;
+//    levels[2].next_level[0] = 0;
+//    levels[2].next_level[1] = -1;
+//    levels[2].next_level[2] = -1;
+//    levels[2].start[0] = 0;
+//    levels[2].start[1] = -1;
+//    levels[2].start[2] = -1;
+//    levels[2].sectors = 5;
+//    return(levels);
+//}
 
 // void doom_init(SDL_Window *win, SDL_Surface *surface)
 // {
@@ -165,12 +164,14 @@ void doom_init(SDL_Window *win, SDL_Surface *surface)
 
     i = 0;
     sector = NULL;
-    sector = connect_sectors(get_map("map.doom"));//init_map();// <- PARSER
+    level_s lvl = connect_level(get_map("map.doom"));
+    sector = lvl.sector;//connect_sectors(get_map("#get"));//init_map();
     if (sector == NULL)
         return ;
-    txt_set = texture_init();// <- PARSER
+    txt_set = lvl.texture;//connect_textures(get_map("#get"));//texture_init();
     int start_sector_idx = 0;
-    player = init_player(find_midd_point(sector[start_sector_idx]), 0, sector, start_sector_idx, 5);// <- PARSER
+//    player = init_player(find_midd_point(sector[start_sector_idx]), 0, sector, start_sector_idx, 5);
+    player = init_player(find_midd_point(sector[start_sector_idx]), 0, sector, start_sector_idx, lvl.sectors_size);
     //-------------------------------------------
     while(!player.exit_doom)
     {
@@ -179,6 +180,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface)
         events(sector, &player);
         SDL_Delay(10);
     }
+    get_map("#del");
     quit(sector, &txt_set, &player, NULL);
 }
 
@@ -189,8 +191,8 @@ int main()
 
 
     win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED,
-                                    SDL_WINDOWPOS_CENTERED,
-                                    W, H, SDL_WINDOW_OPENGL);
+                           SDL_WINDOWPOS_CENTERED,
+                           W, H, SDL_WINDOW_OPENGL);
     surface = SDL_GetWindowSurface(win);
 
     SDL_ShowCursor(SDL_DISABLE);
@@ -203,14 +205,16 @@ int main()
     return (0);
 }
 
-        //TODO
-        // add collision while crouching under low cieling (+)
-        // add collision when stend up after crouching (+)
-        // add collision in corners (+)
+//TODO
+// add collision while crouching under low cieling (+)
+// add collision when stend up after crouching (+)
+// add collision in corners (+)
 
 //-------------------------------------------
 //TODO:
 // -set map from file
 // -make parser;
 // -story;
+// -change speed while ducking
+// -ducking=0 if jump while ducking
 // PLAYER ANGELS OF END AND START SECTOR BETTER BE THE SAME

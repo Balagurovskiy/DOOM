@@ -117,6 +117,8 @@ void 				parse_line(char **line, t_map_sector **map_sector );
 t_map   			*parser(char *line, int status);
 
 sectors *connect_sectors(t_map *map);
+texture_set_s   connect_textures(t_map *map);
+level_s connect_level(t_map *map);
 t_map *get_map(char *file_name);
 //typedef struct level_s
 //{

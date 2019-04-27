@@ -38,7 +38,7 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
         txtz = (int)(cf.mapz * 256) % scrn->txt->size;
         t = y < wall.cya ? scrn->txt->ceiltexture : scrn->txt->floortexture;
         ((int*)scrn->surface->pixels)[y * W + x] =
-                fade_to_black(  ((int*)t->pixels)[scrn->txt->size * txtz + txtx] , wall.z,130);
+                fade_to_black(  ((int*)t->pixels)[scrn->txt->size * txtz + txtx] , wall.z,160);
 //        ((int*)scrn->surface->pixels)[y * W + x] =
 //                ((int*)t->pixels)[scrn->txt->size * txtz + txtx];
 

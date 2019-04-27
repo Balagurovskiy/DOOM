@@ -42,19 +42,29 @@ typedef struct  texture_set_s
 
 }               texture_set_s;
 
+//typedef struct level_s
+//{
+//    sectors* (*init_sectors)();
+//    texture_set_s   (*init_textures)();
+//    int sectors;
+//    int start[3];
+//    int end[3];
+//    int next_level[3];
+//}           level_s;
+
 typedef struct level_s
 {
-    sectors* (*init_sectors)();
-    texture_set_s   (*init_textures)();
-    int sectors;
+    sectors* sector;
+    texture_set_s texture;
+    int sectors_size;
     int start[3];
     int end[3];
     int next_level[3];
 }           level_s;
 
-sectors* m1();texture_set_s   t1();
-sectors* m2();texture_set_s   t2();
-sectors* m3();texture_set_s   t3();
+//sectors* m1();texture_set_s   t1();
+//sectors* m2();texture_set_s   t2();
+//sectors* m3();texture_set_s   t3();
 sectors* sprite_test();
 
 void render_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t);
