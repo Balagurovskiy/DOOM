@@ -29,7 +29,12 @@ int parse_singe_value(char **line, char *flag, char *separ)
 	segment = cut_str_value(*line, flag, separ);
 	value = parse_atoi(segment);
 	loop_str_to_value(line, separ, (segment != NULL));
-	ft_memdel((void **)&segment);
+    if (!segment)
+    {
+        ft_putstr("EXCEPTION > parser > invalid ceil/floor data format\n");
+        catch_exception(1);
+    }
+    ft_memdel((void **)&segment);
 	return (value);
 }
 

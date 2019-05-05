@@ -62,4 +62,7 @@
 #define IS_START(s, i) s[i].status == 1
 #define IS_END(s, i) s[i].status == 2
 
+#define COMPARE(a, b) ABS(a - b) < ACC
+#define ACC 0.01
+
 #endif

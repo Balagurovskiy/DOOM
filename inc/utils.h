@@ -17,6 +17,8 @@ typedef struct  xyz
 }               xyz;
 
 xy new_xy(float x, float y);
+int equals_xy(xy a, xy b);
+int equals_float(float a, float b);
 
 xyz new_xyz(float x, float y, float z);
 

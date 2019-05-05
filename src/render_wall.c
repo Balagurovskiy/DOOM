@@ -62,7 +62,8 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
         // In any case, there's no neat way to do it.
         // It is why the SNES port of Doom didn't do floor & ceiling textures at all.
         /////////////////
-        render_floor_ceil(scrn, wall, heights, x);
+        if(!scrn->isobj)
+            render_floor_ceil(scrn, wall, heights, x);
         ///////////////// ELSE
         /* Render ceiling: everything above this sector's ceiling height. */
 //        shaded_line(scrn->surface, x, scrn->ytop[x], wall.cya - 1, 0x111111, 0x222222, 0x111111);

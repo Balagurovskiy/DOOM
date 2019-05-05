@@ -22,7 +22,6 @@ FILES =  main \
          render_heights \
          render_floor_ceil \
          render_perspective \
-         loader \
          \
          parser/map_sector_utils \
          parser/map_vertex_utils \

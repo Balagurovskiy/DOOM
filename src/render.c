@@ -33,13 +33,14 @@ static screen screen_init(SDL_Surface *surface,
      return (scrn);
 }
 
-void render_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t)
+void render_screen(SDL_Surface *srf, player *pl, level_s *lvl, int is_obj)
 {
     screen scrn;
     unsigned int s;
     int renderedsectors[pl->total_sectors];
 
-    scrn = screen_init(srf, pl, sct, t);
+    scrn = screen_init(srf, pl, lvl->sector, &(lvl->texture));
+    scrn.isobj = is_obj;
     s = 0;
     while (s < pl->total_sectors)
          renderedsectors[s++] = 0;

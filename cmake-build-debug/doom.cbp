@@ -8,43 +8,43 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/firewizard/CLionProjects/untitled/cmake-build-debug"/>
+				<Option working_dir="/Users/firewizard/CLionProjects/doom/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/firewizard/CLionProjects/untitled/cmake-build-debug"/>
+				<Option working_dir="/Users/firewizard/CLionProjects/doom/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/firewizard/CLionProjects/untitled/cmake-build-debug"/>
+				<Option working_dir="/Users/firewizard/CLionProjects/doom/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="doom">
-				<Option output="/Users/firewizard/CLionProjects/untitled/cmake-build-debug/doom" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/firewizard/CLionProjects/untitled/cmake-build-debug"/>
+				<Option output="/Users/firewizard/CLionProjects/doom/cmake-build-debug/doom" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/firewizard/CLionProjects/doom/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/firewizard/CLionProjects/untitled/inc"/>
+					<Add directory="/Users/firewizard/CLionProjects/doom/inc"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -53,20 +53,20 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 doom"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 doom"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="doom/fast">
-				<Option output="/Users/firewizard/CLionProjects/untitled/cmake-build-debug/doom" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/firewizard/CLionProjects/untitled/cmake-build-debug"/>
+				<Option output="/Users/firewizard/CLionProjects/doom/cmake-build-debug/doom" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/firewizard/CLionProjects/doom/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/firewizard/CLionProjects/untitled/inc"/>
+					<Add directory="/Users/firewizard/CLionProjects/doom/inc"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
 					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
@@ -75,185 +75,182 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 doom/fast"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 doom/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/Users/firewizard/CLionProjects/doom/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/defines.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/defines.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/doom.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/doom.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/events.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/events.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/libft.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/libft.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/parser.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/parser.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/render.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render_heights.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/render_heights.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render_scaler.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/render_scaler.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/render_wall.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/render_wall.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/inc/utils.h">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/utils.h">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/event.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/event_key_bumping.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event_key_bumping.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/event_key_collision.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event_key_collision.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/event_key_moves.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event_key_moves.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/event_keys.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event_keys.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/event_mouse_view.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event_mouse_view.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/loader.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/main.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/main.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/for_each_gnl.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/for_each_gnl.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_atoi.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_atoi.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_list_add.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_add.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_list_clear.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_list_clear.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_lst_delone.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lst_delone.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_lstnew.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_lstnew.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_memcpy.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memcpy.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_memdel.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_memdel.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_putstr.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_putstr.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_splinter.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_splinter.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_str_contains.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_str_contains.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strchr.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strchr.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strdel.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdel.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strdup.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strdup.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strequ.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strequ.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strjoin.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strjoin.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strlen.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strlen.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/ft_strsub.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/ft_strsub.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/get_next_line.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/ft_lib/get_next_line.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/map_sector_utils.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/map_sector_utils.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/map_vertex_utils.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/map_vertex_utils.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parsed_data_connector.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parsed_data_connector.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser_level.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_level.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser_sector.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_sector.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser_str_utils.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_str_utils.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser_utils.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/parser/parser_utils.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_floor_ceil.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_floor_ceil.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_heights.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_heights.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_line.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_line.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_perspective.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_perspective.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_scaler.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_scaler.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_towards.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_towards.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_wall.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_wall.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_wall_intersection.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/render_wall_intersection.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/utils_intersection.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/utils_intersection.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/utils_point_side.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/utils_point_side.c">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/utils_xyz.c">
 			<Option target="doom"/>
 		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/src/utils_xyz.c">
-			<Option target="doom"/>
-		</Unit>
-		<Unit filename="/Users/firewizard/CLionProjects/untitled/CMakeLists.txt">
+		<Unit filename="/Users/firewizard/CLionProjects/doom/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

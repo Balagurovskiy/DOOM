@@ -52,6 +52,7 @@ typedef struct  screen
     player          *player;
     sectors         *sector;
     SDL_Surface     *surface;
+    int             isobj;
 
     texture_set_s   *txt;
     txt_data_s      txt_data;
@@ -90,7 +91,7 @@ typedef struct perspective
 
 
 //render.c
-void render_screen(SDL_Surface *srf, player *pl, sectors *sct, texture_set_s *t);
+//void render_screen(SDL_Surface *srf, player *pl, level_s *lvl);
 
 //render_towards.c
 void render_towards(screen *scrn);

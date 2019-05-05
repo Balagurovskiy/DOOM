@@ -64,5 +64,5 @@ add_executable(doom inc/doom.h
         src/render_perspective.c
                     src/event_mouse_view.c
                     src/utils_xyz.c
-                    src/loader.c)
+                    )
 target_link_libraries(doom ${libsdl})

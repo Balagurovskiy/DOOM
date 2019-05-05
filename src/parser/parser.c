@@ -54,13 +54,12 @@ void parse_texture(char *line, t_map **map)
 {
 	char *txt;
 	char **txt_data;
-	char *nxt_level;
 	int it;
 
 	txt = cut_str_value(line, "texture:\0", ";\0");
 	txt_data = ft_splinter(txt, ",{}");
-	parse_texture_switch(txt_data, map, &it);	
-	if (it != 0)
+	parse_texture_switch(txt_data, map, &it);
+	if (it != 0 || !txt || !txt_data)
 	{
 		ft_putstr("EXCEPTION > parser > invalid texture data\n");
 		catch_exception(1);
@@ -80,6 +79,7 @@ void	parser_refresh(int *entry, t_map **map, t_map_sector **sector)
 	ft_memdel((void **)&((*map)->uppertextures));
 	ft_memdel((void **)&((*map)->lowertextures));
 	ft_memdel((void **)map);
+    (*map) = NULL;
 }
 
 t_map   *map_init()
@@ -103,7 +103,7 @@ t_map   *parser(char *line, int status)
 	static int 				entry = 0;
 	static t_map_sector 	*map_sector = NULL;
 
-	if(status)
+	if(status && !catch_exception(0))
 	{
 		if (line)
 		{
@@ -120,9 +120,8 @@ t_map   *parser(char *line, int status)
 			entry++;
 		}
 	}
-	else{
-		parser_refresh(&entry, &map, &map_sector);		
-	}
+	else if (!status)
+		parser_refresh(&entry, &map, &map_sector);
 	return (map);
 }
 

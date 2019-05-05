@@ -34,7 +34,7 @@ void parse_vertex(char **vertex, t_map_vertex **fvertex, int *count, int *size)
 	}
 	if (it != 0)
 	{
-		ft_putstr("EXCEPTION > parser > invalid sector data\n");
+		ft_putstr("EXCEPTION > parser > invalid sector data size\n");
 		catch_exception(1);
 	}
 }
@@ -44,20 +44,22 @@ t_map_vertex 	*parse_sector(char **line, int *count)
 	t_map_vertex 	*fvertex;
 	char 			*sectors;
 	char 			**vertex;
-
 	int 			size;
 	
 	size = 0;
 	(*count) = 0;
 	fvertex = NULL;
 	sectors = cut_str_value(*line, "sector:\0", ";\0");
-	if (sectors)
-	{
-		vertex = ft_splinter(sectors, ",{}");
-		parse_vertex(vertex, &fvertex, count, &size);
-		free_splinter(vertex, size);
-		loop_str_to_value(line, ";\0", sectors != NULL);
-		ft_memdel((void **)&sectors);
-	}
+    vertex = ft_splinter(sectors, ",{}");
+    if (!sectors || !vertex)
+    {
+        ft_putstr("EXCEPTION > parser > invalid sector data format\n");
+        catch_exception(1);
+    }
+    else
+        parse_vertex(vertex, &fvertex, count, &size);
+    free_splinter(vertex, size);
+    loop_str_to_value(line, ";\0", sectors != NULL);
+    ft_memdel((void **)&sectors);
 	return (fvertex);
 }

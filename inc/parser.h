@@ -120,17 +120,10 @@ sectors *connect_sectors(t_map *map);
 texture_set_s   connect_textures(t_map *map);
 level_s connect_level(t_map *map);
 t_map *get_map(char *file_name);
-//typedef struct level_s
-//{
-//    sectors 		*sector;
-//    texture_set_s  	textures;
-//    int 			sectors_size;
-//    int start[3];
-//    int end[3];
-//    int next_level[3];
-//}           level_s;
 
+player init_player(float a, sectors *s, unsigned int s_in, int num_s);
 
+# define VRTX(s, v) lvl.sector[s].vertex[v]
 
 
 #endif

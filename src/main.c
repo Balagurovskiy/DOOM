@@ -1,32 +1,33 @@
+//#include <gmpxx.h>
 #include "defines.h"
 #include "doom.h"
+#include "libft.h"
 #include "render.h"
+#include "parser.h"
 
-void safe_free(void *free_me)
-{
-    if (free_me != NULL)
-        free(free_me);
-}
-void free_sector(sectors *sct, texture_set_s *t, player *p)
+
+
+void free_level(level_s *level)
 {
     int i;
 
     i = 0;
-    free_texture_set(t);
-    if(sct && p) {
-        while (i < p->total_sectors) {
-            safe_free((void *)(sct[i]).vertex);
-            safe_free((void *)(sct[i]).neighbors);
+    free_texture_set(&(level->texture));
+    if(level->sector)
+    {
+        while (i < level->sectors_size)
+        {
+            ft_memdel((void **)&(level->sector[i]).vertex);
+            ft_memdel((void **)&(level->sector[i]).neighbors);
             i++;
         }
-        free(sct);
+        ft_memdel((void **)&(level->sector));
     }
+    i = 3;
+    while(i--)
+        ft_memdel((void **) &(level->next_level[i]));
 }
-void quit(sectors *sct, texture_set_s *t, player *p, level_s *l)
-{
-    free_sector(sct, t, p);
-    safe_free((void *)l);
-}
+
 
 void free_texture_set(texture_set_s *t)
 {
@@ -39,149 +40,131 @@ void free_texture_set(texture_set_s *t)
     }
 }
 
-
-xy find_midd_point(sectors sct)
+void change_level(level_s *lvl, player *p)
 {
-    xy start;
-    int i;
+    int j;
+    int next_start;
+    float angle;
+    char *next_lvl_temp;
+    t_map *map_temp;
 
-    i = 0;
-    start = new_xy(0.0, 0.0);
-    while (i < sct.npoints)
+    j = 3;
+    while(j--)
     {
-        start.x += sct.vertex[i].x;
-        start.y += sct.vertex[i].y;
+        if(p->sector == lvl->end[j] && lvl->next_level[j])
+        {
+            next_start = lvl->start[j];
+            angle = p->angle;
+            next_lvl_temp = ft_strjoin(lvl->next_level[j], NULL);
+            map_temp = get_map(next_lvl_temp);
+            if (map_temp && next_start >= 0 && next_start < lvl->sectors_size)
+            {
+                free_level(lvl);
+                *lvl = connect_level(map_temp);
+                *p = init_player(angle, lvl->sector, next_start, lvl->sectors_size);
+            }
+            ft_memdel((void**)&next_lvl_temp);
+
+        }
+    }
+}
+void sector_init(sectors* s, int sx[], int sy[], int n[])
+{
+    int i = 0;
+
+    s->neighbors = (int *)malloc((s->npoints + 1) * sizeof(*s->neighbors));
+    s->vertex = (xy *)malloc((s->npoints + 1) * sizeof(*s->vertex));
+    while (i < (s->npoints + 1)){
+        s->vertex[i].x = sx[i];
+        s->vertex[i].y = sy[i];
+        s->neighbors[i] = n[i];
         i++;
     }
-    start.x /= i;
-    start.y /= i;
-    return (start);
 }
+sectors* sprite_test() {
+    sectors *sector;
+    sectors *sect;
 
-//level_s *init_levels()
-//{
-//    level_s *levels;
-//    levels = (level_s *)malloc(sizeof(*levels) * 3);
-//
-//    levels[0].init_sectors = (sectors *(*)())init_map;
-//    levels[0].init_textures = (texture_set_s (*)())t1;
-//    levels[0].end[0] = 3;//if player sector == end you need to change level
-//    levels[0].end[1] = -1;
-//    levels[0].end[2] = -1;
-//    levels[0].next_level[0] = 1;//index of next level
-//    levels[0].next_level[1] = -1;
-//    levels[0].next_level[2] = -1;
-//    levels[0].start[0] = 0;// start sector in next level
-//    levels[0].start[1] = -1;
-//    levels[0].start[2] = -1;
-//    levels[0].sectors = 5;//total sectors in level
-//
-//    levels[1].init_sectors = (sectors *(*)())init_map;
-//    levels[1].init_textures = (texture_set_s (*)())t2;
-//    levels[1].end[0] = 3;
-//    levels[1].end[1] = -1;
-//    levels[1].end[2] = -1;
-//    levels[1].next_level[0] = 2;
-//    levels[1].next_level[1] = -1;
-//    levels[1].next_level[2] = -1;
-//    levels[1].start[0] = 0;
-//    levels[1].start[1] = -1;
-//    levels[1].start[2] = -1;
-//    levels[1].sectors = 5;
-//
-//    levels[2].init_sectors = (sectors *(*)())init_map;
-//    levels[2].init_textures = (texture_set_s (*)())t3;
-//    levels[2].end[0] = 3;
-//    levels[2].end[1] = -1;
-//    levels[2].end[2] = -1;
-//    levels[2].next_level[0] = 0;
-//    levels[2].next_level[1] = -1;
-//    levels[2].next_level[2] = -1;
-//    levels[2].start[0] = 0;
-//    levels[2].start[1] = -1;
-//    levels[2].start[2] = -1;
-//    levels[2].sectors = 5;
-//    return(levels);
-//}
+    sector = malloc(5 * sizeof(*sector));
 
-// void doom_init(SDL_Window *win, SDL_Surface *surface)
-// {
-//     player          player;
-//     sectors         *sector;
-//     texture_set_s   txt_set;
-//     level_s         *levels;
-//     int             i;
-
-//     i = 0;
-//     sector = NULL;
-//     levels = init_levels();
-//     sector = levels[i].init_sectors();// <- PARSER
-//     if (sector == NULL)
-//         return ;
-//     txt_set = levels[i].init_textures();// <- PARSER
-//     player = init_player(find_midd_point(sector[0]), 0, sector, 0, levels[i].sectors);// <- PARSER
-//     //-------------------------------------------
-//     while(!player.exit_doom)
-//     {
-//         render_screen(surface, &player, sector, &txt_set);
-//         SDL_UpdateWindowSurface(win);
-//         events(sector, &player);
-
-// //        if (player.sector == 1)
-// //        {
-// //            sector[2].floor = 25;
-// //        }else {sector[2].floor = 8;}
-//         int j = -1;
-//         while(++j < 3)
-//         {
-//             if(player.sector == levels[i].end[j])
-//             {
-//                 int next_start = levels[i].start[j];
-//                 i = levels[i].next_level[j];
-//                 float angle = player.angle;
-
-//                 free_sector(sector, &txt_set, &player);
-
-//                 sector = levels[i].init_sectors();// <- PARSER
-//                 if (sector == NULL)
-//                     return ;
-//                 txt_set = levels[i].init_textures();// <- PARSER
-//                 player = init_player(find_midd_point(sector[next_start]), angle, sector, next_start, levels[i].sectors);// <- PARSER
-//             }
-//         }
-//         SDL_Delay(10);
-//     }
-//     quit(sector, &txt_set, &player, levels);
-// }
-
-# include "parser.h"
+    sect = &sector[0];
+    sect->npoints = 2;
+    sect->floor = 5;
+    sect->ceil = 10;
+    int sector0x[] = {1, 1, 1};
+    int sector0y[] = {5, 10, 5};
+    int neighbors0[] = {-1, -1, -1};
+    sector_init(sect, sector0x, sector0y, neighbors0);
+    sect = &sector[1];
+    sect->npoints = 2;
+    sect->floor = 9;
+    sect->ceil = 12;
+    int sector0x1[] = {11, 14, 5};
+    int sector0y1[] = {1, 1, 2};
+    int neighbors01[] = {-1, -1, -1};
+    sector_init(sect, sector0x1, sector0y1, neighbors01);
+    sect = &sector[2];
+    sect->npoints = 2;
+    sect->floor = 5;
+    sect->ceil = 10;
+    int sector0x12[] = {11, 12, 11};
+    int sector0y12[] = {6, 13, 6};
+    sector_init(sect, sector0x12, sector0x12, neighbors0);
+    sect = &sector[3];
+    sect->npoints = 2;
+    sect->floor = 5;
+    sect->ceil = 10;
+    int sector0x3[] = {6, 6, 6};
+    int sector0y3[] = {6, 6, 6};
+    sector_init(sect, sector0x3, sector0y3, neighbors0);
+    sect = &sector[4];
+    sect->npoints = 2;
+    sect->floor = 5;
+    sect->ceil = 10;
+    int sector0x4[] = {5,10, 5};
+    int sector0y4[] = {13, 13, 13};
+    sector_init(sect, sector0x4, sector0y4, neighbors0);
+    return sector;
+}
 void doom_init(SDL_Window *win, SDL_Surface *surface)
 {
     player          player;
-    sectors         *sector;
-    texture_set_s   txt_set;
-    int             i;
+    level_s         lvl;
 
-    i = 0;
-    sector = NULL;
-    level_s lvl = connect_level(get_map("map.doom"));
-    sector = lvl.sector;//connect_sectors(get_map("#get"));//init_map();
-    if (sector == NULL)
+    lvl = connect_level(get_map("map.doom"));
+//
+//    lvl.sector[5].npoints = 2;
+//    lvl.sector[5].floor = 5;
+//    lvl.sector[5].ceil = 10;
+//    int sector0x1[] = {2, 3, 2};
+//    int sector0y1[] = {10, 12, 10};
+//    int neighbors01[] = {-1, -1, -1};
+//    sector_init(&(lvl.sector[5]), sector0x1, sector0y1, neighbors01);
+
+    if (catch_exception(0))
         return ;
-    txt_set = lvl.texture;//connect_textures(get_map("#get"));//texture_init();
-    int start_sector_idx = 0;
-//    player = init_player(find_midd_point(sector[start_sector_idx]), 0, sector, start_sector_idx, 5);
-    player = init_player(find_midd_point(sector[start_sector_idx]), 0, sector, start_sector_idx, lvl.sectors_size);
-    //-------------------------------------------
-    while(!player.exit_doom)
-    {
-        render_screen(surface, &player, sector, &txt_set);
+    player = init_player(0, lvl.sector, 0, lvl.sectors_size);
+    while(!player.exit_doom) {
+    //if (player.sector == 1)
+    //    sector[2].floor = 25;
+    //else
+    //    sector[2].floor = 8;
+
+
+
+        render_screen(surface, &player, &lvl, 0);
+
+        sectors *temp = lvl.sector;
+        lvl.sector = sprite_test();
+        render_screen(surface, &player, &lvl, 1);
+        lvl.sector = temp;
+
         SDL_UpdateWindowSurface(win);
-        events(sector, &player);
+        events(lvl.sector, &player);
         SDL_Delay(10);
+        change_level(&lvl, &player);
     }
-    get_map("#del");
-    quit(sector, &txt_set, &player, NULL);
+    free_level(&lvl);
 }
 
 int main()
@@ -205,16 +188,12 @@ int main()
     return (0);
 }
 
-//TODO
-// add collision while crouching under low cieling (+)
-// add collision when stend up after crouching (+)
-// add collision in corners (+)
 
-//-------------------------------------------
 //TODO:
-// -set map from file
-// -make parser;
+// -set map from file +++
+// -make parser; +++
 // -story;
 // -change speed while ducking
 // -ducking=0 if jump while ducking
 // PLAYER ANGELS OF END AND START SECTOR BETTER BE THE SAME
+// -------->parser seg fault : level tag validation+++; filled sectors validation (neighbor < sector size; neighbor vertex)

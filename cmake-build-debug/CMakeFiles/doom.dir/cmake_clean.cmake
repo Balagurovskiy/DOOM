@@ -45,7 +45,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/doom.dir/src/render_perspective.c.o"
   "CMakeFiles/doom.dir/src/event_mouse_view.c.o"
   "CMakeFiles/doom.dir/src/utils_xyz.c.o"
-  "CMakeFiles/doom.dir/src/loader.c.o"
   "doom.pdb"
   "doom"
 )
