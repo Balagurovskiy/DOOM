@@ -22,38 +22,14 @@
 int		get_next_line(const int fd, char **line);
 void	*for_each_gnl(char *file, void *(*f)(char *, int));
 
-//typedef struct		s_list
-//{
-//    void			*content;
-//    size_t			content_size;
-//    struct s_list	*next;
-//}					t_list;
-//
-//char				*ft_strchr(const char *s, int c);
-//void				ft_strdel(char **as);
-//char				*ft_strdup(const char *s1);
-//char				*ft_strsub(char const *s, unsigned int start, size_t len);
-//size_t				ft_strlen(const char *s);
-//t_list				*ft_lstnew(void const *content, size_t content_size);
-//void				ft_lst_delone(t_list **f, t_list *one,
-//                                  void (*del)(t_list *));
-//void				ft_list_clear(t_list *node);
-//void				ft_list_add(t_list **first_node, t_list *new_node);
-//int					ft_str_contains(char *source, char *target);
-//char				**ft_splinter(char const *s, char *c);
-//void				ft_memdel(void **ap);
-//int					ft_atoi(const char *str);
-//char				*ft_strjoin(char const *s1, char const *s2);
-//int					ft_strequ(char const *s1, char const *s2);
-
 #define TO_FLOAT(x) (float)x * 1.0
 
 typedef	struct		s_map_vertex
 {
 	// char					*neighbor;
 	int						neighbor;
-	int						x;
-	int						y;
+	float						x;
+	float						y;
 
 	struct	s_map_vertex 	*next;
 }					t_map_vertex;

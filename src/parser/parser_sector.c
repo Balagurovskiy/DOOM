@@ -5,9 +5,9 @@
 void parse_vertex_switch(t_map_vertex *vertex, char * str, int condition)
 {
 	if (condition == 0)
-		vertex->x = parse_atoi(str);
+		vertex->x = TO_FLOAT(parse_atoi(str));
 	if (condition == 1)
-		vertex->y = parse_atoi(str);
+		vertex->y = TO_FLOAT(parse_atoi(str));
 	if (condition == 2)
 		vertex->neighbor = parse_atoi(str);
 }

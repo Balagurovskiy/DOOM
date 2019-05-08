@@ -10,10 +10,21 @@ edge_s edge_init(player *player, sectors *sect, int s)
     edge_s edge;
     /* Acquire the x,y coordinates of the two vertexes forming the edge of the sector */
     /* Transform the vertices into the player's view */
-    edge.v1.x = sect->vertex[s+0].x - player->where.x;
-    edge.v1.y = sect->vertex[s+0].y - player->where.y;
-    edge.v2.x = sect->vertex[s+1].x - player->where.x;
-    edge.v2.y = sect->vertex[s+1].y - player->where.y;
+    if (s > sect->npoints)
+    {
+        edge.v1.x = sect->object_xy[0].x - player->where.x;
+        edge.v1.y = sect->object_xy[0].y - player->where.y;
+        edge.v2.x = sect->object_xy[1].x - player->where.x;
+        edge.v2.y = sect->object_xy[1].y - player->where.y;
+    }
+    else
+    {
+        edge.v1.x = sect->vertex[s+0].x - player->where.x;
+        edge.v1.y = sect->vertex[s+0].y - player->where.y;
+        edge.v2.x = sect->vertex[s+1].x - player->where.x;
+        edge.v2.y = sect->vertex[s+1].y - player->where.y;
+    }
+
     /* Rotate them around the player's view */
     edge.pcos = player->anglecos;
     edge.psin = player->anglesin;
@@ -44,8 +55,10 @@ void render_towards(screen *scrn)
 
     /* Render each wall of this sector that is facing towards player-> */
     s = 0;
-    while(s < SECT_NOW->npoints)
+    while(s < (SECT_NOW->npoints + ((SECT_NOW->object >= 1) ? 1 : 0)))
     {
+        if (s == SECT_NOW->npoints && SECT_NOW->object)
+            s++;//loop throw close point
         scrn->edge = edge_init(scrn->player, SECT_NOW, s);
         /* Is the wall at least partially in front of the player? */
         scrn->txt_data.u0 = 0;

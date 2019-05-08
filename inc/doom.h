@@ -15,6 +15,9 @@ typedef struct sectors
     xy *vertex; // Each vertex has an x and y coordinate
     int *neighbors;           // Each edge may have a corresponding neighboring sector
     unsigned int npoints;               // How many vertexes there are
+
+    int object;
+    xy  object_xy[2];
 }           sectors;
 
 /* Player: location */
@@ -28,7 +31,11 @@ typedef struct player
     float yaw;   // Looking towards (and sin() and cos() thereof)
     unsigned int sector;                        // Which sector the player is currently in
     unsigned int total_sectors;
+    
     int exit_doom;
+    
+    int action;
+    int key;
 }           player;
 
 
@@ -38,6 +45,10 @@ typedef struct  texture_set_s
     SDL_Surface *ceiltexture;
     SDL_Surface *uppertextures;
     SDL_Surface *lowertextures;
+
+    SDL_Surface *curr_object;
+    SDL_Surface *passive_object;
+    SDL_Surface *active_object;
     int          size;
 
 }               texture_set_s;
@@ -62,7 +73,7 @@ void events(sectors *sectors, player *player);
 void quit(level_s *level);
 void        free_texture_set(texture_set_s *t);
 
-void        sector_init(sectors* s, int sx[], int sy[], int n[]);
+// void        sector_init(sectors* s, int sx[], int sy[], int n[]);
 
 #endif
 

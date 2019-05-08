@@ -37,6 +37,8 @@ void free_texture_set(texture_set_s *t)
         SDL_FreeSurface(t->floortexture);
         SDL_FreeSurface(t->uppertextures);
         SDL_FreeSurface(t->lowertextures);
+        SDL_FreeSurface(t->active_object);
+        SDL_FreeSurface(t->passive_object);
     }
 }
 
@@ -68,96 +70,41 @@ void change_level(level_s *lvl, player *p)
         }
     }
 }
-void sector_init(sectors* s, int sx[], int sy[], int n[])
-{
-    int i = 0;
 
-    s->neighbors = (int *)malloc((s->npoints + 1) * sizeof(*s->neighbors));
-    s->vertex = (xy *)malloc((s->npoints + 1) * sizeof(*s->vertex));
-    while (i < (s->npoints + 1)){
-        s->vertex[i].x = sx[i];
-        s->vertex[i].y = sy[i];
-        s->neighbors[i] = n[i];
-        i++;
-    }
-}
-sectors* sprite_test() {
-    sectors *sector;
-    sectors *sect;
-
-    sector = malloc(5 * sizeof(*sector));
-
-    sect = &sector[0];
-    sect->npoints = 2;
-    sect->floor = 5;
-    sect->ceil = 10;
-    int sector0x[] = {1, 1, 1};
-    int sector0y[] = {5, 10, 5};
-    int neighbors0[] = {-1, -1, -1};
-    sector_init(sect, sector0x, sector0y, neighbors0);
-    sect = &sector[1];
-    sect->npoints = 2;
-    sect->floor = 9;
-    sect->ceil = 12;
-    int sector0x1[] = {11, 14, 5};
-    int sector0y1[] = {1, 1, 2};
-    int neighbors01[] = {-1, -1, -1};
-    sector_init(sect, sector0x1, sector0y1, neighbors01);
-    sect = &sector[2];
-    sect->npoints = 2;
-    sect->floor = 5;
-    sect->ceil = 10;
-    int sector0x12[] = {11, 12, 11};
-    int sector0y12[] = {6, 13, 6};
-    sector_init(sect, sector0x12, sector0x12, neighbors0);
-    sect = &sector[3];
-    sect->npoints = 2;
-    sect->floor = 5;
-    sect->ceil = 10;
-    int sector0x3[] = {6, 6, 6};
-    int sector0y3[] = {6, 6, 6};
-    sector_init(sect, sector0x3, sector0y3, neighbors0);
-    sect = &sector[4];
-    sect->npoints = 2;
-    sect->floor = 5;
-    sect->ceil = 10;
-    int sector0x4[] = {5,10, 5};
-    int sector0y4[] = {13, 13, 13};
-    sector_init(sect, sector0x4, sector0y4, neighbors0);
-    return sector;
-}
-void doom_init(SDL_Window *win, SDL_Surface *surface)
+void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 {
     player          player;
     level_s         lvl;
 
-    lvl = connect_level(get_map("map.doom"));
-//
-//    lvl.sector[5].npoints = 2;
-//    lvl.sector[5].floor = 5;
-//    lvl.sector[5].ceil = 10;
-//    int sector0x1[] = {2, 3, 2};
-//    int sector0y1[] = {10, 12, 10};
-//    int neighbors01[] = {-1, -1, -1};
-//    sector_init(&(lvl.sector[5]), sector0x1, sector0y1, neighbors01);
+    lvl = connect_level(get_map(file));
 
     if (catch_exception(0))
         return ;
     player = init_player(0, lvl.sector, 0, lvl.sectors_size);
+
+    lvl.sector[0].object = 1;////<<<<<
+    lvl.sector[0].object_xy[0] = new_xy(0.5, 4.0);
+    lvl.sector[0].object_xy[1] = new_xy(0.5, 2.0);
+
+    lvl.sector[1].object = 2;////<<<<<
+    lvl.sector[1].object_xy[0] = new_xy(9.8, 4.9);
+    lvl.sector[1].object_xy[1] = new_xy(5.8, 4.9);
+
     while(!player.exit_doom) {
-    //if (player.sector == 1)
-    //    sector[2].floor = 25;
-    //else
-    //    sector[2].floor = 8;
 
-
+        if(lvl.sector[player.sector].object == 1 && player.action){
+            lvl.texture.curr_object = lvl.texture.active_object;
+            player.key = 1;
+            printf("got KEY\n");
+        }
+        if(lvl.sector[player.sector].object == 2 && player.action && player.key){
+             player.key = 0;
+             lvl.sector[player.sector].object = 0;
+             lvl.sector[2].floor = 2;
+             lvl.sector[1].neighbors[2] = 2;
+        }
 
         render_screen(surface, &player, &lvl, 0);
-
-        sectors *temp = lvl.sector;
-        lvl.sector = sprite_test();
-        render_screen(surface, &player, &lvl, 1);
-        lvl.sector = temp;
 
         SDL_UpdateWindowSurface(win);
         events(lvl.sector, &player);
@@ -167,7 +114,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface)
     free_level(&lvl);
 }
 
-int main()
+int main(int argc, char **argv)
 {
     SDL_Window      *win;
     SDL_Surface     *surface;
@@ -179,7 +126,8 @@ int main()
     surface = SDL_GetWindowSurface(win);
 
     SDL_ShowCursor(SDL_DISABLE);
-    doom_init(win, surface);
+    ///argv checker; if no args play story mode
+    doom_init(win, surface, argv[1]);
 
     SDL_FreeSurface(surface);
     SDL_DestroyWindow(win);

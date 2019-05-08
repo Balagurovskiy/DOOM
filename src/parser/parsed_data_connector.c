@@ -16,6 +16,7 @@ t_map *get_map(char *file_name)
         ft_memdel((void **) &(map->ceiltexture));
         ft_memdel((void **) &(map->uppertextures));
         ft_memdel((void **) &(map->lowertextures));
+
         ft_memdel((void **) &map);
         map = NULL;
     }
@@ -49,6 +50,17 @@ texture_set_s   connect_textures(t_map *map)
     txt_set.ceiltexture = load_surface(map->ceiltexture);
     txt_set.uppertextures = load_surface(map->uppertextures);
     txt_set.lowertextures = load_surface(map->lowertextures);
+
+txt_set.passive_object = load_surface("txt/barrel.png");
+SDL_SetColorKey(txt_set.passive_object, SDL_TRUE,
+    SDL_MapRGB(txt_set.passive_object->format, 0, 0, 0));
+
+txt_set.active_object = load_surface("txt/e.png");
+SDL_SetColorKey(txt_set.active_object, SDL_TRUE,
+    SDL_MapRGB(txt_set.active_object->format, 0, 0, 0));
+
+txt_set.curr_object = txt_set.passive_object;
+
     txt_set.size = map->texture_size;
     //TODO --NULL CHECK
     return (txt_set);
@@ -60,10 +72,10 @@ void set_sector(sectors *s,  t_map_sector *ms)
     s->npoints = ms->vertex_size;
     s->floor = TO_FLOAT(ms->floor);
     s->ceil = TO_FLOAT(ms->ceil);
-    s->neighbors = (int *)malloc((s->npoints + 1) * sizeof(*s->neighbors));
+    s->neighbors = (int *)malloc((2 + s->npoints + 1) * sizeof(*s->neighbors));
     s->vertex = (xy *)malloc((s->npoints + 1) * sizeof(*s->vertex));
-    s->vertex[s->npoints].x = TO_FLOAT(ms->vertex->x);
-    s->vertex[s->npoints].y = TO_FLOAT(ms->vertex->y);
+    s->vertex[s->npoints].x = ms->vertex->x;
+    s->vertex[s->npoints].y = ms->vertex->y;
     s->neighbors[s->npoints] = -1;
 }
 void set_sector_vertexes(sectors *s,  t_map_sector *ms)
@@ -75,12 +87,14 @@ void set_sector_vertexes(sectors *s,  t_map_sector *ms)
     msv = ms->vertex;
     while (msv && ii < ms->vertex_size)
     {
-        s->vertex[ii].x = TO_FLOAT(msv->x);
-        s->vertex[ii].y = TO_FLOAT(msv->y);
+        s->vertex[ii].x = msv->x;
+        s->vertex[ii].y = msv->y;
         s->neighbors[ii] = msv->neighbor;
         msv = msv->next;
         ii++;
     }
+    s->neighbors[ms->vertex_size + 1] = -1;
+    s->neighbors[ms->vertex_size + 2] = -1;
 }
 
 sectors *connect_sectors(t_map *map)
@@ -92,14 +106,15 @@ sectors *connect_sectors(t_map *map)
 
 	i = 0;
     ms = map->sector;
-	s = (sectors *)malloc((map->sector_size + 1) * sizeof(sectors));
+	s = (sectors *)malloc((map->sector_size) * sizeof(sectors));
 	while (i < map->sector_size)
 	{
         set_sector(&(s[i]), ms);
         set_sector_vertexes(&(s[i]), ms);
+        s[i].object = 0;
         ms = ms->next;
 		i++;
-	}
+	}    
 	return (s);
 }
 
@@ -165,6 +180,8 @@ player init_player(float a, sectors *s, unsigned int s_in, int num_s)
     player.yaw = 0;
     player.total_sectors = num_s;
     player.exit_doom = 0;
+    player.action = 0;
+    player.key = 0;
     return (player);
 }
 

@@ -62,7 +62,7 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
         // In any case, there's no neat way to do it.
         // It is why the SNES port of Doom didn't do floor & ceiling textures at all.
         /////////////////
-        if(!scrn->isobj)
+        if(SECT_NOW->npoints > s)
             render_floor_ceil(scrn, wall, heights, x);
         ///////////////// ELSE
         /* Render ceiling: everything above this sector's ceiling height. */
@@ -89,10 +89,13 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
 
             // If our floor is lower than their floor, render_towards bottom wall
             ///////////////// TextureMapping
+            //((SECT_NOW->object)?  curr_object
             render_wall_line(scrn,
                              set_textured_line(x, (wall.cnyb + 1), wall.cyb),
                              set_scaler(wall.ya, (wall.cnyb + 1), wall.yb),
                              scrn->txt->lowertextures, wall.z);
+                             // scrn->txt->lowertextures, wall.z);
+            // ((scrn->sector[NGHBR_NOW(s)].object)? scrn->txt->curr_object : scrn->txt->lowertextures), wall.z);
 
             ///////////////// ELSE
 //            shaded_line(scrn->surface, x, wall.cnyb + 1, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R2(wall.z), 0);
@@ -104,7 +107,7 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
             render_wall_line(scrn,
                              set_textured_line(x, wall.cya, wall.cyb),
                              set_scaler(wall.ya, wall.cya, wall.yb),
-                             scrn->txt->uppertextures, wall.z);
+                             ((SECT_NOW->npoints < s)? scrn->txt->curr_object : scrn->txt->uppertextures), wall.z);
             ///////////////// ELSE
 //            shaded_line(scrn->surface, x, wall.cya, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R(wall.z), 0);
             /////////////////
