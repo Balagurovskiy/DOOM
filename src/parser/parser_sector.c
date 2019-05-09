@@ -63,3 +63,24 @@ t_map_vertex 	*parse_sector(char **line, int *count)
     ft_memdel((void **)&sectors);
 	return (fvertex);
 }
+
+t_map_vertex 	*parse_sector_object(char **line)
+{
+	t_map_vertex 	*fvertex;
+	char 			*sectors;
+	char 			**vertex;
+	int 			size;
+	int				nothing;
+	
+	size = 0;
+	nothing = 0;
+	fvertex = NULL;
+	sectors = cut_str_value(*line, "object:\0", ";\0");
+    vertex = ft_splinter(sectors, ",{}");
+    if (sectors && vertex)
+		parse_vertex(vertex, &fvertex, &nothing, &size);
+    free_splinter(vertex, size);
+    loop_str_to_value(line, ";\0", sectors != NULL);
+    ft_memdel((void **)&sectors);
+	return (fvertex);
+}

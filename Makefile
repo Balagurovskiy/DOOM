@@ -31,6 +31,11 @@ FILES =  main \
          parser/parser_str_utils \
          parser/parser_utils \
          parser/parsed_data_connector \
+         parser/connect_player \
+         parser/connect_sector \
+         parser/connect_sector_object \
+         parser/connect_level \
+         parser/parser_validation \
          \
          parser/ft_lib/for_each_gnl \
          parser/ft_lib/get_next_line \

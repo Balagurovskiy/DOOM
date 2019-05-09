@@ -19,9 +19,8 @@ t_map_sector		*map_new_sector()
 	new_node = (t_map_sector*)malloc(sizeof(t_map_sector));
 	if (new_node == NULL)
 		return (NULL);
-	// new_node->neighbor = n;
-	// new_node->x = x;
-	// new_node->y = y;
+	new_node->vertex = NULL;
+	new_node->object = NULL;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -76,7 +75,8 @@ void			map_del_sector(t_map_sector **node)
 			*node = (*node)->next;
 			if (del->vertex)
 				map_del_vertex(&(del->vertex));
-			// ft_memdel((void **)&(del->neighbor));
+			if (del->object)
+				map_del_vertex(&(del->object));
 			if (del->next_level)
 				free(del->next_level);
 			free(del);

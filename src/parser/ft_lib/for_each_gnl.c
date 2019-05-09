@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "parser.h"
-# include "libft.h"
+#include "libft.h"
 #include <fcntl.h>
 
 void			*for_each_gnl(char *file, void *(*f)(char *, int))

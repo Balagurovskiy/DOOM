@@ -37,6 +37,7 @@ void free_texture_set(texture_set_s *t)
         SDL_FreeSurface(t->floortexture);
         SDL_FreeSurface(t->uppertextures);
         SDL_FreeSurface(t->lowertextures);
+
         SDL_FreeSurface(t->active_object);
         SDL_FreeSurface(t->passive_object);
     }
@@ -81,15 +82,6 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
     if (catch_exception(0))
         return ;
     player = init_player(0, lvl.sector, 0, lvl.sectors_size);
-
-    lvl.sector[0].object = 1;////<<<<<
-    lvl.sector[0].object_xy[0] = new_xy(0.5, 4.0);
-    lvl.sector[0].object_xy[1] = new_xy(0.5, 2.0);
-
-    lvl.sector[1].object = 2;////<<<<<
-    lvl.sector[1].object_xy[0] = new_xy(9.8, 4.9);
-    lvl.sector[1].object_xy[1] = new_xy(5.8, 4.9);
-
     while(!player.exit_doom) {
 
         if(lvl.sector[player.sector].object == 1 && player.action){
@@ -101,7 +93,8 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
              player.key = 0;
              lvl.sector[player.sector].object = 0;
              lvl.sector[2].floor = 2;
-             lvl.sector[1].neighbors[2] = 2;
+             lvl.sector[1].neighbors[1] = 2;
+             // lvl.sector[2].neighbors[3] = 1;
         }
 
         render_screen(surface, &player, &lvl, 0);

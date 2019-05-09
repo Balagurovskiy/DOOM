@@ -45,6 +45,8 @@ typedef	struct		s_map_sector
 	char			*next_level;
 	int				next_level_sector;
 
+    t_map_vertex	*object;
+
 	struct	s_map_sector 	*next;
 }					t_map_sector;
 
@@ -85,6 +87,7 @@ int 				catch_exception(int status);
 void				parse_vertex_switch(t_map_vertex *vertex, char * str, int condition);
 void 				parse_vertex(char **vertex, t_map_vertex **fvertex, int *count, int *size);
 t_map_vertex 		*parse_sector(char **line, int *count);
+t_map_vertex 		*parse_sector_object(char **line);
 
 char 				*parse_level(char **line, int *nxt_sector);
 void 				parse_level_info(char **lvl_info, int *it, char **nxt_lvl, int *nxt_sctr);
@@ -92,12 +95,20 @@ void 				parse_level_info(char **lvl_info, int *it, char **nxt_lvl, int *nxt_sct
 void 				parse_line(char **line, t_map_sector **map_sector );
 t_map   			*parser(char *line, int status);
 
-sectors *connect_sectors(t_map *map);
-texture_set_s   connect_textures(t_map *map);
-level_s connect_level(t_map *map);
-t_map *get_map(char *file_name);
+player 				init_player(float a, sectors *s, unsigned int s_in, int num_s);
 
-player init_player(float a, sectors *s, unsigned int s_in, int num_s);
+void 				set_sector_object(sectors *s, t_map_sector *ms);
+
+void 				sector_validation(level_s lvl);
+
+texture_set_s  		connect_textures(t_map *map);
+sectors 			*connect_sectors(t_map *map);
+
+void 				connect_next_level(level_s *lvl, t_map *map);
+
+t_map 				*get_map(char *file_name);
+level_s 			connect_level(t_map *map);
+
 
 # define VRTX(s, v) lvl.sector[s].vertex[v]
 

@@ -27,6 +27,11 @@ add_executable(doom inc/doom.h
         src/parser/parser_sector.c
         src/parser/parser_str_utils.c
         src/parser/parsed_data_connector.c
+        src/parser/connect_player.c
+        src/parser/connect_sector.c
+        src/parser/connect_sector_object.c
+        src/parser/connect_level.c
+        src/parser/parser_validation.c
         src/parser/parser_utils.c
         src/parser/ft_lib/ft_atoi.c
         src/parser/ft_lib/ft_lstnew.c
