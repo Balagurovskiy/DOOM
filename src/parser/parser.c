@@ -22,6 +22,7 @@ void parse_line(char **line, t_map_sector **map_sector)
 		return ;
 	map_sector_new->ceil = parse_singe_value(line, "ceil:\0", ";\0");
 	map_sector_new->floor = parse_singe_value(line, "floor:\0", ";\0");
+	map_sector_new->floor = ((map_sector_new->ceil <= map_sector_new->floor) ? 0 : map_sector_new->floor);
 	map_sector_new->vertex = parse_sector(line, &(map_sector_new->vertex_size));
 	map_sector_new->object = parse_sector_object(line);
 	map_sector_new->next_level = parse_level(line, &(map_sector_new->next_level_sector));

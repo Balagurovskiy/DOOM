@@ -16,7 +16,7 @@
 /* Define various vision related constants */
 # define EYE_HEIGHT  6    // Camera height from floor when standing
 # define DUCK_HEIGHT 3.5  // And when crouching
-# define THICC 0.7 // bouding radius
+# define THICC 1.1 // bouding radius
 # define HEAD_MARGIN 1    // How much room there is above camera before the scrn.head hits the ceiling
 # define KNEE_HEIGHT 2    // How tall obstacles the player can simply walk over without jumping
 # define H_FOV (1.0 * 0.73f*H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)

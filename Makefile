@@ -1,6 +1,9 @@
 NAME = doom
 
 FILES =  main \
+        free \
+        actions \
+        action_utils \
         \
          event_key_collision \
          event_key_bumping \

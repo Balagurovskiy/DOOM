@@ -51,6 +51,9 @@ add_executable(doom inc/doom.h
         src/parser/ft_lib/ft_putstr.c
         src/parser/ft_lib/ft_memcpy.c
                     src/main.c
+                    src/free.c
+                    src/action_utils.c
+                    src/actions.c
                     src/event_key_collision.c
                     src/event_key_bumping.c
                     src/event.c

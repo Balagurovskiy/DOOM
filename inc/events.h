@@ -3,6 +3,12 @@
 #ifndef EVENTS_H
 # define EVENTS_H
 
+# define DUCK_KOEF(k) ((me->ducking == 1) ? (k / 1.5) : 0.0)
+# define SPEED_KOEF(k) (k - DUCK_KOEF(k));
+
+# define JUMP_HEIGHT (EYE_HEIGHT + PLAYER_SECT.floor + player->velocity.z)
+# define NEXTZ (player->where.z + player->velocity.z)
+# define UNDER_CEIL (NEXTZ < PLAYER_SECT.floor + me->eyeheight)
 
 typedef struct  move_events
 {

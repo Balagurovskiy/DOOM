@@ -36,6 +36,8 @@ typedef struct player
     
     int action;
     int key;
+
+    float gravity;
 }           player;
 
 
@@ -70,7 +72,11 @@ sectors* sprite_test();
 void render_screen(SDL_Surface *srf, player *pl, level_s *lvl, int is_obj);
 void events(sectors *sectors, player *player);
 
-void quit(level_s *level);
+void change_level(level_s *lvl, player *p);
+void action_controller(player *player, level_s *lvl, char *file);
+void door1(player *p, level_s *lvl, char *file);
+
+void        free_level(level_s *level);
 void        free_texture_set(texture_set_s *t);
 
 // void        sector_init(sectors* s, int sx[], int sy[], int n[]);

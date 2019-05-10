@@ -20,25 +20,25 @@ view_events view_events_init(move_events *me){
 }
 
 void view_event(move_events *me, view_events *ve, player *player, sectors *sectors){
-    player->angle += ve->x * 0.03f;
+    player->angle += ve->x * 0.007f;// sencivity
     me->yaw = CLAMP(me->yaw + ve->y * 0.05f, -5, 5);// +/- ve->y = inverse mouse
     player->yaw = me->yaw - player->velocity.z * 0.5f;
     move_player(new_xy(0.0, 0.0), player, sectors);
     if(me->wsad[0]) {
-        ve->move_vec[0] += player->anglecos * 0.2f;
-        ve->move_vec[1] += player->anglesin * 0.2f;
+        ve->move_vec[0] += player->anglecos * SPEED_KOEF(0.2f);
+        ve->move_vec[1] += player->anglesin * SPEED_KOEF(0.2f);
     }
     if(me->wsad[1]) {
-        ve->move_vec[0] -= player->anglecos * 0.06f;
-        ve->move_vec[1] -= player->anglesin * 0.06f;
+        ve->move_vec[0] -= player->anglecos * SPEED_KOEF(0.06f);
+        ve->move_vec[1] -= player->anglesin * SPEED_KOEF(0.06f);
     }
     if(me->wsad[2]) {
-        ve->move_vec[0] += player->anglesin * 0.1f;
-        ve->move_vec[1] -= player->anglecos * 0.1f;
+        ve->move_vec[0] += player->anglesin * SPEED_KOEF(0.1f);
+        ve->move_vec[1] -= player->anglecos * SPEED_KOEF(0.1f);
     }
     if(me->wsad[3]) {
-        ve->move_vec[0] -= player->anglesin * 0.1f;
-        ve->move_vec[1] += player->anglecos * 0.1f;
+        ve->move_vec[0] -= player->anglesin * SPEED_KOEF(0.1f);
+        ve->move_vec[1] += player->anglecos * SPEED_KOEF(0.1f);
     }
     player->velocity.x = player->velocity.x * (1 - ve->acceleration) + ve->move_vec[0] * ve->acceleration;
     player->velocity.y = player->velocity.y * (1 - ve->acceleration) + ve->move_vec[1] * ve->acceleration;    
