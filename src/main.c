@@ -18,7 +18,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 // lvl.sector[0].vertex[2].x = 0.5;
 // lvl.sector[1].vertex[1].x = 0.5;
     while(!player.exit_doom) {
-
+        SDL_FillRect(surface, NULL, 0x000000);
 
         action_controller(&player, &lvl, file);
         render_screen(surface, &player, &lvl, 0);
@@ -62,3 +62,13 @@ int main(int argc, char **argv)
 // -ducking=0 if jump while ducking
 // PLAYER ANGELS OF END AND START SECTOR BETTER BE THE SAME
 // -------->parser seg fault : level tag validation+++; filled sectors validation (neighbor < sector size; neighbor vertex)
+
+//////BLACK SCREEN ON SECTOR EDGE
+//Thread 0 Crashed:: Dispatch queue: com.apple.main-thread
+//0   doom                          	0x000000010bde9e88 render_floor_ceil + 376
+//1   doom                          	0x000000010bde7f28 render_the_wall + 344
+//2   doom                          	0x000000010bde78ff render_towards + 911
+//3   doom                          	0x000000010bde70b2 render_screen + 434
+//4   doom                          	0x000000010bde45a5 doom_init + 229
+//5   doom                          	0x000000010bde4675 main + 117
+//6   libdyld.dylib                 	0x00007fff60360115 start + 1

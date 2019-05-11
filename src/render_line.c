@@ -61,9 +61,9 @@ void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t, int z)
     {
         txt_y = scaler_next(&(tl.scale_ty)) % scrn->txt->size;
         txt_x = scrn->txt_data.txtx % scrn->txt->size;
-        // if(((int*)t->pixels)[scrn->txt->size * txt_y + txt_x] != 0x0)
+         if(((int*)t->pixels)[scrn->txt->size * txt_y + txt_x] != 0x0)
             *pixels = fade_to_black( ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x], z, 150);//tl.y1 , tl.y2  ///,  z , 50
-//        *pixels = ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x];
+//        *pixels = if ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x];
         // if(*pixels == 0x0)
         //     *pixels = 0xC00000A0;
         pixels += W;

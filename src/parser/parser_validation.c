@@ -52,13 +52,13 @@ static void data_validation(level_s lvl, int sctr, int vrtxs)
 
     excptn = 0;
     i = 3;
-    if (lvl.sector[sctr].ceil < 0 || lvl.sector[sctr].ceil > 50)
+    if (lvl.sector[sctr].ceil < 0 || lvl.sector[sctr].ceil > 250)
         excptn = 1;
-    if (lvl.sector[sctr].floor < 0 || lvl.sector[sctr].floor > 50)
+    if (lvl.sector[sctr].floor < 0 || lvl.sector[sctr].floor > 250)
         excptn = 2;
-    if (VRTX(sctr, vrtxs).x < 0.0 || VRTX(sctr, vrtxs).x > 50.0)
+    if (VRTX(sctr, vrtxs).x < 0.0 || VRTX(sctr, vrtxs).x > 250.0)
         excptn = 3;
-    if (VRTX(sctr, vrtxs).y < 0.0 || VRTX(sctr, vrtxs).y > 50.0)
+    if (VRTX(sctr, vrtxs).y < 0.0 || VRTX(sctr, vrtxs).y > 250.0)
         excptn = 4;
     if (lvl.texture.size < 0 || lvl.texture.size > 1050)
         excptn = 5;
