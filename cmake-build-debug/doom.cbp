@@ -112,6 +112,12 @@
 		<Unit filename="/Users/firewizard/CLionProjects/doom/inc/utils.h">
 			<Option target="doom"/>
 		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/action_utils.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/actions.c">
+			<Option target="doom"/>
+		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event.c">
 			<Option target="doom"/>
 		</Unit>
@@ -130,7 +136,22 @@
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/event_mouse_view.c">
 			<Option target="doom"/>
 		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/free.c">
+			<Option target="doom"/>
+		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/main.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/connect_level.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/connect_player.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/connect_sector.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/connect_sector_object.c">
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/ft_lib/for_each_gnl.c">
@@ -212,6 +233,9 @@
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser_utils.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/parser_validation.c">
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render.c">

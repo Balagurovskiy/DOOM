@@ -44,6 +44,7 @@ void render_screen(SDL_Surface *srf, player *pl, level_s *lvl, int is_obj)
     s = 0;
     while (s < pl->total_sectors)
          renderedsectors[s++] = 0;
+    // printf("= = = = = = = \n");
     while(scrn.head != scrn.tail)
     {
         /* Pick a sector & slice from scrn.queue to draw */

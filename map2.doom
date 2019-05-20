@@ -2,5 +2,5 @@ texture:{txt/floor2.ppm,txt/ceil2.ppm,txt/floor.ppm,txt/wall2.ppm,1024};
 ceil:13;floor:0;sector:{0,15,-1}{0,0,1}{6,5,3}{5,10,4};
 ceil:29;floor:8;sector:{0,0,-1}{15,0,-1}{15,5,2}{10,5,3}{6,5,0};
 ceil:26;floor:6;sector:{5,10,3}{10,5,1}{15,5,-1}{15,15,4}{10,10,4};
-ceil:18;floor:13;sector:{6,5,1}{10,5,2}{5,10,0};level:{map.doom,0};
+ceil:18;floor:11;sector:{6,5,1}{10,5,2}{5,10,0};level:{map.doom,0};
 ceil:23;floor:3;sector:{0,15,0}{5,10,2}{10,10,2}{15,15,-1};

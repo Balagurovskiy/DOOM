@@ -14,12 +14,23 @@ void view_intersection_with_wall(screen *scrn)
 //             xy org1;
 //             xy org2;
 /////////////////
-    if (scrn->edge.t1.z <= 0 || scrn->edge.t2.z <= 0) {
+    // if (scrn->edge.t1.z <= 0 || scrn->edge.t2.z <= 0) {
         // Find an intersetion between the wall and the approximate edges of player's view
         i1 = intersect(EDGE_T(scrn->edge.t1), EDGE_T(scrn->edge.t2),
-                       new_xy(-NEAR_SIDE, NEARZ), new_xy(-FAR_SIDE, FARZ));
+                       new_xy(-(NEAR_SIDE), NEARZ), new_xy(-FAR_SIDE, FARZ));
         i2 = intersect(EDGE_T(scrn->edge.t1), EDGE_T(scrn->edge.t2),
                        new_xy(NEAR_SIDE, NEARZ), new_xy(FAR_SIDE, FARZ));
+
+        // xy t1 = EDGE_T(scrn->edge.t1);
+        // xy t2 = EDGE_T(scrn->edge.t2);
+        // int l1 = t1.x <= t2.x && -FAR_SIDE <= t2.x;
+        // int l2 = t1.x <= -NEAR_SIDE && -FAR_SIDE <= t2.x;
+        // int add = l1 || l2;
+        // int l11 = t1.x <= t2.x && FAR_SIDE <= t2.x;
+        // int l22 = t1.x <= NEAR_SIDE && FAR_SIDE <= t2.x;
+        // int add2  = l11 || l22;
+        // ((x1 <= x2 && x4 <= x2) || (x1 <= x3 && x4 <= x2))
+
 /////////////////TextureMapping
 //        scrn->txt_data.u0 = 0;
 //        scrn->txt_data.u1 = 1023;
@@ -28,8 +39,15 @@ void view_intersection_with_wall(screen *scrn)
         scrn->txt_data.org2.x = scrn->edge.t2.x;
         scrn->txt_data.org2.y = scrn->edge.t2.z;
 /////////////////
-        if (scrn->edge.t1.z < NEARZ) {
-            if (i1.y > 0) {
+        int on_line = 1;
+        if (scrn->edge.t1.x > scrn->edge.t1.x)
+            on_line = i1.x < scrn->edge.t1.x && i1.x > scrn->edge.t2.x;
+        if (scrn->edge.t1.x < scrn->edge.t1.x)
+            on_line = i1.x > scrn->edge.t1.x && i1.x < scrn->edge.t2.x;
+        // printf(" (( i1:%f )) z:%f n:%f y:%f ", i1.x,scrn->edge.t1.z,NEARZ,i1.y);
+        if (scrn->edge.t1.z < NEARZ ) {
+            // printf(" * ");
+            if (i1.y > 0.0 && on_line) {                
                 scrn->edge.t1.x = i1.x;
                 scrn->edge.t1.z = i1.y;
             } else {
@@ -38,7 +56,8 @@ void view_intersection_with_wall(screen *scrn)
             }
         }
         if (scrn->edge.t2.z < NEARZ) {
-            if (i1.y > 0) {
+            // printf(" + ");
+            if (i1.y > 0.0) {
                 scrn->edge.t2.x = i1.x;
                 scrn->edge.t2.z = i1.y;
             } else {
@@ -55,5 +74,5 @@ void view_intersection_with_wall(screen *scrn)
             scrn->txt_data.u1 = (scrn->edge.t2.z - scrn->txt_data.org1.y) * (scrn->txt->size - 1) / (scrn->txt_data.org2.y - scrn->txt_data.org1.y);
         }
 /////////////////
-    }
+    // }
 }

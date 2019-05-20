@@ -26,17 +26,7 @@ texture_set_s   connect_textures(t_map *map)
 
 txt_set.passive_object = load_surface("txt/q.png");
 
-//    SDL_FillRect(txt_set.passive_object, NULL, SDL_MapRGB(txt_set.passive_object->format, 0, 0, 0));
-//    SDL_SetColorKey(txt_set.passive_object, 0x00001000, SDL_MapRGB(txt_set.passive_object->format, 0, 0, 0));
-
-
-SDL_SetColorKey(txt_set.passive_object, SDL_TRUE,
-        SDL_MapRGB(txt_set.passive_object->format, 0, 0, 0));
-
-    printf("w:%d___h:%d\n",txt_set.passive_object->w,txt_set.passive_object->h );
 txt_set.active_object = load_surface("txt/e.png");
-SDL_SetColorKey(txt_set.active_object, SDL_TRUE,
-    SDL_MapRGB(txt_set.active_object->format, 0, 0, 0));
 
 txt_set.curr_object = txt_set.passive_object;
 

@@ -14,7 +14,7 @@ wall_s wall_init(screen *scrn, heights_s *heights, int x, perspective_s persp)
     float p1 = scrn->txt_data.u0 * (persp.x2 - x) * scrn->edge.t2.z;
     float p2 = scrn->txt_data.u1 * ((x - persp.x1) * scrn->edge.t1.z);
     float p = ((persp.x2 - x) * scrn->edge.t2.z + (x - persp.x1) * scrn->edge.t1.z);
-    scrn->txt_data.txtx = (p1 + p2) / p;
+    scrn->txt_data.txtx = (p1 + p2) / ((COMPARE(ABS(p), 0.0)) ? 1.0 : p);
     /////////////////
     ///////////////// ! NOT ! TextureMapping
     /* Calculate the Z coordinate for this point. (Only used for lighting.) */
@@ -50,6 +50,7 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
     int x;
 
     x = heights.beginx;
+    // printf("%f -> %f | ", heights.beginx,heights.endx);
     while (++x <= heights.endx)
     {
         wall = wall_init(scrn, &heights, x, perspect);

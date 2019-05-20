@@ -12,8 +12,8 @@
 typedef struct  item
 {
     int             sectorno;
-    int             sx1;
-    int             sx2;
+    float             sx1;
+    float             sx2;
 }               item;
 
 typedef  struct edge
@@ -85,8 +85,8 @@ typedef struct perspective
     xy scale1;
     xy scale2;
 
-    int x1;
-    int x2;
+    float x1;
+    float x2;
 }               perspective_s;
 
 
