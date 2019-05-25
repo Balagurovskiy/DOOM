@@ -12,14 +12,14 @@
 
 #include "../include/level_editor.h"
 
-int		is_point_equal(t_point p1, t_point p2)
+int			is_point_equal(t_point p1, t_point p2)
 {
 	if (p1.x == p2.x && p1.y == p2.y)
 		return (TRUE);
 	return (FALSE);
 }
 
-void	draw_point(t_app *app, int x, int y)
+void		draw_point(t_app *app, int x, int y)
 {
 	SDL_RenderDrawPoint(app->renderer, x - 1, y - 1);
 	SDL_RenderDrawPoint(app->renderer, x, y - 1);

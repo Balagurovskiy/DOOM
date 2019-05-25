@@ -12,13 +12,12 @@
 
 #include "../include/level_editor.h"
 
-
 SDL_Surface			*load_image(char *path)
 {
 	SDL_Surface		*converted;
 	SDL_Surface		*tmp;
 	SDL_PixelFormat	pixel_format;
-	Uint32          color_key;
+	Uint32			color_key;
 
 	tmp = NULL;
 	converted = NULL;

@@ -192,7 +192,7 @@ typedef struct		s_app
     t_texture       icons[6];
 
     t_line          joint_sector;
-	int             joint_sector_id;
+	int             joint_sec_id;
 
     t_menu_panel    menu_panel;
     int             menu_panel_id_shape;
@@ -279,5 +279,8 @@ void                render_shape(t_app *app, t_shape shape);
 void                render_shape_control_points(t_app *app, t_shape shape);
 void				render_game_shapes(t_app *app);
 void				render_grid(t_app *app);
+void				edit_first_shape(t_app *app, t_point point);
+void				edit_next_shape(t_app *app, t_point point);
+
 
 #endif
