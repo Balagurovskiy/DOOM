@@ -1,4 +1,0 @@
-texture:{txt/floor2.ppm,txt/ceil2.ppm,txt/floor.ppm,txt/wall2.ppm,1024};
-ceil:13;floor:0;sector:{0,0,-1}{5,0,-1}{5,5,1}{0,5,-1};object:{1,3,1}{3,3,1};
-ceil:15;floor:0;sector:{0,5,0}{5,5,-1}{5,10,-1}{0,10,-1};object:{5,6,2}{5,9,2};
-ceil:15;floor:14;sector:{5,5,-1}{10,5,-1}{10,10,-1}{5,10,-1};

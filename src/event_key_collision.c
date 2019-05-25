@@ -84,10 +84,25 @@ static void vert_collision_switch(move_events *me,
 
 void vert_collision_detection(move_events *me, player *player, sectors *sector)
 {
+    int crit_falling;
+    static int take_fall_damage = 0;
+
     me->ground = !me->falling;
+    player->gravity = 0.08f;
     if(me->falling)
     {
-        player->velocity.z -= player->gravity; /* Add gravity */        
+        player->velocity.z -= player->gravity; /* Add gravity */
+        if (player->velocity.z >= -1.0)
+            crit_falling = 1;
+        else
+            crit_falling  = 0;
+        if (player->velocity.z < -0.9 && crit_falling)
+            take_fall_damage = 1;
+        if (take_fall_damage && player->velocity.z >= -0.08)
+        {
+            take_fall_damage = 0;
+            player->health--;
+        }
         vert_collision_switch(me, player, sector);
     }
 }

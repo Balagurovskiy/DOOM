@@ -33,6 +33,8 @@ typedef struct player
     unsigned int total_sectors;
     
     int exit_doom;
+
+    int health;
     
     int action;
     int key;
@@ -48,10 +50,14 @@ typedef struct  texture_set_s
     SDL_Surface *uppertextures;
     SDL_Surface *lowertextures;
 
+    SDL_Surface *sky;
+    SDL_Surface *door;
+    SDL_Surface *dec[4];
+    SDL_Surface *key[6];
+    
     SDL_Surface *curr_object;
     SDL_Surface *passive_object;
     SDL_Surface *active_object;
-    int          size;
 
 }               texture_set_s;
 
@@ -73,12 +79,20 @@ void render_screen(SDL_Surface *srf, player *pl, level_s *lvl, int is_obj);
 void events(sectors *sectors, player *player);
 
 void change_level(level_s *lvl, player *p);
+void  goto_level(level_s *lvl, player *p, char *level_name);
 void action_controller(player *player, level_s *lvl, char *file);
 void door1(player *p, level_s *lvl, char *file);
 
 void        free_level(level_s *level);
 void        free_texture_set(texture_set_s *t);
+void        music(char *tag);
 
+void render_massage(char *mssg, SDL_Surface *surface);
+void massage(char *file, player *p, SDL_Surface *surface);
+void text_pattern_0(char *file, player *p, SDL_Surface *surface);
+void text_pattern_1(char *file, player *p, SDL_Surface *surface);
+
+char *save_file(char *file);
 // void        sector_init(sectors* s, int sx[], int sy[], int n[]);
 
 #endif

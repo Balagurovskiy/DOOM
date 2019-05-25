@@ -32,8 +32,6 @@ edge_s edge_init(player *player, sectors *sect, int s)
     edge.t1.z = edge.v1.x * edge.pcos + edge.v1.y * edge.psin;
     edge.t2.x = edge.v2.x * edge.psin - edge.v2.y * edge.pcos;
     edge.t2.z = edge.v2.x * edge.pcos + edge.v2.y * edge.psin;
-// printf(" t1 %f %f | t2 %f %f | ", edge.t1.x, edge.t1.z, edge.t2.x, edge.t2.z);
-    // printf("v1 %f %f | v2%f %f | t1 %f %f | t2 %f %f | ", edge.v1.x,edge.v1.y,edge.v2.x,edge.v2.y, edge.t1.x, edge.t1.z, edge.t2.x, edge.t2.z);
     return (edge);
 }
 
@@ -54,32 +52,26 @@ void render_towards(screen *scrn)
     heights_s heights;
     perspective_s perspect;
     int s;
-// printf("----------------------\n");
     /* Render each wall of this sector that is facing towards player-> */
     s = 0;
     while(s < (SECT_NOW->npoints + ((SECT_NOW->object >= 1) ? 1 : 0)))
     {
-        // printf("\npoint:%d (s_in:%d) s_r:%d | ", s,scrn->player->sector,scrn->now.sectorno);
         if (s == SECT_NOW->npoints && SECT_NOW->object)
             s++;//loop throw close point
         scrn->edge = edge_init(scrn->player, SECT_NOW, s);
         /* Is the wall at least partially in front of the player? */
         scrn->txt_data.u0 = 0;
-        scrn->txt_data.u1 = (scrn->txt->size - 1);
+        scrn->txt_data.u1 = scrn->txt->uppertextures->w - 1;
         if (IS_FRONT(scrn->edge))
         {
             /* If it's partially behind the player, clip it against player's view frustrum */
             view_intersection_with_wall(scrn);
             /* Do perspect transformation */
             perspect = perspective_init(scrn->edge);
-            // printf("[x2:%d sx1:%d] [x1:%d sx2:%d] | ", perspect.x2,scrn->now.sx1,perspect.x1,scrn->now.sx2);
-            // printf("1<2(%d) ", (perspect.x1 < perspect.x2));
             if (perspect.x1 < perspect.x2)
             {
-                // printf(" 2>s1 && 1<s2(%d) ", (perspect.x2 > scrn->now.sx1 && perspect.x1 < scrn->now.sx2 ));
                 if (perspect.x2 > scrn->now.sx1 && perspect.x1 < scrn->now.sx2)
                 {
-                    // printf("sin:%f cos:%f  yaw:%f  angle:%f\n", scrn->player->anglesin,scrn->player->anglecos,scrn->player->yaw,scrn->player->angle);
                     /* Acquire and transform the floor and ceiling heights */
                     heights = heights_init(scrn, perspect, s);
                     /* Render the wall. */
@@ -89,7 +81,6 @@ void render_towards(screen *scrn)
                 }
             }
         }
-        // printf("\n");
         s++;
     }
 }

@@ -22,7 +22,8 @@ void parse_line(char **line, t_map_sector **map_sector)
 		return ;
 	map_sector_new->ceil = parse_singe_value(line, "ceil:\0", ";\0");
 	map_sector_new->floor = parse_singe_value(line, "floor:\0", ";\0");
-	map_sector_new->floor = ((map_sector_new->ceil <= map_sector_new->floor) ? 0 : map_sector_new->floor);
+	map_sector_new->floor = ((map_sector_new->ceil <= map_sector_new->floor) ?
+								0 : map_sector_new->floor);
 	map_sector_new->vertex = parse_sector(line, &(map_sector_new->vertex_size));
 	map_sector_new->object = parse_sector_object(line);
 	map_sector_new->next_level = parse_level(line, &(map_sector_new->next_level_sector));
@@ -35,7 +36,7 @@ void parse_texture_switch(char **txt_data, t_map **map, int *it)
 
 	k = 0;
 	(*it) = 0;
-	while (txt_data && txt_data[k] && k < 5)
+	while (txt_data && txt_data[k] && k < 4)
 	{
 		if ((*it) == 0)
 			(*map)->floortexture = ft_strjoin(txt_data[k], NULL);
@@ -43,14 +44,14 @@ void parse_texture_switch(char **txt_data, t_map **map, int *it)
 			(*map)->ceiltexture = ft_strjoin(txt_data[k], NULL);
 		if ((*it) == 2)
 			(*map)->uppertextures = ft_strjoin(txt_data[k], NULL);
-		if ((*it) == 0)
-			(*map)->lowertextures = ft_strjoin(txt_data[k], NULL);
-		if ((*it) == 4)
-			(*map)->texture_size = parse_atoi(txt_data[k]);
-		ft_memdel((void **)&(txt_data[k]));
-		(*it) = iterate(5);
+		if ((*it) == 3)
+			(*map)->lowertextures = ft_strjoin(txt_data[k], NULL);		
+		(*it) = iterate(4);
 		k++;
 	}
+	k = 0;
+	while(txt_data && txt_data[k])
+		ft_memdel((void **)&(txt_data[k++]));
 }
 void parse_texture(char *line, t_map **map)
 {
@@ -93,7 +94,6 @@ t_map   *map_init()
 	map->ceiltexture =  NULL;
 	map->uppertextures =  NULL;
 	map->lowertextures =  NULL;
-	map->texture_size = 0;
 	map->sector = NULL;
 	map->sector_size = 0;
 	return (map);

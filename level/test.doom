@@ -1,0 +1,3 @@
+texture:{txt/floor2.ppm,txt/ceil2.ppm,txt/floor.ppm,txt/wall2.ppm,1024};
+ceil:16;floor:0;sector:{0,0,-1}{80,16,-1}{96,64,1}{0,96,-1};id:0;
+ceil:16;floor:0;sector:{0,96,0}{96,64,-1}{96,128,-1}{176,128,-1}{128,192,-1};id:1;

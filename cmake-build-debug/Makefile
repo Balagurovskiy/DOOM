@@ -393,6 +393,33 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/music.o: src/music.c.o
+
+.PHONY : src/music.o
+
+# target to build an object file
+src/music.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/music.c.o
+.PHONY : src/music.c.o
+
+src/music.i: src/music.c.i
+
+.PHONY : src/music.i
+
+# target to preprocess a source file
+src/music.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/music.c.i
+.PHONY : src/music.c.i
+
+src/music.s: src/music.c.s
+
+.PHONY : src/music.s
+
+# target to generate assembly for a file
+src/music.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/music.c.s
+.PHONY : src/music.c.s
+
 src/parser/connect_level.o: src/parser/connect_level.c.o
 
 .PHONY : src/parser/connect_level.o
@@ -1500,6 +1527,60 @@ src/render_wall_intersection.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall_intersection.c.s
 .PHONY : src/render_wall_intersection.c.s
 
+src/text_utils.o: src/text_utils.c.o
+
+.PHONY : src/text_utils.o
+
+# target to build an object file
+src/text_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/text_utils.c.o
+.PHONY : src/text_utils.c.o
+
+src/text_utils.i: src/text_utils.c.i
+
+.PHONY : src/text_utils.i
+
+# target to preprocess a source file
+src/text_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/text_utils.c.i
+.PHONY : src/text_utils.c.i
+
+src/text_utils.s: src/text_utils.c.s
+
+.PHONY : src/text_utils.s
+
+# target to generate assembly for a file
+src/text_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/text_utils.c.s
+.PHONY : src/text_utils.c.s
+
+src/texts.o: src/texts.c.o
+
+.PHONY : src/texts.o
+
+# target to build an object file
+src/texts.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/texts.c.o
+.PHONY : src/texts.c.o
+
+src/texts.i: src/texts.c.i
+
+.PHONY : src/texts.i
+
+# target to preprocess a source file
+src/texts.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/texts.c.i
+.PHONY : src/texts.c.i
+
+src/texts.s: src/texts.c.s
+
+.PHONY : src/texts.s
+
+# target to generate assembly for a file
+src/texts.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/texts.c.s
+.PHONY : src/texts.c.s
+
 src/utils_intersection.o: src/utils_intersection.c.o
 
 .PHONY : src/utils_intersection.o
@@ -1620,6 +1701,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/music.o"
+	@echo "... src/music.i"
+	@echo "... src/music.s"
 	@echo "... src/parser/connect_level.o"
 	@echo "... src/parser/connect_level.i"
 	@echo "... src/parser/connect_level.s"
@@ -1743,6 +1827,12 @@ help:
 	@echo "... src/render_wall_intersection.o"
 	@echo "... src/render_wall_intersection.i"
 	@echo "... src/render_wall_intersection.s"
+	@echo "... src/text_utils.o"
+	@echo "... src/text_utils.i"
+	@echo "... src/text_utils.s"
+	@echo "... src/texts.o"
+	@echo "... src/texts.i"
+	@echo "... src/texts.s"
 	@echo "... src/utils_intersection.o"
 	@echo "... src/utils_intersection.i"
 	@echo "... src/utils_intersection.s"

@@ -142,6 +142,9 @@
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/main.c">
 			<Option target="doom"/>
 		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/music.c">
+			<Option target="doom"/>
+		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/parser/connect_level.c">
 			<Option target="doom"/>
 		</Unit>
@@ -263,6 +266,12 @@
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/render_wall_intersection.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/text_utils.c">
+			<Option target="doom"/>
+		</Unit>
+		<Unit filename="/Users/firewizard/CLionProjects/doom/src/texts.c">
 			<Option target="doom"/>
 		</Unit>
 		<Unit filename="/Users/firewizard/CLionProjects/doom/src/utils_intersection.c">

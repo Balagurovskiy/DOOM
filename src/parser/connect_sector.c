@@ -8,9 +8,11 @@ static SDL_Surface	*load_surface(char *filepath)
     surf = IMG_Load(filepath);
     if (surf == NULL)
     {
-        //ft_putendl(IMG_GetError());
-        printf("NO TEXTURE FILE");
-        exit(0);
+        ft_putstr("EXCEPTION > textures > invalid texture file\n");
+        ft_putstr("\t\t > >");
+        ft_putstr(filepath);
+        ft_putstr("\n");
+        catch_exception(1);
     }
     return (surf);
 }
@@ -24,17 +26,29 @@ texture_set_s   connect_textures(t_map *map)
     txt_set.uppertextures = load_surface(map->uppertextures);
     txt_set.lowertextures = load_surface(map->lowertextures);
 
-txt_set.passive_object = load_surface("txt/q.png");
+txt_set.door = load_surface("textures/object/door.png");
+txt_set.sky = load_surface("textures/walls/Sky.png");
 
-txt_set.active_object = load_surface("txt/e.png");
+txt_set.dec[0] = load_surface("textures/object/decor_A.png");
+txt_set.dec[1] = load_surface("textures/object/decor1.png");
+txt_set.dec[2] = load_surface("textures/object/decor2.png");
+txt_set.dec[3] = load_surface("textures/object/decor3.png");
+
+txt_set.key[0] = load_surface("textures/key_anim/key1.png");
+txt_set.key[1] = load_surface("textures/key_anim/key2.png");
+txt_set.key[2] = load_surface("textures/key_anim/key3.png");
+txt_set.key[3] = load_surface("textures/key_anim/key4.png");
+txt_set.key[4] = load_surface("textures/key_anim/key5.png");
+txt_set.key[5] = load_surface("textures/key_anim/key6.png");
+
+txt_set.passive_object = load_surface("textures/temp/q.png");
+txt_set.active_object = load_surface("textures/temp/e.png");
 
 txt_set.curr_object = txt_set.passive_object;
 
-    txt_set.size = map->texture_size;
     //TODO --NULL CHECK
     return (txt_set);
 }
-
 
 static void set_sector(sectors *s,  t_map_sector *ms)
 {

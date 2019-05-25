@@ -45,17 +45,8 @@ void key_events(move_events *me, player *player, sectors *s)
         sym = e.key.keysym.sym;
         if (e.type == SDL_KEYDOWN || e.type == SDL_KEYUP){
             move_key_event(me, sym, e);
-
             if(sym == 'e')
                 player->action = e.type == SDL_KEYDOWN;
-
-
-            if(sym == 'q')
-                player->gravity = 0.01f;
-            else
-                player->gravity = 0.08f;
-
-
             jump_duck_key_event(me, player, sym, e);
             if(sym == SDLK_ESCAPE)
                 player->exit_doom = 1;

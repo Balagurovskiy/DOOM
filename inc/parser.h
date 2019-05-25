@@ -60,7 +60,6 @@ typedef	struct		s_map
     char 			*ceiltexture;
     char 			*uppertextures;
     char 			*lowertextures;
-    int          	texture_size;
     
 }					t_map;
 

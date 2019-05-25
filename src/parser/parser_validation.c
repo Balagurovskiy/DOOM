@@ -51,7 +51,6 @@ static void data_validation(level_s lvl, int sctr, int vrtxs)
     int i;
 
     excptn = 0;
-    i = 3;
     if (lvl.sector[sctr].ceil < 0 || lvl.sector[sctr].ceil > 50)
         excptn = 1;
     if (lvl.sector[sctr].floor < 0 || lvl.sector[sctr].floor > 50)
@@ -60,14 +59,12 @@ static void data_validation(level_s lvl, int sctr, int vrtxs)
         excptn = 3;
     if (VRTX(sctr, vrtxs).y < 0.0 || VRTX(sctr, vrtxs).y > 50.0)
         excptn = 4;
-    if (lvl.texture.size < 0 || lvl.texture.size > 1050)
-        excptn = 5;
-    while(i--)
-        if (lvl.start[i] < 0 || lvl.start[i] > 25)
+    i = 3;
+    while(i-- && !excptn)
+        if ((lvl.start[i] < 0 || lvl.start[i] > 25) && lvl.next_level[i])
             excptn = 6;
     if (excptn)
     {
-        printf("%d<<<\n",excptn);
         ft_putstr("EXCEPTION > sector > invalid data\n");
         catch_exception(1);
     }
