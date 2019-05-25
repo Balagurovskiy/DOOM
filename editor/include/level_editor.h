@@ -126,6 +126,10 @@ typedef struct		s_shape
 	int				x_min;
 	int				y_max;
 	int				y_min;
+	double			dx1;
+	double			dy1;
+	double			dx2;
+	double			dy2;
 }					t_shape;
 
 typedef struct		s_menu
@@ -257,5 +261,6 @@ void				render_grid(t_app *app);
 void				edit_first_shape(t_app *app, t_point point);
 void				edit_next_shape(t_app *app, t_point point);
 int					get_neighbor_index(int i, int j);
+int					is_shape_convex(t_shape s);
 
 #endif
