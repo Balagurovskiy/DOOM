@@ -41,7 +41,7 @@ int		fade_to_black(int color, double current, double max)
     rgb[2] = (color >> 16) & 255;
     i = 3;
     while(i--)
-        rgb[i] *= (max - current) / max;
+        rgb[i] *= (max - (current - 15)) / max;
     return (rgb[0] + ((int)rgb[1] << 8) + (((int)rgb[2]) << 16));
 }
 
@@ -64,9 +64,6 @@ void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t, int z)
 
          if(TXT_IN && TXT_PIX != 0x0)
             *pixels = fade_to_black(TXT_PIX, z, 120);
-//        *pixels = if ((int*)t->pixels)[scrn->txt->size * txt_y + txt_x];
-        // if(*pixels == 0x0)
-        //     *pixels = 0xC00000A0;
         pixels += W;
         ++y;
     }

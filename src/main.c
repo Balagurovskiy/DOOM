@@ -54,36 +54,36 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
         player = init_player(0, lvl.sector, 0, lvl.sectors_size);
         player.health = 3;
 
-       
-        while(!player.exit_doom && !catch_exception(0)) 
+
+        while(!player.exit_doom && !catch_exception(0))
         {
             // SDL_FillRect(surface, NULL, 0x000000);
     ////CLOCK TEST
-        ft_timer("B====D");
+//        ft_timer("B====D");
         // printf("%d\n",ft_timer("#get"));
-            
+
     /////ACTIONS
             action_controller(&player, &lvl, save_file("#get"));
 
 
             render_screen(surface, &player, &lvl, 0);
 
-   
+
     /////DEATH HANDLE
             if (player.health == 1){
                 render_massage("You died :(((", surface);
-                  SDL_UpdateWindowSurface(win);               
+                  SDL_UpdateWindowSurface(win);
                 SDL_Delay(2000);
                 if (ft_str_contains(save_file("#get"), "level/sprite\0"))
                     goto_level(&lvl, &player, "level/map.doom");
                 else
                     goto_level(&lvl, &player, save_file("#get"));
-                
+
                 player.health = 3;
                 player.where.z = -0.08;
             }
-/////FONT TEST  
-//            massage(save_file("#get"), &player, surface);
+/////FONT TEST
+            massage(save_file("#get"), &player, surface);
 
             SDL_UpdateWindowSurface(win);
             events(lvl.sector, &player);
@@ -95,6 +95,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
     massage("#del", NULL, NULL);
     music("#del");
     save_file("#del");
+
 }
 
 int main(int argc, char **argv)
@@ -111,17 +112,18 @@ int main(int argc, char **argv)
     SDL_SetRelativeMouseMode(SDL_TRUE);
     SDL_ShowCursor(SDL_DISABLE);
     TTF_Init();
+
     if (argc != 2)
         doom_init(win, surface, "story_0.map");
     else
         doom_init(win, surface, argv[1]);
+
+	SDL_FreeSurface(surface);
     SDL_FreeSurface(surface);
     SDL_DestroyWindow(win);
-
     IMG_Quit();
     SDL_Quit();
     TTF_Quit();
-//    system("leaks doom");
     return (0);
 }
 

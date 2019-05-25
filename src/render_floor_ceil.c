@@ -112,8 +112,7 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
                     t = scrn->txt->ceiltexture;
                 with_shade = 1;
             }
-//write(1,"1_",2);
-            txtx = (int)(cf.mapx * 256) % t->w;//256
+            txtx = (int)(cf.mapx * 256) % t->w;
             txtz = (int)(cf.mapz * 256) % t->h;
             if (MAIN_IN && TXT_IN) {
                 if (with_shade)
@@ -121,7 +120,6 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
                 else
                     SCRN_PIX = TXT_PIX;
             }
-//			write(1,"2\n ",2);
         }
 //
     }

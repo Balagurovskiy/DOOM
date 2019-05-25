@@ -41,6 +41,5 @@ level_s connect_level(t_map *map)
     connect_next_level(&lvl, map);
     sector_validation(lvl);
     music("#play");
-//    get_map("#del");
     return (lvl);
 }
