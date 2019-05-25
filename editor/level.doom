@@ -1,4 +1,2 @@
-texture:{txt/wall0.ppm,txt/wall1.ppm,txt/wall2.ppm,txt/wall3.ppm,1024};
-ceil:16;floor:0;sector:{6,3,-1}{22,0,-1}{14,16,-1}{5,16,1};
-ceil:16;floor:0;sector:{6,3,0}{5,16,2}{1,14,-1}{0,5,-1};
-ceil:16;floor:0;sector:{1,14,1}{5,16,-1}{4,19,-1}{1,19,-1};
+texture:{textures/walls/wall0.png,textures/walls/wall1.png,textures/walls/wall2.png,textures/walls/wall3.png};
+ceil:16;floor:0;sector:{0,3,-1}{9,0,-1}{11,8,-1}{7,9,-1};

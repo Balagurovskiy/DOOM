@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkachano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/25 19:10:33 by mkachano          #+#    #+#             */
-/*   Updated: 2018/10/25 19:10:35 by mkachano         ###   ########.fr       */
+/*   Created: 2019/05/25 21:01:10 by mkachano          #+#    #+#             */
+/*   Updated: 2019/05/25 21:01:15 by mkachano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ void		on_mouse_move(t_app *app)
 
 void		listen_game_event(t_app *app)
 {
-	t_point point;
-
 	if (SDL_PollEvent(&app->event))
 	{
 		if (app->event.type == SDL_MOUSEBUTTONUP)
