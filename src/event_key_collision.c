@@ -55,7 +55,7 @@ static void vert_collision_switch(move_events *me,
                                     player *player,
                                     sectors *sector)
 {
-    if (EYE_HEIGHT + PLAYER_SECT.floor > PLAYER_SECT.ceil)
+    if (EYE_HEIGHT + PLAYER_SECT.floor > (PLAYER_SECT.ceil - 0.4))
     {
         player->where.z = DUCK_HEIGHT;
         me->falling = 1;
@@ -69,7 +69,7 @@ static void vert_collision_switch(move_events *me,
         me->falling = 0;
         me->ground  = 1;
     }
-    else if(player->velocity.z > 0 && JUMP_HEIGHT > PLAYER_SECT.ceil) // When going up
+    else if(player->velocity.z > 0 && JUMP_HEIGHT > (PLAYER_SECT.ceil - 0.4)) // When going up
     {
         /* Prevent jumping above ceiling */
         player->velocity.z = 0;

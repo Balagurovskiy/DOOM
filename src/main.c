@@ -83,7 +83,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
                 player.where.z = -0.08;
             }
 /////FONT TEST  
-            massage(save_file("#get"), &player, surface);
+//            massage(save_file("#get"), &player, surface);
 
             SDL_UpdateWindowSurface(win);
             events(lvl.sector, &player);
@@ -117,9 +117,11 @@ int main(int argc, char **argv)
         doom_init(win, surface, argv[1]);
     SDL_FreeSurface(surface);
     SDL_DestroyWindow(win);
+
     IMG_Quit();
     SDL_Quit();
     TTF_Quit();
+//    system("leaks doom");
     return (0);
 }
 

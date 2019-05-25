@@ -14,6 +14,7 @@
 # define SCRN_PIX ((int*)scrn->surface->pixels)[y * W + x]
 # define TXT_PIX ((int*)t->pixels)[t->w * txtz + txtx]
 
+
 typedef struct  item
 {
     int             sectorno;

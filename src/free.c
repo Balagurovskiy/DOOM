@@ -24,27 +24,32 @@ void free_level(level_s *level)
         ft_memdel((void **) &(level->next_level[i]));
 }
 
+void safe_sdlfree(SDL_Surface *s)
+{
+    if (s)
+        SDL_FreeSurface(s);
+}
+
 void free_texture_set(texture_set_s *t)
 {
     int i;
 
     if (t)
     {
-
-        SDL_FreeSurface(t->ceiltexture);
-        SDL_FreeSurface(t->floortexture);
-        SDL_FreeSurface(t->uppertextures);
-        SDL_FreeSurface(t->lowertextures);
-        SDL_FreeSurface(t->sky);
-        SDL_FreeSurface(t->door);
+        safe_sdlfree(t->ceiltexture);
+        safe_sdlfree(t->floortexture);
+        safe_sdlfree(t->uppertextures);
+        safe_sdlfree(t->lowertextures);
+        safe_sdlfree(t->sky);
+        safe_sdlfree(t->door);
         i = 4;
         while(--i)
-            SDL_FreeSurface(t->dec[i]);
+            safe_sdlfree(t->dec[i]);
         i = 6;
         while(--i)
-            SDL_FreeSurface(t->key[i]);
-        
-        SDL_FreeSurface(t->active_object);
-        SDL_FreeSurface(t->passive_object);
+            safe_sdlfree(t->key[i]);
+
+        safe_sdlfree(t->active_object);
+        safe_sdlfree(t->passive_object);
     }
 }

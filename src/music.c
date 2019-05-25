@@ -40,10 +40,10 @@ void music(char *tag)
     }
     if (ft_strequ(tag, "#del"))
     {
-        Mix_FreeMusic(song[0]);
-        Mix_FreeMusic(song[1]);
-        Mix_FreeMusic(song[2]);
-        Mix_CloseAudio();
+//        Mix_FreeMusic(song[0]);
+//        Mix_FreeMusic(song[1]);
+//        Mix_FreeMusic(song[2]);
+//        Mix_CloseAudio();
     }
     if (ft_strequ(tag, "#play"))
     {

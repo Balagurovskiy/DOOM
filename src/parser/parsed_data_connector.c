@@ -36,7 +36,7 @@ level_s connect_level(t_map *map)
     lvl.texture = connect_textures(map);
     connect_next_level(&lvl, map);
     sector_validation(lvl);
-    music("#play");
+//    music("#play");
 //    get_map("#del");
     return (lvl);
 }

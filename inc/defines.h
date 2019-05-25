@@ -21,10 +21,10 @@
 # define EYE_HEIGHT  6    // Camera height from floor when standing
 # define DUCK_HEIGHT 3.5  // And when crouching
 # define THICC 1.1 // bouding radius
-# define HEAD_MARGIN 1    // How much room there is above camera before the scrn.head hits the ceiling
+# define HEAD_MARGIN 0.5    // How much room there is above camera before the scrn.head hits the ceiling
 # define KNEE_HEIGHT 2    // How tall obstacles the player can simply walk over without jumping
-# define H_FOV (1.0 * 0.7 * H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)
-# define V_FOV (1.0 * 0.2)    // Affects the vertical field of vision
+# define H_FOV (0.7 * H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)
+# define V_FOV (0.2)    // Affects the vertical field of vision
 # define MAX_QUE 32   // MAXimum number of pending portal renders
 # define ABS(a) ((a) < 0 ? -(a) : (a))
 # define MIN(a,b)             (((a) < (b)) ? (a) : (b)) // MIN: Choose smaller of two scalars.

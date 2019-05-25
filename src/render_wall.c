@@ -48,9 +48,9 @@ SDL_Surface *texture_switch(screen *scrn, int s)
 {
     if (SECT_NOW->npoints < s)
     {
-        if (SECT_NOW->object == 1)
-            return (scrn->txt->door);
         if (SECT_NOW->object == 0)
+            return (scrn->txt->door);
+        if (SECT_NOW->object == 1)
             return (scrn->txt->dec[0]);
         if (SECT_NOW->object == 2)
             return (scrn->txt->dec[1]);

@@ -18,7 +18,7 @@ static SDL_Rect get_location()
 {
     SDL_Rect location;
 
-    location.x = 5;
+    location.x = W / 2 - W / 3;
     location.y = H / 2 + H / 4;
     location.w = 100;
     location.h = 100;
