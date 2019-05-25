@@ -20,6 +20,7 @@ t_map *get_map(char *file_name)
     }
     else
         map = (t_map *)for_each_gnl(file_name, (void *)&parser);
+
     return (map);
 }
 
@@ -30,13 +31,16 @@ level_s connect_level(t_map *map)
     if (!map)
         catch_exception(1);
     if (catch_exception(0))
-        return (lvl);
+    {
+    	lvl.sectors_size = -1;
+		return (lvl);
+	}
     lvl.sector = connect_sectors(map);
     lvl.sectors_size = map->sector_size;
     lvl.texture = connect_textures(map);
     connect_next_level(&lvl, map);
     sector_validation(lvl);
-//    music("#play");
+    music("#play");
 //    get_map("#del");
     return (lvl);
 }

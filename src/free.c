@@ -7,6 +7,11 @@ void free_level(level_s *level)
 {
     int i;
 
+    if (!level || level->sectors_size == -1)
+	{
+		ft_putstr("EXCEPTION > input > invalid argument\n");
+		return ;
+	}
     i = 0;
     free_texture_set(&(level->texture));
     if(level->sector)

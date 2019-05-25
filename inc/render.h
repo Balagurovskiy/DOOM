@@ -8,8 +8,8 @@
 # include "render_scaler.h"
 
 
-# define MAIN_IN ((scrn->surface->w * scrn->surface->h * 4) > (y * W + x))
-# define TXT_IN ((t->w * t->h * 4) > (t->w * txtz + txtx))
+# define MAIN_IN ((scrn->surface->w * scrn->surface->h * 3) > (y * W + x) && 0 <= (y * W + x))
+# define TXT_IN ((t->w * t->h * 3) > (t->w * txtz + txtx) && 0 <= (t->w * txtz + txtx))
 
 # define SCRN_PIX ((int*)scrn->surface->pixels)[y * W + x]
 # define TXT_PIX ((int*)t->pixels)[t->w * txtz + txtx]

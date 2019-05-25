@@ -90,7 +90,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
             change_level(&lvl, &player);
             SDL_Delay(10);
         }
-    }  
+    }
     free_level(&lvl);
     massage("#del", NULL, NULL);
     music("#del");

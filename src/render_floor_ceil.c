@@ -66,6 +66,7 @@ int null_check(screen *scrn)
 	return (1);
 }
 
+#include "unistd.h"
 void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
 {
     int y;
@@ -78,7 +79,6 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
 		return ;
 
     y = scrn->ytop[x] - 1;
-    printf(">> ");
     while(++y <= scrn->ybottom[x])
     {
 
@@ -86,7 +86,6 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
             y = wall.cyb;//continue;
         else
         {
-//            printf("1_");
 
             cf.hei = y < wall.cya ? heights.yceil : heights.yfloor;
             t = y < wall.cya ? scrn->txt->sky : scrn->txt->floortexture;
@@ -96,7 +95,6 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
             with_shade = 0;
 
             float lim;
-//            printf("2_");
             lim = ((H / 2 - (y)) - scrn->player->yaw * H * V_FOV);
             cf.mapz = (cf.hei) * H * V_FOV / ((lim == 0.0) ? 1.0 : lim);
             cf.mapx = (cf.mapz) * (W / 2 - (x)) / (W * H_FOV);
@@ -114,8 +112,7 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
                     t = scrn->txt->ceiltexture;
                 with_shade = 1;
             }
-//            printf("3_");
-
+//write(1,"1_",2);
             txtx = (int)(cf.mapx * 256) % t->w;//256
             txtz = (int)(cf.mapz * 256) % t->h;
             if (MAIN_IN && TXT_IN) {
@@ -124,9 +121,8 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
                 else
                     SCRN_PIX = TXT_PIX;
             }
-//            printf("4\n");
+//			write(1,"2\n ",2);
         }
 //
     }
-    printf("<< \n");
 }

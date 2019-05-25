@@ -107,6 +107,8 @@ t_map   *parser(char *line, int status)
 
 	if(status && !catch_exception(0))
 	{
+
+
 		if (line)
 		{
 			if (entry == 0)
