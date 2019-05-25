@@ -6,7 +6,8 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 
 
-find_library(libsdl SDL2 SDL2_image)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${doom_SOURCE_DIR}/cmake")
+
 include_directories(inc/)
 add_executable(doom inc/doom.h
                 inc/defines.h
@@ -51,6 +52,9 @@ add_executable(doom inc/doom.h
         src/parser/ft_lib/ft_putstr.c
         src/parser/ft_lib/ft_memcpy.c
                     src/main.c
+                    src/music.c
+                    src/texts.c
+                    src/text_utils.c
                     src/free.c
                     src/action_utils.c
                     src/actions.c
@@ -73,4 +77,3 @@ add_executable(doom inc/doom.h
                     src/event_mouse_view.c
                     src/utils_xyz.c
                     )
-target_link_libraries(doom ${libsdl})

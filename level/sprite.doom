@@ -1,0 +1,4 @@
+texture:{textures/temp/floor2.ppm,textures/temp/ceil2.ppm,textures/temp/floor.ppm,textures/temp/wall2.ppm};
+ceil:49;floor:40;sector:{0,0,-1}{5,0,-1}{5,5,1}{0,5,-1};object:{1,3,1}{3,3,1};
+ceil:49;floor:20;sector:{0,5,0}{5,5,-1}{5,10,-1}{0,10,-1};object:{5,6,2}{5,9,2};
+ceil:40;floor:0;sector:{5,5,-1}{10,5,-1}{10,10,-1}{5,10,-1};

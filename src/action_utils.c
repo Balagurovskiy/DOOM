@@ -4,7 +4,7 @@
 #include "libft.h"
 #include "parser.h"
 
-void change_level(level_s *lvl, player *p)
+void  change_level(level_s *lvl, player *p)
 {
     int j;
     int next_start;
@@ -26,10 +26,22 @@ void change_level(level_s *lvl, player *p)
                 free_level(lvl);
                 *lvl = connect_level(map_temp);
                 *p = init_player(angle, lvl->sector, next_start, lvl->sectors_size);
+                save_file(next_lvl_temp);
             }
             ft_memdel((void**)&next_lvl_temp);
         }
     }
+}
+
+void  goto_level(level_s *lvl, player *p, char *level_name)
+{
+    t_map *map_temp;
+
+    map_temp = get_map(level_name);
+    free_level(lvl);
+    *lvl = connect_level(map_temp);
+    *p = init_player(0.0, lvl->sector, 0, lvl->sectors_size);
+    save_file(level_name);
 }
 
 void action_got_key(player *p, level_s *lvl)
@@ -55,5 +67,5 @@ void action_open_door(player *p, level_s *lvl, char *file,
 void action_controller(player *player, level_s *lvl, char *file)
 {
     action_got_key(player, lvl);
-    action_open_door(player, lvl, file, &door1);
+    action_open_door(player, lvl, file, &door1);    
 }

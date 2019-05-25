@@ -26,13 +26,24 @@ void free_level(level_s *level)
 
 void free_texture_set(texture_set_s *t)
 {
+    int i;
+
     if (t)
     {
+
         SDL_FreeSurface(t->ceiltexture);
         SDL_FreeSurface(t->floortexture);
         SDL_FreeSurface(t->uppertextures);
         SDL_FreeSurface(t->lowertextures);
-
+        SDL_FreeSurface(t->sky);
+        SDL_FreeSurface(t->door);
+        i = 4;
+        while(--i)
+            SDL_FreeSurface(t->dec[i]);
+        i = 6;
+        while(--i)
+            SDL_FreeSurface(t->key[i]);
+        
         SDL_FreeSurface(t->active_object);
         SDL_FreeSurface(t->passive_object);
     }

@@ -11,8 +11,8 @@ typedef struct heights
     float yfloor;
     float neighb_yceil;
     float neighb_yfloor;
-    int beginx;
-    int endx;
+    float beginx;
+    float endx;
 
     scaler_s ya;
     scaler_s yb;

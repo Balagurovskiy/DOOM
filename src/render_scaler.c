@@ -16,12 +16,14 @@ scaler_set_s set_scaler(int a, int b, int c)
 scaler_s scaler_init(scaler_set_s ss, int d, int f)
 {
     scaler_s s;
+    int c_a;
 
-    s.result = d + (ss.b - 1 - ss.a) * (f - d) / (ss.c - ss.a);
+    c_a = ((ss.c - ss.a) == 0) ? 1 : (ss.c - ss.a);
+    s.result = d + (ss.b - 1 - ss.a) * (f - d) / c_a;
     s.bop = ((f < d) ^ (ss.c < ss.a)) ? -1 : 1;
     s.fd = ABS(f - d);
     s.ca = ABS(ss.c - ss.a);
-    s.cache = (int)((ss.b - 1 - ss.a) * ABS(f - d)) % ABS(ss.c - ss.a);
+    s.cache = (int)((ss.b - 1 - ss.a) * ABS(f - d)) % ABS(c_a);
     return (s);
 }
 

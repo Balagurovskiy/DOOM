@@ -25,7 +25,7 @@ int				ft_str_contains(char *source, char *target)
 		while (source[s])
 		{
 			t = 0;
-			while ((source[s] == target[t]) && target[t])
+			while ((source[s] == target[t]) && target[t] != '\0' && target[t])
 			{
 				s++;
 				t++;

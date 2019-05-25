@@ -123,6 +123,60 @@ doom/fast:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/build
 .PHONY : doom/fast
 
+src/action_utils.o: src/action_utils.c.o
+
+.PHONY : src/action_utils.o
+
+# target to build an object file
+src/action_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/action_utils.c.o
+.PHONY : src/action_utils.c.o
+
+src/action_utils.i: src/action_utils.c.i
+
+.PHONY : src/action_utils.i
+
+# target to preprocess a source file
+src/action_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/action_utils.c.i
+.PHONY : src/action_utils.c.i
+
+src/action_utils.s: src/action_utils.c.s
+
+.PHONY : src/action_utils.s
+
+# target to generate assembly for a file
+src/action_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/action_utils.c.s
+.PHONY : src/action_utils.c.s
+
+src/actions.o: src/actions.c.o
+
+.PHONY : src/actions.o
+
+# target to build an object file
+src/actions.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/actions.c.o
+.PHONY : src/actions.c.o
+
+src/actions.i: src/actions.c.i
+
+.PHONY : src/actions.i
+
+# target to preprocess a source file
+src/actions.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/actions.c.i
+.PHONY : src/actions.c.i
+
+src/actions.s: src/actions.c.s
+
+.PHONY : src/actions.s
+
+# target to generate assembly for a file
+src/actions.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/actions.c.s
+.PHONY : src/actions.c.s
+
 src/event.o: src/event.c.o
 
 .PHONY : src/event.o
@@ -285,6 +339,33 @@ src/event_mouse_view.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/event_mouse_view.c.s
 .PHONY : src/event_mouse_view.c.s
 
+src/free.o: src/free.c.o
+
+.PHONY : src/free.o
+
+# target to build an object file
+src/free.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/free.c.o
+.PHONY : src/free.c.o
+
+src/free.i: src/free.c.i
+
+.PHONY : src/free.i
+
+# target to preprocess a source file
+src/free.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/free.c.i
+.PHONY : src/free.c.i
+
+src/free.s: src/free.c.s
+
+.PHONY : src/free.s
+
+# target to generate assembly for a file
+src/free.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/free.c.s
+.PHONY : src/free.c.s
+
 src/main.o: src/main.c.o
 
 .PHONY : src/main.o
@@ -311,6 +392,141 @@ src/main.s: src/main.c.s
 src/main.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/main.c.s
 .PHONY : src/main.c.s
+
+src/music.o: src/music.c.o
+
+.PHONY : src/music.o
+
+# target to build an object file
+src/music.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/music.c.o
+.PHONY : src/music.c.o
+
+src/music.i: src/music.c.i
+
+.PHONY : src/music.i
+
+# target to preprocess a source file
+src/music.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/music.c.i
+.PHONY : src/music.c.i
+
+src/music.s: src/music.c.s
+
+.PHONY : src/music.s
+
+# target to generate assembly for a file
+src/music.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/music.c.s
+.PHONY : src/music.c.s
+
+src/parser/connect_level.o: src/parser/connect_level.c.o
+
+.PHONY : src/parser/connect_level.o
+
+# target to build an object file
+src/parser/connect_level.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_level.c.o
+.PHONY : src/parser/connect_level.c.o
+
+src/parser/connect_level.i: src/parser/connect_level.c.i
+
+.PHONY : src/parser/connect_level.i
+
+# target to preprocess a source file
+src/parser/connect_level.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_level.c.i
+.PHONY : src/parser/connect_level.c.i
+
+src/parser/connect_level.s: src/parser/connect_level.c.s
+
+.PHONY : src/parser/connect_level.s
+
+# target to generate assembly for a file
+src/parser/connect_level.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_level.c.s
+.PHONY : src/parser/connect_level.c.s
+
+src/parser/connect_player.o: src/parser/connect_player.c.o
+
+.PHONY : src/parser/connect_player.o
+
+# target to build an object file
+src/parser/connect_player.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_player.c.o
+.PHONY : src/parser/connect_player.c.o
+
+src/parser/connect_player.i: src/parser/connect_player.c.i
+
+.PHONY : src/parser/connect_player.i
+
+# target to preprocess a source file
+src/parser/connect_player.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_player.c.i
+.PHONY : src/parser/connect_player.c.i
+
+src/parser/connect_player.s: src/parser/connect_player.c.s
+
+.PHONY : src/parser/connect_player.s
+
+# target to generate assembly for a file
+src/parser/connect_player.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_player.c.s
+.PHONY : src/parser/connect_player.c.s
+
+src/parser/connect_sector.o: src/parser/connect_sector.c.o
+
+.PHONY : src/parser/connect_sector.o
+
+# target to build an object file
+src/parser/connect_sector.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_sector.c.o
+.PHONY : src/parser/connect_sector.c.o
+
+src/parser/connect_sector.i: src/parser/connect_sector.c.i
+
+.PHONY : src/parser/connect_sector.i
+
+# target to preprocess a source file
+src/parser/connect_sector.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_sector.c.i
+.PHONY : src/parser/connect_sector.c.i
+
+src/parser/connect_sector.s: src/parser/connect_sector.c.s
+
+.PHONY : src/parser/connect_sector.s
+
+# target to generate assembly for a file
+src/parser/connect_sector.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_sector.c.s
+.PHONY : src/parser/connect_sector.c.s
+
+src/parser/connect_sector_object.o: src/parser/connect_sector_object.c.o
+
+.PHONY : src/parser/connect_sector_object.o
+
+# target to build an object file
+src/parser/connect_sector_object.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_sector_object.c.o
+.PHONY : src/parser/connect_sector_object.c.o
+
+src/parser/connect_sector_object.i: src/parser/connect_sector_object.c.i
+
+.PHONY : src/parser/connect_sector_object.i
+
+# target to preprocess a source file
+src/parser/connect_sector_object.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_sector_object.c.i
+.PHONY : src/parser/connect_sector_object.c.i
+
+src/parser/connect_sector_object.s: src/parser/connect_sector_object.c.s
+
+.PHONY : src/parser/connect_sector_object.s
+
+# target to generate assembly for a file
+src/parser/connect_sector_object.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/connect_sector_object.c.s
+.PHONY : src/parser/connect_sector_object.c.s
 
 src/parser/ft_lib/for_each_gnl.o: src/parser/ft_lib/for_each_gnl.c.o
 
@@ -1041,6 +1257,33 @@ src/parser/parser_utils.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_utils.c.s
 .PHONY : src/parser/parser_utils.c.s
 
+src/parser/parser_validation.o: src/parser/parser_validation.c.o
+
+.PHONY : src/parser/parser_validation.o
+
+# target to build an object file
+src/parser/parser_validation.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_validation.c.o
+.PHONY : src/parser/parser_validation.c.o
+
+src/parser/parser_validation.i: src/parser/parser_validation.c.i
+
+.PHONY : src/parser/parser_validation.i
+
+# target to preprocess a source file
+src/parser/parser_validation.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_validation.c.i
+.PHONY : src/parser/parser_validation.c.i
+
+src/parser/parser_validation.s: src/parser/parser_validation.c.s
+
+.PHONY : src/parser/parser_validation.s
+
+# target to generate assembly for a file
+src/parser/parser_validation.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/parser/parser_validation.c.s
+.PHONY : src/parser/parser_validation.c.s
+
 src/render.o: src/render.c.o
 
 .PHONY : src/render.o
@@ -1284,6 +1527,60 @@ src/render_wall_intersection.c.s:
 	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/render_wall_intersection.c.s
 .PHONY : src/render_wall_intersection.c.s
 
+src/text_utils.o: src/text_utils.c.o
+
+.PHONY : src/text_utils.o
+
+# target to build an object file
+src/text_utils.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/text_utils.c.o
+.PHONY : src/text_utils.c.o
+
+src/text_utils.i: src/text_utils.c.i
+
+.PHONY : src/text_utils.i
+
+# target to preprocess a source file
+src/text_utils.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/text_utils.c.i
+.PHONY : src/text_utils.c.i
+
+src/text_utils.s: src/text_utils.c.s
+
+.PHONY : src/text_utils.s
+
+# target to generate assembly for a file
+src/text_utils.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/text_utils.c.s
+.PHONY : src/text_utils.c.s
+
+src/texts.o: src/texts.c.o
+
+.PHONY : src/texts.o
+
+# target to build an object file
+src/texts.c.o:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/texts.c.o
+.PHONY : src/texts.c.o
+
+src/texts.i: src/texts.c.i
+
+.PHONY : src/texts.i
+
+# target to preprocess a source file
+src/texts.c.i:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/texts.c.i
+.PHONY : src/texts.c.i
+
+src/texts.s: src/texts.c.s
+
+.PHONY : src/texts.s
+
+# target to generate assembly for a file
+src/texts.c.s:
+	$(MAKE) -f CMakeFiles/doom.dir/build.make CMakeFiles/doom.dir/src/texts.c.s
+.PHONY : src/texts.c.s
+
 src/utils_intersection.o: src/utils_intersection.c.o
 
 .PHONY : src/utils_intersection.o
@@ -1374,6 +1671,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... doom"
+	@echo "... src/action_utils.o"
+	@echo "... src/action_utils.i"
+	@echo "... src/action_utils.s"
+	@echo "... src/actions.o"
+	@echo "... src/actions.i"
+	@echo "... src/actions.s"
 	@echo "... src/event.o"
 	@echo "... src/event.i"
 	@echo "... src/event.s"
@@ -1392,9 +1695,27 @@ help:
 	@echo "... src/event_mouse_view.o"
 	@echo "... src/event_mouse_view.i"
 	@echo "... src/event_mouse_view.s"
+	@echo "... src/free.o"
+	@echo "... src/free.i"
+	@echo "... src/free.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/music.o"
+	@echo "... src/music.i"
+	@echo "... src/music.s"
+	@echo "... src/parser/connect_level.o"
+	@echo "... src/parser/connect_level.i"
+	@echo "... src/parser/connect_level.s"
+	@echo "... src/parser/connect_player.o"
+	@echo "... src/parser/connect_player.i"
+	@echo "... src/parser/connect_player.s"
+	@echo "... src/parser/connect_sector.o"
+	@echo "... src/parser/connect_sector.i"
+	@echo "... src/parser/connect_sector.s"
+	@echo "... src/parser/connect_sector_object.o"
+	@echo "... src/parser/connect_sector_object.i"
+	@echo "... src/parser/connect_sector_object.s"
 	@echo "... src/parser/ft_lib/for_each_gnl.o"
 	@echo "... src/parser/ft_lib/for_each_gnl.i"
 	@echo "... src/parser/ft_lib/for_each_gnl.s"
@@ -1476,6 +1797,9 @@ help:
 	@echo "... src/parser/parser_utils.o"
 	@echo "... src/parser/parser_utils.i"
 	@echo "... src/parser/parser_utils.s"
+	@echo "... src/parser/parser_validation.o"
+	@echo "... src/parser/parser_validation.i"
+	@echo "... src/parser/parser_validation.s"
 	@echo "... src/render.o"
 	@echo "... src/render.i"
 	@echo "... src/render.s"
@@ -1503,6 +1827,12 @@ help:
 	@echo "... src/render_wall_intersection.o"
 	@echo "... src/render_wall_intersection.i"
 	@echo "... src/render_wall_intersection.s"
+	@echo "... src/text_utils.o"
+	@echo "... src/text_utils.i"
+	@echo "... src/text_utils.s"
+	@echo "... src/texts.o"
+	@echo "... src/texts.i"
+	@echo "... src/texts.s"
 	@echo "... src/utils_intersection.o"
 	@echo "... src/utils_intersection.i"
 	@echo "... src/utils_intersection.s"

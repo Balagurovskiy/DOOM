@@ -2,6 +2,9 @@ NAME = doom
 
 FILES =  main \
         free \
+        music \
+        texts \
+        text_utils \
         actions \
         action_utils \
         \

@@ -14,7 +14,7 @@ wall_s wall_init(screen *scrn, heights_s *heights, int x, perspective_s persp)
     float p1 = scrn->txt_data.u0 * (persp.x2 - x) * scrn->edge.t2.z;
     float p2 = scrn->txt_data.u1 * ((x - persp.x1) * scrn->edge.t1.z);
     float p = ((persp.x2 - x) * scrn->edge.t2.z + (x - persp.x1) * scrn->edge.t1.z);
-    scrn->txt_data.txtx = (p1 + p2) / p;
+    scrn->txt_data.txtx = (p1 + p2) / ((COMPARE(ABS(p), 0.0)) ? 1.0 : p);
     /////////////////
     ///////////////// ! NOT ! TextureMapping
     /* Calculate the Z coordinate for this point. (Only used for lighting.) */
@@ -40,8 +40,26 @@ void set_neighbor_wall(wall_s *wall, screen *scrn, heights_s *heights, int x)
 
 static void render_wall_line(screen *scrn, txt_line_s tl, scaler_set_s ss, SDL_Surface *t, int z)
 {
-    tl.scale_ty = scaler_init(ss, 0, (scrn->txt->size - 1));
+    tl.scale_ty = scaler_init(ss, 0, (t->w - 1));
     textured_line(scrn, tl, t, z);
+}
+
+SDL_Surface *texture_switch(screen *scrn, int s)
+{
+    if (SECT_NOW->npoints < s)
+    {
+        if (SECT_NOW->object == 1)
+            return (scrn->txt->door);
+        if (SECT_NOW->object == 0)
+            return (scrn->txt->dec[0]);
+        if (SECT_NOW->object == 2)
+            return (scrn->txt->dec[1]);
+        if (SECT_NOW->object == 3)
+            return (scrn->txt->dec[2]);
+        if (SECT_NOW->object == 4)
+            return (scrn->txt->dec[3]);
+    }
+    return (scrn->txt->uppertextures);
 }
 
 void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, int s)
@@ -50,6 +68,7 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
     int x;
 
     x = heights.beginx;
+    // printf("%f -> %f | ", heights.beginx,heights.endx);
     while (++x <= heights.endx)
     {
         wall = wall_init(scrn, &heights, x, perspect);
@@ -107,11 +126,12 @@ void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, in
             render_wall_line(scrn,
                              set_textured_line(x, wall.cya, wall.cyb),
                              set_scaler(wall.ya, wall.cya, wall.yb),
-                             ((SECT_NOW->npoints < s)? scrn->txt->curr_object : scrn->txt->uppertextures), wall.z);
+                             texture_switch(scrn, s), wall.z);
             ///////////////// ELSE
 //            shaded_line(scrn->surface, x, wall.cya, wall.cyb, 0, x == perspect.x1 || x == perspect.x2 ? 0 : R(wall.z), 0);
             /////////////////
         }
     }
 }
+
 

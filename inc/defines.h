@@ -9,6 +9,7 @@
 # include "SDL_image.h"
 # include "SDL_mixer.h"
 # include "SDL_ttf.h"
+# include "time.h"
 
 /* Define window size */
 # define W 640//1280
@@ -22,8 +23,8 @@
 # define THICC 1.1 // bouding radius
 # define HEAD_MARGIN 1    // How much room there is above camera before the scrn.head hits the ceiling
 # define KNEE_HEIGHT 2    // How tall obstacles the player can simply walk over without jumping
-# define H_FOV (1.0 * 0.73f * H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)
-# define V_FOV (1.0 * .2f)    // Affects the vertical field of vision
+# define H_FOV (1.0 * 0.7 * H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)
+# define V_FOV (1.0 * 0.2)    // Affects the vertical field of vision
 # define MAX_QUE 32   // MAXimum number of pending portal renders
 # define ABS(a) ((a) < 0 ? -(a) : (a))
 # define MIN(a,b)             (((a) < (b)) ? (a) : (b)) // MIN: Choose smaller of two scalars.
@@ -53,13 +54,13 @@
 # define R2(z) 0x040007 * (31 - (z / 8))
 # define R(z) 0x010001 * (255 - z) //0x010101 - shaded white
 
-# define NEARZ 1e-4f
-# define FARZ 5
-# define NEAR_SIDE 1e-5f
-# define FAR_SIDE 20.f
+# define NEARZ 0.0001
+# define NEAR_SIDE 0.0001
+
+# define FAR_SIDE 20.0
+# define FARZ 5.0
 
 # define EDGE_T(t) new_xy(t.x, t.z)
-//!(edge.t1.z <= 0 && edge.t2.z <= 0)
 # define IS_FRONT(edge) (edge.t1.z > 0 || edge.t2.z > 0)
 # define HAS_NEXT_QUE ((scrn->head + MAX_QUE + 1 - scrn->tail) % MAX_QUE)
 # define NOT_END (heights.endx >= heights.beginx)
@@ -67,7 +68,8 @@
 # define IS_START(s, i) s[i].status == 1
 # define IS_END(s, i) s[i].status == 2
 
-# define COMPARE(a, b) ABS(a - b) < ACC
 # define ACC 0.01
+# define COMPARE(a, b) ABS(a - b) < ACC
+
 
 #endif

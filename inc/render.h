@@ -8,12 +8,17 @@
 # include "render_scaler.h"
 
 
+# define MAIN_IN ((scrn->surface->w * scrn->surface->h * 4) > (y * W + x))
+# define TXT_IN ((t->w * t->h * 4) > (t->w * txtz + txtx))
+
+# define SCRN_PIX ((int*)scrn->surface->pixels)[y * W + x]
+# define TXT_PIX ((int*)t->pixels)[t->w * txtz + txtx]
 
 typedef struct  item
 {
     int             sectorno;
-    int             sx1;
-    int             sx2;
+    float             sx1;
+    float             sx2;
 }               item;
 
 typedef  struct edge
@@ -85,8 +90,8 @@ typedef struct perspective
     xy scale1;
     xy scale2;
 
-    int x1;
-    int x2;
+    float x1;
+    float x2;
 }               perspective_s;
 
 

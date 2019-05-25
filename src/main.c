@@ -5,30 +5,96 @@
 #include "render.h"
 #include "parser.h"
 
+char *save_file(char *file)
+{
+    static char *save = NULL;
+
+    if (ft_strequ(file, "#del"))
+        ft_memdel((void**)&save);
+    else if (!ft_strequ(file, "#get"))
+    {
+        ft_memdel((void**)&save);
+        save = ft_strjoin(file, NULL);
+    }
+    return (save);
+}
+
+int ft_timer(char *tag)
+{
+    static int oldtime = 0;
+    static int newtime = 0;
+    static int time = 0;
+
+    if (!ft_strequ(tag, "#get"))
+    {   
+        oldtime = newtime;
+        newtime = clock();
+        time += (newtime - oldtime) / 1000;
+        if (time > 1000)
+            time = 0;
+    }
+    // if (time == 0)
+    //     lvl.sector[0].floor--;
+    return (time);
+}
+
 void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 {
     player          player;
     level_s         lvl;
 
+
+
+    music("#init");
+    massage("#init", NULL, NULL);
     lvl = connect_level(get_map(file));
+    save_file(file);
+    if (!catch_exception(0))
+    {
+        player = init_player(0, lvl.sector, 0, lvl.sectors_size);
+        player.health = 3;
 
-    if (catch_exception(0))
-        return ;
-    player = init_player(0, lvl.sector, 0, lvl.sectors_size);
-// lvl.sector[0].vertex[2].x = 0.5;
-// lvl.sector[1].vertex[1].x = 0.5;
-    while(!player.exit_doom) {
-        SDL_FillRect(surface, NULL, 0x000000);
+       
+        while(!player.exit_doom && !catch_exception(0)) 
+        {
+            // SDL_FillRect(surface, NULL, 0x000000);
+    ////CLOCK TEST
+        ft_timer("B====D");
+        // printf("%d\n",ft_timer("#get"));
+            
+    /////ACTIONS
+            action_controller(&player, &lvl, save_file("#get"));
 
-        action_controller(&player, &lvl, file);
-        render_screen(surface, &player, &lvl, 0);
 
-        SDL_UpdateWindowSurface(win);
-        events(lvl.sector, &player);
-        SDL_Delay(10);
-        change_level(&lvl, &player);
-    }
+            render_screen(surface, &player, &lvl, 0);
+
+   
+    /////DEATH HANDLE
+            if (player.health == 1){
+                render_massage("You died :(((", surface);
+                  SDL_UpdateWindowSurface(win);               
+                SDL_Delay(2000);
+                if (ft_str_contains(save_file("#get"), "level/sprite\0"))
+                    goto_level(&lvl, &player, "level/map.doom");
+                else
+                    goto_level(&lvl, &player, save_file("#get"));
+                
+                player.health = 3;
+                player.where.z = -0.08;
+            }
+/////FONT TEST  
+            massage(save_file("#get"), &player, surface);
+
+            SDL_UpdateWindowSurface(win);
+            events(lvl.sector, &player);
+            change_level(&lvl, &player);
+            SDL_Delay(10);
+        }
+    }  
     free_level(&lvl);
+    massage("#del", NULL, NULL);
+    music("#del");
+    save_file("#del");
 }
 
 int main(int argc, char **argv)
@@ -36,39 +102,30 @@ int main(int argc, char **argv)
     SDL_Window      *win;
     SDL_Surface     *surface;
 
-
     win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED,
                            SDL_WINDOWPOS_CENTERED,
                            W, H, SDL_WINDOW_OPENGL);
     surface = SDL_GetWindowSurface(win);
-
+    SDL_SetHintWithPriority(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, "0.5",
+                             SDL_HINT_OVERRIDE);
+    SDL_SetRelativeMouseMode(SDL_TRUE);
     SDL_ShowCursor(SDL_DISABLE);
-    ///argv checker; if no args play story mode
-    doom_init(win, surface, argv[1]);
-
+    TTF_Init();
+    if (argc != 2)
+        doom_init(win, surface, "story_0.map");
+    else
+        doom_init(win, surface, argv[1]);
     SDL_FreeSurface(surface);
     SDL_DestroyWindow(win);
     IMG_Quit();
     SDL_Quit();
+    TTF_Quit();
     return (0);
 }
 
 
 //TODO:
-// -set map from file +++
-// -make parser; +++
-// -story;
-// -change speed while ducking
-// -ducking=0 if jump while ducking
+//floor_ceil - busss error
 // PLAYER ANGELS OF END AND START SECTOR BETTER BE THE SAME
-// -------->parser seg fault : level tag validation+++; filled sectors validation (neighbor < sector size; neighbor vertex)
 
-//////BLACK SCREEN ON SECTOR EDGE
-//Thread 0 Crashed:: Dispatch queue: com.apple.main-thread
-//0   doom                          	0x000000010bde9e88 render_floor_ceil + 376
-//1   doom                          	0x000000010bde7f28 render_the_wall + 344
-//2   doom                          	0x000000010bde78ff render_towards + 911
-//3   doom                          	0x000000010bde70b2 render_screen + 434
-//4   doom                          	0x000000010bde45a5 doom_init + 229
-//5   doom                          	0x000000010bde4675 main + 117
-//6   libdyld.dylib                 	0x00007fff60360115 start + 1
+ 
