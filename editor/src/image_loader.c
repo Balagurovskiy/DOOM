@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkachano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 13:54:18 by mkachano          #+#    #+#             */
-/*   Updated: 2018/10/28 13:54:22 by mkachano         ###   ########.fr       */
+/*   Created: 2019/05/25 21:01:47 by mkachano          #+#    #+#             */
+/*   Updated: 2019/05/25 21:01:48 by mkachano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/level_editor.h"
-
 
 SDL_Surface			*load_image(char *path)
 {
 	SDL_Surface		*converted;
 	SDL_Surface		*tmp;
 	SDL_PixelFormat	pixel_format;
-	Uint32          color_key;
+	Uint32			color_key;
 
 	tmp = NULL;
 	converted = NULL;

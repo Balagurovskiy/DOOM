@@ -12,7 +12,7 @@
 
 #include "../include/level_editor.h"
 
-int				load_icons(t_app *app)
+static	void	load_icons(t_app *app)
 {
 	int		i;
 	char	*files[6];

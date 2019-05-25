@@ -49,12 +49,14 @@ void			save_texture(t_app *app, int fd)
 	ft_putstr_fd("texture:{", fd);
 	while (i < 4)
 	{
-		ft_putstr_fd("txt/wall", fd);
+		if (i)
+			ft_putstr_fd(",", fd);
+		ft_putstr_fd("textures/walls/wall", fd);
 		save_number_fd((int)((app->menu_panel.icon_result[i])), fd);
-		ft_putstr_fd(".ppm,", fd);
+		ft_putstr_fd(".png", fd);
 		i++;
 	}
-	ft_putstr_fd("1024};\n", fd);
+	ft_putstr_fd("};\n", fd);
 }
 
 void			save_shape(t_shape s, int fd, int offset_x, int offset_y)

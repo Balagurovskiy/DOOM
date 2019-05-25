@@ -44,7 +44,7 @@ void	create_text(t_app *app, char *text, t_text *text_obj, t_point point)
 	SDL_FreeSurface(text_surface);
 }
 
-int		render_text(t_app *app)
+void	render_text(t_app *app)
 {
 	SDL_RenderCopy(app->renderer, app->menu_panel.ceil.texture,
 			NULL, &app->menu_panel.ceil.rectangle);

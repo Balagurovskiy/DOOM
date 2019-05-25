@@ -12,7 +12,7 @@
 
 #include "../include/level_editor.h"
 
-int		is_shape_clockwise(t_shape *shape)
+int			is_shape_clockwise(t_shape *shape)
 {
 	int i;
 	int j;
@@ -35,7 +35,7 @@ int		is_shape_clockwise(t_shape *shape)
 	return (TRUE);
 }
 
-void	sort_shapes_sectors(t_shape *shape)
+void		sort_shapes_sectors(t_shape *shape)
 {
 	int		i;
 	int		j;
@@ -62,4 +62,33 @@ void	sort_shapes_sectors(t_shape *shape)
 			j++;
 		}
 	}
+}
+
+int			is_shape_convex(t_shape s)
+{
+	int		sign;
+	int		i;
+	int		n;
+	double	cross;
+
+	sign = FALSE;
+	i = 0;
+	n = s.point_count - 1;
+	while (n > i)
+	{
+		s.dx1 = s.points[(i + 2) % n].x - s.points[(i + 1) % n].x;
+		s.dy1 = s.points[(i + 2) % n].y - s.points[(i + 1) % n].y;
+		s.dx2 = s.points[i].x - s.points[(i + 1) % n].x;
+		s.dy2 = s.points[i].y - s.points[(i + 1) % n].y;
+		cross = s.dx1 * s.dy2 - s.dy1 * s.dx2;
+		if (i == 0)
+			sign = (cross > 0) ? TRUE : FALSE;
+		else
+		{
+			if (sign != ((cross > 0) ? TRUE : FALSE))
+				return (FALSE);
+		}
+		i++;
+	}
+	return (TRUE);
 }

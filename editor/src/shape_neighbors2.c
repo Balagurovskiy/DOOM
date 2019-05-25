@@ -49,14 +49,26 @@ static	void	update_default_neighbors(t_app *app, int shape_id)
 	}
 }
 
+static	int		shape_validation(t_app *app, int shape_id)
+{
+	update_default_neighbors(app, shape_id);
+	if (is_shape_convex(app->shapes[shape_id]) == FALSE)
+	{
+		app->shapes_count--;
+		return (FALSE);
+	}
+	if (shape_id == 0)
+		return (FALSE);
+	return (TRUE);
+}
+
 void			update_shape_neighbors(t_app *app, t_line line, int shape_id)
 {
 	int i;
 	int n;
 	int in;
 
-	update_default_neighbors(app, shape_id);
-	if (shape_id == 0)
+	if (shape_validation(app, shape_id) == FALSE)
 		return ;
 	i = 0;
 	while (i < shape_id)

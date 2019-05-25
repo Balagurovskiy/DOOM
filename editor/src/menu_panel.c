@@ -45,6 +45,8 @@ void			update_menu_panel(t_app *app)
 	t_shape	shape;
 	char	*str;
 
+	if (app->menu_panel_id_shape < 0)
+		return ;
 	shape = app->shapes[app->menu_panel_id_shape];
 	point.x = 100;
 	point.y = 3;

@@ -63,10 +63,8 @@ void		render_shape_control_points(t_app *app, t_shape shape)
 
 void		render_shapes_control_points(t_app *app)
 {
-	int		i;
 	int		count;
 	t_shape	shape;
-	t_point	point;
 
 	count = app->shapes_count - 1;
 	while (count >= 0)
@@ -75,4 +73,12 @@ void		render_shapes_control_points(t_app *app)
 		render_shape_control_points(app, shape);
 		count--;
 	}
+}
+
+void		edit_game_scene(t_app *app, t_point point)
+{
+	if (app->shapes_count == 0)
+		edit_first_shape(app, point);
+	else
+		edit_next_shape(app, point);
 }
