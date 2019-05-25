@@ -61,8 +61,6 @@ void		on_mouse_move(t_app *app)
 
 void		listen_game_event(t_app *app)
 {
-	t_point point;
-
 	if (SDL_PollEvent(&app->event))
 	{
 		if (app->event.type == SDL_MOUSEBUTTONUP)

@@ -63,10 +63,8 @@ void		render_shape_control_points(t_app *app, t_shape shape)
 
 void		render_shapes_control_points(t_app *app)
 {
-	int		i;
 	int		count;
 	t_shape	shape;
-	t_point	point;
 
 	count = app->shapes_count - 1;
 	while (count >= 0)

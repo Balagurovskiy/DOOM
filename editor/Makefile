@@ -71,8 +71,6 @@ FRAMEWORKS	=	-F ./frameworks \
 LINK_FLAGS := $(LIBFT_FLAGS)
 CC_FLAGS := -Wall -Wextra -Werror -O3
 
-CC_FLAGS :=
-
 all:
 	@make -C $(LIBFT_DIR)
 	@make $(NAME)

@@ -12,19 +12,6 @@
 
 #include "../include/level_editor.h"
 
-static int		is_double_point(t_shape shape, t_point point)
-{
-	int		index;
-
-	index = shape.point_count - 1;
-	if (index >= 0)
-	{
-		if (shape.points[index].x == point.x && shape.points[index].y)
-			return (TRUE);
-	}
-	return (FALSE);
-}
-
 void			edit_first_shape(t_app *app, t_point point)
 {
 	int		idx;
