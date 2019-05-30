@@ -20,7 +20,6 @@ t_map *get_map(char *file_name)
     }
     else
         map = (t_map *)for_each_gnl(file_name, (void *)&parser);
-
     return (map);
 }
 

@@ -25,8 +25,8 @@ void view_event(move_events *me, view_events *ve, player *player, sectors *secto
     player->yaw = me->yaw - player->velocity.z * 0.5f;
     move_player(new_xy(0.0, 0.0), player, sectors);
     if(me->wsad[0]) {
-        ve->move_vec[0] += player->anglecos * SPEED_KOEF(0.2f);
-        ve->move_vec[1] += player->anglesin * SPEED_KOEF(0.2f);
+        ve->move_vec[0] += player->anglecos * SPEED_KOEF(0.14f);
+        ve->move_vec[1] += player->anglesin * SPEED_KOEF(0.14f);
     }
     if(me->wsad[1]) {
         ve->move_vec[0] -= player->anglecos * SPEED_KOEF(0.06f);

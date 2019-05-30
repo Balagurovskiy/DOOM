@@ -1,0 +1,10 @@
+texture:{textures/walls/floor2.png,textures/walls/ceil2.png,textures/walls/wall3.png,textures/walls/lower2.png};
+ceil:17;floor:1;sector:{1,1,-1}{4,1,2}{4,3,-1}{1,3,1};
+ceil:10;floor:3;sector:{0,1,-1}{1,1,0}{1,3,-1}{0,3,-1};object:{0,3,6}{0,1,7};
+ceil:16;floor:0;sector:{4,1,-1}{7,0,-1}{7,1,3}{7,3,-1}{7,4,-1}{4,3,0};
+ceil:11;floor:1;sector:{7,1,-1}{8,1,-1}{8,3,-1}{7,3,2};object:{8,1,1}{8,3,8};
+ceil:16;floor:0;sector:{8,1,-1}{8,0,-1}{15,1,5}{15,3,-1}{8,4,-1}{8,3,-1};
+ceil:16;floor:0;sector:{15,1,-1}{30,3,-1}{30,7,-1}{15,3,4};
+
+c1eil:16;floor:0;sector:{7,1,-1}{8,1,4}{8,3,-1}{7,3,2};object:{8,1,1}{8,3,1};
+c1eil:12;floor:0;sector:{8,1,-1}{8,0,-1}{15,1,5}{15,3,-1}{8,4,-1}{8,3,3};

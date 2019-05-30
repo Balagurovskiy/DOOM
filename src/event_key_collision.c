@@ -40,7 +40,8 @@ void hor_collision_detection(move_events *me, player *player, sectors *sector)
             p.x = p.x + d.x;
             p.y = p.y + d.y;
             if(intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, THICC)
-                && point_side_handle(p, d, VERT, s) < 0) {
+                && point_side_handle(p, d, VERT, s) < 0)
+            {
                     bumping(me, player, sector, &d,(collision_count == 1), s);
             }
             s++;
@@ -84,25 +85,39 @@ static void vert_collision_switch(move_events *me,
 
 void vert_collision_detection(move_events *me, player *player, sectors *sector)
 {
-    int crit_falling;
-    static int take_fall_damage = 0;
+    // int crit_falling;
+    // static int take_fall_damage = 0;
+    static float max_fall = 0.0;
+    float curr_height;
 
     me->ground = !me->falling;
-    player->gravity = 0.08f;
+    player->gravity = 0.09f;
     if(me->falling)
     {
         player->velocity.z -= player->gravity; /* Add gravity */
-        if (player->velocity.z >= -1.0)
-            crit_falling = 1;
-        else
-            crit_falling  = 0;
-        if (player->velocity.z < -0.9 && crit_falling)
-            take_fall_damage = 1;
-        if (take_fall_damage && player->velocity.z >= -0.08)
+        curr_height = player->where.z - sector[player->sector].floor;
+        if (curr_height > max_fall)
+            max_fall = curr_height;
+        if (curr_height <= EYE_HEIGHT)
         {
-            take_fall_damage = 0;
-            player->health--;
+            if (max_fall - sector[player->sector].floor > 15){
+                player->health--;
+                printf("* taking damage *  (%d)\n",player->health);
+            }
+            max_fall = 0.0;
         }
+        // if (player->where.z - sector[player->sector].floor > 15)
+        //     crit_falling = 1;
+        // else
+        //     crit_falling  = 0;
+        // if (player->velocity.z < -0.5 && crit_falling)
+        //     take_fall_damage = 1;
+        // if (take_fall_damage && player->velocity.z >= -0.08)
+        // {
+        //     take_fall_damage = 0;
+        //     player->health--;
+        // }
+        
         vert_collision_switch(me, player, sector);
     }
 }

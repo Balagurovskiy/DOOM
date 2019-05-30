@@ -8,10 +8,9 @@ static SDL_Surface	*load_surface(char *filepath)
     surf = IMG_Load(filepath);
     if (surf == NULL)
     {
-        ft_putstr("EXCEPTION > textures > invalid texture file\n");
-        ft_putstr("\t\t > >");
+        ft_putstr("EXCEPTION > textures > invalid texture file(");
         ft_putstr(filepath);
-        ft_putstr("\n");
+        ft_putstr(")\n");
         catch_exception(1);
     }
     return (surf);
@@ -30,9 +29,10 @@ txt_set.door = load_surface("textures/object/door.png");
 txt_set.sky = load_surface("textures/walls/Sky.png");
 
 txt_set.dec[0] = load_surface("textures/object/decor_A.png");
-txt_set.dec[1] = load_surface("textures/object/decor1.png");
-txt_set.dec[2] = load_surface("textures/object/decor2.png");
-txt_set.dec[3] = load_surface("textures/object/decor3.png");
+txt_set.dec[1] = load_surface("textures/object/decor_B.png");
+txt_set.dec[2] = load_surface("textures/object/decor_C.png");
+txt_set.dec[3] = load_surface("textures/object/decor_D.png");
+txt_set.dec[4] = load_surface("textures/object/decor1.png");
 
 txt_set.key[0] = load_surface("textures/key_anim/key1.png");
 txt_set.key[1] = load_surface("textures/key_anim/key2.png");
@@ -40,6 +40,7 @@ txt_set.key[2] = load_surface("textures/key_anim/key3.png");
 txt_set.key[3] = load_surface("textures/key_anim/key4.png");
 txt_set.key[4] = load_surface("textures/key_anim/key5.png");
 txt_set.key[5] = load_surface("textures/key_anim/key6.png");
+txt_set.key[6] = load_surface("textures/key_anim/key0.png");
 
 txt_set.passive_object = load_surface("textures/temp/q.png");
 txt_set.active_object = load_surface("textures/temp/e.png");

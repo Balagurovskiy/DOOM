@@ -99,7 +99,7 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
             cf.mapz = (cf.hei) * H * V_FOV / ((lim == 0.0) ? 1.0 : lim);
             cf.mapx = (cf.mapz) * (W / 2 - (x)) / (W * H_FOV);
 
-            if (y >= wall.cya || (heights.yceil + scrn->player->where.z <= 16))
+            if (y >= wall.cya || ((heights.yceil + scrn->player->where.z) <= 30))
             {
                 float rtx;
                 float rtz;
@@ -108,7 +108,7 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
                 rtz = cf.mapz * scrn->edge.psin - cf.mapx * scrn->edge.pcos;
                 cf.mapx = rtx + scrn->player->where.x;
                 cf.mapz = rtz + scrn->player->where.y;
-                if (heights.yceil + scrn->player->where.z <= 16 && y < wall.cya)
+                if (heights.yceil + scrn->player->where.z <= 30 && y < wall.cya)
                     t = scrn->txt->ceiltexture;
                 with_shade = 1;
             }
@@ -116,7 +116,7 @@ void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
             txtz = (int)(cf.mapz * 256) % t->h;
             if (MAIN_IN && TXT_IN) {
                 if (with_shade)
-                    SCRN_PIX = fade_to_black(TXT_PIX, wall.z, 140);
+                    SCRN_PIX = fade_to_black(TXT_PIX, wall.z, BLACK_DIST + 50);
                 else
                     SCRN_PIX = TXT_PIX;
             }

@@ -66,7 +66,7 @@ void render_massage(char *mssg, SDL_Surface *surface)
 		blit_massage_surface(mssg, surface, font, &location);
 }
 
-void massage(char *file, player *p, SDL_Surface *surface)
+void message(char *file, player *p, SDL_Surface *surface)
 {
 	if (!p || !surface)
 	{
@@ -75,5 +75,7 @@ void massage(char *file, player *p, SDL_Surface *surface)
 	}
 	
 	text_pattern_0(file, p, surface);
+	text_pattern_01(file, p, surface);
 	text_pattern_1(file, p, surface);
+	text_pattern_2(file, p, surface);
 }

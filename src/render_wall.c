@@ -44,20 +44,55 @@ static void render_wall_line(screen *scrn, txt_line_s tl, scaler_set_s ss, SDL_S
     textured_line(scrn, tl, t, z);
 }
 
+SDL_Surface *play_animation(SDL_Surface *anims[], int size)
+{
+    // printf("%d\n",ft_timer("#get"));
+    static int entry = 0;
+    static int back = 0;
+
+    static int test = 0;
+    if (ft_timer())
+    {
+        if (back)
+            entry--;
+        else
+            entry++;
+    }
+    if (entry > size - 1)
+    {
+        entry = size - 2;
+        back = 1;
+    }
+    if (entry < 0)
+    {
+        entry = 1;
+        back = 0;
+    }
+    if (size <= 2)
+        entry = 0;
+    return (anims[entry]);
+}
+
 SDL_Surface *texture_switch(screen *scrn, int s)
 {
     if (SECT_NOW->npoints < s)
     {
-        if (SECT_NOW->object == 0)
-            return (scrn->txt->door);
         if (SECT_NOW->object == 1)
-            return (scrn->txt->dec[0]);
+            return (scrn->txt->door);
         if (SECT_NOW->object == 2)
-            return (scrn->txt->dec[1]);
+            return (scrn->txt->dec[0]);
         if (SECT_NOW->object == 3)
-            return (scrn->txt->dec[2]);
+            return (scrn->txt->dec[1]);
         if (SECT_NOW->object == 4)
+            return (scrn->txt->dec[2]);
+        if (SECT_NOW->object == 5)
             return (scrn->txt->dec[3]);
+        if (SECT_NOW->object == 6)
+            return (scrn->txt->dec[4]);
+        if (SECT_NOW->object == 7)
+            return (play_animation(scrn->txt->key, 6));
+        if (SECT_NOW->object == 8)
+            return (scrn->txt->key[6]);
     }
     return (scrn->txt->uppertextures);
 }

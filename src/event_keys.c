@@ -48,7 +48,7 @@ void key_events(move_events *me, player *player, sectors *s)
             if(sym == 'e')
                 player->action = e.type == SDL_KEYDOWN;
             jump_duck_key_event(me, player, sym, e);
-            if(sym == SDLK_ESCAPE || sym == SDLK_RCTRL)/////////////////
+            if(sym == SDLK_ESCAPE)
                 player->exit_doom = 1;
         }         
         if (e.type == SDL_QUIT)

@@ -42,6 +42,15 @@ typedef struct player
     float gravity;
 }           player;
 
+typedef struct player_save
+{
+    int next_start;    
+    char *next_lvl_temp;
+    float angle;
+    int key;
+    int health;
+
+}           player_save;
 
 typedef struct  texture_set_s
 {
@@ -52,8 +61,8 @@ typedef struct  texture_set_s
 
     SDL_Surface *sky;
     SDL_Surface *door;
-    SDL_Surface *dec[4];
-    SDL_Surface *key[6];
+    SDL_Surface *dec[5];
+    SDL_Surface *key[7];
     
     SDL_Surface *curr_object;
     SDL_Surface *passive_object;
@@ -81,18 +90,22 @@ void events(sectors *sectors, player *player);
 void change_level(level_s *lvl, player *p);
 void  goto_level(level_s *lvl, player *p, char *level_name);
 void action_controller(player *player, level_s *lvl, char *file);
-void door1(player *p, level_s *lvl, char *file);
+void door0000(player *p, level_s *lvl, char *file);
 
 void        free_level(level_s *level);
 void        free_texture_set(texture_set_s *t);
 void        music(char *tag);
 
 void render_massage(char *mssg, SDL_Surface *surface);
-void massage(char *file, player *p, SDL_Surface *surface);
+void message(char *file, player *p, SDL_Surface *surface);
 void text_pattern_0(char *file, player *p, SDL_Surface *surface);
+void text_pattern_01(char *file, player *p, SDL_Surface *surface);
 void text_pattern_1(char *file, player *p, SDL_Surface *surface);
+void text_pattern_2(char *file, player *p, SDL_Surface *surface);
 
 char *save_file(char *file);
+
+int ft_timer();
 // void        sector_init(sectors* s, int sx[], int sy[], int n[]);
 
 #endif

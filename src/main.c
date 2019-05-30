@@ -19,23 +19,18 @@ char *save_file(char *file)
     return (save);
 }
 
-int ft_timer(char *tag)
+int ft_timer()
 {
     static int oldtime = 0;
     static int newtime = 0;
-    static int time = 0;
 
-    if (!ft_strequ(tag, "#get"))
-    {   
-        oldtime = newtime;
-        newtime = clock();
-        time += (newtime - oldtime) / 1000;
-        if (time > 1000)
-            time = 0;
+    newtime = SDL_GetTicks();
+    if (newtime > (oldtime + TIME_SPEED))
+    {
+         oldtime = newtime;
+        return (1);
     }
-    // if (time == 0)
-    //     lvl.sector[0].floor--;
-    return (time);
+    return (0);
 }
 
 void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
@@ -46,7 +41,7 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 
 
     music("#init");
-    massage("#init", NULL, NULL);
+    message("#init", NULL, NULL);
     lvl = connect_level(get_map(file));
     save_file(file);
     if (!catch_exception(0))
@@ -58,41 +53,38 @@ void doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
         while(!player.exit_doom && !catch_exception(0))
         {
             // SDL_FillRect(surface, NULL, 0x000000);
-    ////CLOCK TEST
-//        ft_timer("B====D");
-        // printf("%d\n",ft_timer("#get"));
-
+    
     /////ACTIONS
             action_controller(&player, &lvl, save_file("#get"));
 
-
             render_screen(surface, &player, &lvl, 0);
 
-
     /////DEATH HANDLE
-            if (player.health == 1){
+            if (player.health == 0)
+            {
                 render_massage("You died :(((", surface);
                   SDL_UpdateWindowSurface(win);
                 SDL_Delay(2000);
-                if (ft_str_contains(save_file("#get"), "level/sprite\0"))
-                    goto_level(&lvl, &player, "level/map.doom");
+                if (ft_str_contains(save_file("#get"), ".story\0"))
+                    goto_level(&lvl, &player, "level/0000.story");
                 else
                     goto_level(&lvl, &player, save_file("#get"));
 
                 player.health = 3;
-                player.where.z = -0.08;
+                player.key = 0;
+                //player.where.z = -0.08;
             }
 /////FONT TEST
-            massage(save_file("#get"), &player, surface);
-
-            SDL_UpdateWindowSurface(win);
+            message(save_file("#get"), &player, surface);
+            
             events(lvl.sector, &player);
             change_level(&lvl, &player);
+            SDL_UpdateWindowSurface(win);
             SDL_Delay(10);
         }
     }
     free_level(&lvl);
-    massage("#del", NULL, NULL);
+    message("#del", NULL, NULL);
     music("#del");
     save_file("#del");
 
@@ -113,10 +105,11 @@ int main(int argc, char **argv)
     SDL_ShowCursor(SDL_DISABLE);
     TTF_Init();
 
-    if (argc != 2)
-        doom_init(win, surface, "story_0.map");
-    else
+    if (argc == 2 && ft_str_contains(argv[1], ".doom\0"))
         doom_init(win, surface, argv[1]);
+    else
+        doom_init(win, surface, "level/0000.story");
+        
 
 	SDL_FreeSurface(surface);
     SDL_FreeSurface(surface);

@@ -25,22 +25,6 @@ t_map_sector		*map_new_sector()
 	return (new_node);
 }
 
-// char			map_get_type(t_map *map, int x, int y)
-// {
-// 	t_map *m;
-
-// 	if (map)
-// 	{
-// 		m = map;
-// 		while (m)
-// 		{
-// 			if (m->x == x && m->y == y)
-// 				return (m->type[0]);
-// 			m = m->next;
-// 		}
-// 	}
-// 	return ('0');
-// }
 
 void			map_add_sector(t_map_sector **first, t_map_sector *new)
 {

@@ -13,7 +13,7 @@ static int vertex_validation(level_s lvl, int nsctr, int sctr, int vrtxs)
     eq1 = 0;
     eq2 = 0;
     nvrtx = lvl.sector[nsctr].npoints;
-    while(nvrtx--)
+    while(nvrtx-- && nvrtx >= 0)
     {
         if(equals_xy(VRTX(sctr, vrtxs), VRTX(nsctr, nvrtx)))
             eq1 = 1;
@@ -22,6 +22,7 @@ static int vertex_validation(level_s lvl, int nsctr, int sctr, int vrtxs)
     }
     if (eq1 && eq2)
         return (1);
+    // printf("s[%d]->v[%d;n:%d] == s[%d]->v[%d]\n", sctr, vrtxs, next_vrtx, nsctr, nvrtx);
     return (0);
 }
 
@@ -32,11 +33,14 @@ static void neighbor_validation(level_s lvl, int sctr, int vrtxs)
     nsctr = lvl.sector[sctr].neighbors[vrtxs];
     if (nsctr < 0)
         return ;
-    if (nsctr > lvl.sectors_size)
+    if (nsctr >= lvl.sectors_size)
     {
+        // printf("%d >= %d\n", nsctr,lvl.sectors_size);
         ft_putstr("EXCEPTION > sector > neighbor sector out of range\n");
         catch_exception(1);
-    } else{
+    }
+    else
+    {
         if(!vertex_validation(lvl, nsctr, sctr, vrtxs))
         {
             ft_putstr("EXCEPTION > vertex > neighbors not synhronized\n");
@@ -61,7 +65,7 @@ static void data_validation(level_s lvl, int sctr, int vrtxs)
         excptn = 4;
     i = 3;
     while(i-- && !excptn)
-        if ((lvl.start[i] < 0 || lvl.start[i] > 25) && lvl.next_level[i])
+        if ((lvl.start[i] < 0 || lvl.start[i] > 33) && lvl.next_level[i])
             excptn = 6;
     if (excptn)
     {
@@ -75,7 +79,7 @@ void sector_validation(level_s lvl)
     int vrtxs;
 
     sctr = lvl.sectors_size;
-    if (sctr < 1 || sctr > 25)
+    if (sctr < 1 || sctr > 33)
     {
         ft_putstr("EXCEPTION > sector > invalid sector number\n");
         catch_exception(1);

@@ -7,28 +7,30 @@
 void  change_level(level_s *lvl, player *p)
 {
     int j;
-    int next_start;
-    float angle;
-    char *next_lvl_temp;
+    player_save ps;
     t_map *map_temp;
 
     j = 3;
-    while(j--)
+    while(j-- && j >= 0)
     {
         if(p->sector == lvl->end[j] && lvl->next_level[j])
         {
-            next_start = lvl->start[j];
-            angle = p->angle;
-            next_lvl_temp = ft_strjoin(lvl->next_level[j], NULL);
-            map_temp = get_map(next_lvl_temp);
-            if (map_temp && next_start >= 0 && next_start < lvl->sectors_size)
+            ps.next_start = lvl->start[j];
+            ps.angle = p->angle;
+            ps.health = p->health;
+            ps.key = p->key;
+            ps.next_lvl_temp = ft_strjoin(lvl->next_level[j], NULL);
+            map_temp = get_map(ps.next_lvl_temp);
+            if (map_temp && ps.next_start >= 0 && ps.next_start < lvl->sectors_size)
             {
                 free_level(lvl);
                 *lvl = connect_level(map_temp);
-                *p = init_player(angle, lvl->sector, next_start, lvl->sectors_size);
-                save_file(next_lvl_temp);
+                *p = init_player(ps.angle, lvl->sector, ps.next_start, lvl->sectors_size);
+                save_file(ps.next_lvl_temp);
+                p->health = ps.health;
+                p->key = ps.key;
             }
-            ft_memdel((void**)&next_lvl_temp);
+            ft_memdel((void**)&(ps.next_lvl_temp));
         }
     }
 }
@@ -46,8 +48,8 @@ void  goto_level(level_s *lvl, player *p, char *level_name)
 
 void action_got_key(player *p, level_s *lvl)
 {
-    if(lvl->sector[p->sector].object == 1 && p->action){
-        lvl->texture.curr_object = lvl->texture.active_object;
+    if(lvl->sector[p->sector].object == 7 && p->action){
+        lvl->sector[p->sector].object = 8;
         p->key = 1;
     }
 }
@@ -55,7 +57,7 @@ void action_got_key(player *p, level_s *lvl)
 void action_open_door(player *p, level_s *lvl, char *file,
                     void (*f)(player *p, level_s *l, char *f))
 {
-    if(lvl->sector[p->sector].object == 2 &&
+    if(lvl->sector[p->sector].object == 1 &&
         p->action && p->key)
     {
         p->key = 0;
@@ -67,5 +69,5 @@ void action_open_door(player *p, level_s *lvl, char *file,
 void action_controller(player *player, level_s *lvl, char *file)
 {
     action_got_key(player, lvl);
-    action_open_door(player, lvl, file, &door1);    
+    action_open_door(player, lvl, file, &door0000);    
 }

@@ -47,14 +47,12 @@ void free_texture_set(texture_set_s *t)
         safe_sdlfree(t->lowertextures);
         safe_sdlfree(t->sky);
         safe_sdlfree(t->door);
-        i = 4;
+        i = 5;
         while(--i >= 0)
             safe_sdlfree(t->dec[i]);
         i = 6;
-        while(--i >= 0) {
+        while(--i >= 0)
 			safe_sdlfree(t->key[i]);
-		}
-
         safe_sdlfree(t->active_object);
         safe_sdlfree(t->passive_object);
     }
