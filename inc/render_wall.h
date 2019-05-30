@@ -11,6 +11,10 @@ typedef struct ceiling_floor
     float hei;
     float mapx;
     float mapz;
+    int with_shade;
+    int x;
+    int y;
+    int z;
 }              ceiling_floor_s;
 
 typedef struct wall

@@ -7,12 +7,31 @@
 # include "doom.h"
 # include "render_scaler.h"
 
+# define MAX_SURF_SIZE scrn->surface->w * scrn->surface->h * 3
+# define MAIN_IS_LESS MAX_SURF_SIZE > (cf->y * W + cf->x)
+# define MAIN_IS_MORE_0 0 <= (cf->y * W + cf->x)
+# define MAIN_IN (MAIN_IS_LESS && MAIN_IS_MORE_0)
 
-# define MAIN_IN ((scrn->surface->w * scrn->surface->h * 3) > (y * W + x) && 0 <= (y * W + x))
-# define TXT_IN ((t->w * t->h * 3) > (t->w * txtz + txtx) && 0 <= (t->w * txtz + txtx))
+# define TXT_IS_LESS (t->w * t->h * 3) > (t->w * txtz + txtx)
+# define TXT_IS_MORE_0 (0 <= (t->w * txtz + txtx))
+# define TXT_IN (TXT_IS_LESS && TXT_IS_MORE_0)
 
-# define SCRN_PIX ((int*)scrn->surface->pixels)[y * W + x]
+# define SCRN_PIX ((int*)scrn->surface->pixels)[cf->y * W + cf->x]
 # define TXT_PIX ((int*)t->pixels)[t->w * txtz + txtx]
+
+# define T1X scrn->edge.t1.x
+# define T2X scrn->edge.t2.x
+# define T1Z scrn->edge.t1.z
+# define T2Z scrn->edge.t2.z
+# define ORG1X scrn->txt_data.org1.x
+# define ORG2X scrn->txt_data.org2.x
+# define ORG1Y scrn->txt_data.org1.y
+# define ORG2Y scrn->txt_data.org2.y
+# define TXTW scrn->txt->uppertextures->w
+
+# define IS_ABOVE_SKY (heights.yceil + scrn->player->where.z) <= 30
+# define IS_NOT_SKY IS_ABOVE_SKY || (cf->y >= wall.cya)
+# define IS_CASUAL_CEIL IS_ABOVE_SKY && cf->y < wall.cya
 
 
 typedef struct  item

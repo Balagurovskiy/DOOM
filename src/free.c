@@ -53,7 +53,5 @@ void free_texture_set(texture_set_s *t)
         i = 6;
         while(--i >= 0)
 			safe_sdlfree(t->key[i]);
-        safe_sdlfree(t->active_object);
-        safe_sdlfree(t->passive_object);
     }
 }

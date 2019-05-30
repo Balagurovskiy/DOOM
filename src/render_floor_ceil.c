@@ -4,123 +4,73 @@
 #include "parser.h"
 #include "render_wall.h"
 
-// void  relative_map_coordinates_to_absolute(screen *s, float *x, float *z)
-// {
-//     float rtx;
-//     float rtz;
-
-//     rtx = (*z) * s->edge.pcos + (*x) * s->edge.psin;
-//     rtz = (*z) * s->edge.psin - (*x) * s->edge.pcos;
-//     *x = rtx + s->player->where.x;
-//     *z = rtz + s->player->where.y;
-// }
-
-// void ceiling_floor_screen_coords_to_map(screen *scrn, int sx, int sy, ceiling_floor_s *cf)
-// {
-//     float lim;
-
-//     lim = ((H / 2 - (sy)) - scrn->player->yaw * H * V_FOV);
-//     cf->mapz = (cf->hei) * H * V_FOV / ((lim == 0.0) ? 1.0 : lim);
-//     cf->mapx = (cf->mapz) * (W / 2 - (sx)) / (W * H_FOV);
-//     relative_map_coordinates_to_absolute(scrn, &(cf->mapx), &(cf->mapz));
-// }
-
-// void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
-// {
-//     int y;
-//     ceiling_floor_s cf;
-//     int txtx;
-//     int txtz;
-//     SDL_Surface *t;
-
-//     y = scrn->ytop[x] - 1;
-//     while(++y <= scrn->ybottom[x])
-//     {
-//         if(y >= wall.cya && y <= wall.cyb)
-//             y = wall.cyb;//continue;
-//         else
-//         {
-//         cf.hei = y < wall.cya ? heights.yceil : heights.yfloor;
-//         ceiling_floor_screen_coords_to_map(scrn, x, y, &cf);
-//         t = y < wall.cya ? scrn->txt->ceiltexture : scrn->txt->floortexture;
-//         txtx = (int)(cf.mapx * 256) % t->w;//256
-//         txtz = (int)(cf.mapz * 256) % t->h;
-//         if (MAIN_IN && TXT_IN)
-//             SCRN_PIX = fade_to_black(TXT_PIX , wall.z, 120);
-//     }
-// //        ((int*)scrn->surface->pixels)[y * W + x] =
-// //                ((int*)t->pixels)[scrn->txt->size * txtz + txtx];
-//     }
-// }
-
-
-int null_check(screen *scrn)
+static void switch_to_casual_ceil(screen *scrn, ceiling_floor_s *cf)
 {
-	if (scrn)
-		if (scrn->txt)
-			if(scrn->txt->sky ||
-				scrn->txt->floortexture ||
-				scrn->txt->ceiltexture)
-				return (0);
-	catch_exception(1);
-	return (1);
+    float rtx;
+    float rtz;
+
+    rtx = cf->mapz * scrn->edge.pcos + cf->mapx * scrn->edge.psin;
+    rtz = cf->mapz * scrn->edge.psin - cf->mapx * scrn->edge.pcos;
+    cf->mapx = rtx + scrn->player->where.x;
+    cf->mapz = rtz + scrn->player->where.y;
 }
 
-#include "unistd.h"
-void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
+static void init_f_c(screen *scrn, ceiling_floor_s *cf)
 {
-    int y;
-    ceiling_floor_s cf;
+    float lim;
+
+    lim = ((H / 2 - cf->y) - scrn->player->yaw * H * V_FOV);
+    cf->mapz = (cf->hei) * H * V_FOV / ((lim == 0.0) ? 1.0 : lim);
+    cf->mapx = (cf->mapz) * (W / 2 - cf->x) / (W * H_FOV);
+}
+
+static void put_txt_pixel(screen *scrn, ceiling_floor_s *cf, SDL_Surface *t)
+{
     int txtx;
     int txtz;
+
+    txtx = (int)(cf->mapx * 256) % t->w;
+    txtz = (int)(cf->mapz * 256) % t->h;
+    if (MAIN_IN && TXT_IN)
+    {
+        if (cf->with_shade)
+            SCRN_PIX = fade_to_black(TXT_PIX, cf->z, BLACK_DIST + 50);
+        else
+            SCRN_PIX = TXT_PIX;
+    }
+}
+
+static void render_f_c_loop(screen *scrn, wall_s wall, heights_s heights, ceiling_floor_s *cf)
+{
     SDL_Surface *t;
 
-	if (null_check(scrn))
-		return ;
-
-    y = scrn->ytop[x] - 1;
-    while(++y <= scrn->ybottom[x])
+    cf->with_shade = 0;
+    cf->hei = cf->y < wall.cya ? heights.yceil : heights.yfloor;
+    t = cf->y < wall.cya ? scrn->txt->sky : scrn->txt->floortexture;
+    init_f_c(scrn, cf);
+    if (IS_NOT_SKY)
     {
+        switch_to_casual_ceil(scrn, cf);
+        if (IS_CASUAL_CEIL)
+            t = scrn->txt->ceiltexture;
+        cf->with_shade = 1;
+    }
+    put_txt_pixel(scrn, cf, t);    
+}
 
-        if(y >= wall.cya && y <= wall.cyb)
-            y = wall.cyb;//continue;
+
+void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x)
+{
+    ceiling_floor_s cf;
+
+    cf.x = x;
+    cf.y = scrn->ytop[cf.x] - 1;
+    cf.z = wall.z;
+    while(++cf.y <= scrn->ybottom[cf.x])
+    {        
+        if(cf.y >= wall.cya && cf.y <= wall.cyb)
+            cf.y = wall.cyb;//continue;
         else
-        {
-
-            cf.hei = y < wall.cya ? heights.yceil : heights.yfloor;
-            t = y < wall.cya ? scrn->txt->sky : scrn->txt->floortexture;
-
-            int with_shade;
-
-            with_shade = 0;
-
-            float lim;
-            lim = ((H / 2 - (y)) - scrn->player->yaw * H * V_FOV);
-            cf.mapz = (cf.hei) * H * V_FOV / ((lim == 0.0) ? 1.0 : lim);
-            cf.mapx = (cf.mapz) * (W / 2 - (x)) / (W * H_FOV);
-
-            if (y >= wall.cya || ((heights.yceil + scrn->player->where.z) <= 30))
-            {
-                float rtx;
-                float rtz;
-
-                rtx = cf.mapz * scrn->edge.pcos + cf.mapx * scrn->edge.psin;
-                rtz = cf.mapz * scrn->edge.psin - cf.mapx * scrn->edge.pcos;
-                cf.mapx = rtx + scrn->player->where.x;
-                cf.mapz = rtz + scrn->player->where.y;
-                if (heights.yceil + scrn->player->where.z <= 30 && y < wall.cya)
-                    t = scrn->txt->ceiltexture;
-                with_shade = 1;
-            }
-            txtx = (int)(cf.mapx * 256) % t->w;
-            txtz = (int)(cf.mapz * 256) % t->h;
-            if (MAIN_IN && TXT_IN) {
-                if (with_shade)
-                    SCRN_PIX = fade_to_black(TXT_PIX, wall.z, BLACK_DIST + 50);
-                else
-                    SCRN_PIX = TXT_PIX;
-            }
-        }
-//
+            render_f_c_loop(scrn, wall, heights, &cf);
     }
 }

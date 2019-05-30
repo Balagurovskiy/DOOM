@@ -64,10 +64,7 @@ typedef struct  texture_set_s
     SDL_Surface *dec[5];
     SDL_Surface *key[7];
     
-    SDL_Surface *curr_object;
-    SDL_Surface *passive_object;
-    SDL_Surface *active_object;
-
+    SDL_Surface *current;
 }               texture_set_s;
 
 
