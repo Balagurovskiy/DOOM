@@ -7,9 +7,9 @@ void text_pattern_0(char *file, player *p, SDL_Surface *surface)
 	if (!ft_strequ((char const *)file, "level/0000.story"))
 		return ;
     if(p->sector == 0 || p->sector <= 5)
-        render_massage("You lost and need to find a way out...", surface);
+        render_massage("You are lost and need to find a way out...", surface);
     if(p->sector == 12)
-		render_massage("Wow secter place", surface);
+		render_massage("Wow secret place", surface);
     if(p->sector == 8 && !p->key)
         render_massage("Damn! Need a key !", surface);
     if(p->sector == 8 && p->key)
@@ -44,7 +44,7 @@ void text_pattern_1(char *file, player *p, SDL_Surface *surface)
 	if (ft_strequ((char const *)file, "level/0100.story"))
 	{
         if(p->sector == 0 || p->sector == 1)
-    		render_massage("Oh another wierd place ...", surface);
+    		render_massage("Oh another weird place ...", surface);
         if(p->sector == 11 && !p->key)
             render_massage("Ofcourse ... locked", surface);
         if(p->sector == 11 && p->key)
