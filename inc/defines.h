@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   defines.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
+/*   Updated: 2019/06/01 12:19:49 by obalagur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
@@ -11,29 +22,32 @@
 # include "SDL_ttf.h"
 # include "time.h"
 
-/* Define window size */
-# define W 640//1280
-# define H 480//720
-//# define W 1280
-//# define H 720
+# define W 820
+/*
+ * 1280
+ * 640
+*/
+# define H 640
+/*
+ * 720
+ * 480
+*/
 
-/* Define various vision related constants */
-# define EYE_HEIGHT  6    // Camera height from floor when standing
-# define DUCK_HEIGHT 3.5  // And when crouching
-# define THICC 0.8 // bouding radius
+# define EYE_HEIGHT 6
+# define DUCK_HEIGHT 3.5
+# define THICC 0.7
 # define BLACK_DIST 50
-# define HEAD_MARGIN 0.5    // How much room there is above camera before the scrn.head hits the ceiling
-# define KNEE_HEIGHT 2    // How tall obstacles the player can simply walk over without jumping
-# define H_FOV (0.9 * H / W)  // Affects the horizontal field of vision(never >= 180 degrees though)
-# define V_FOV (0.15)    // Affects the vertical field of vision
-# define MAX_QUE 32   // MAXimum number of pending portal renders
+# define HEAD_MARGIN 0.5
+# define KNEE_HEIGHT 2
+# define H_FOV (0.9 * H / W)
+# define V_FOV (0.15)
+# define MAX_QUE 32
 # define ABS(a) ((a) < 0 ? -(a) : (a))
-# define MIN(a,b)             (((a) < (b)) ? (a) : (b)) // MIN: Choose smaller of two scalars.
-# define MAX(a,b)             (((a) > (b)) ? (a) : (b)) // MAX: Choose greater of two scalars.
-# define CLAMP(a, mi, ma)      MIN(MAX(a, mi), ma)         // CLAMP: CLAMP value into set range.
-# define SIGN(v) (((v) > 0) - ((v) < 0))    // sign: Return the sign of a value (-1, 0 or 1)
-# define VXS(x0, y0, x1, y1)    ((x0 * y1) - (x1 * y0))   // VXS: Vector cross product
-// OVERLAP:  DeterMINe whether the two number ranges OVERLAP.
+# define MIN(a,b) (((a) < (b)) ? (a) : (b))
+# define MAX(a,b) (((a) > (b)) ? (a) : (b))
+# define CLAMP(a, mi, ma) MIN(MAX(a, mi), ma)
+# define SIGN(v) (((v) > 0) - ((v) < 0))
+# define VXS(x0, y0, x1, y1) ((x0 * y1) - (x1 * y0))
 
 # define MVM(a0, a1, b0, b1) (MIN(a0, a1) <= MAX(b0, b1))
 # define MAM(a0, a1, b0, b1) (MIN(b0, b1) <= MAX(a0, a1))
@@ -53,10 +67,6 @@
 # define SECT_NGHBR_NOW(s) &scrn->sector[NGHBR_NOW(s)]
 # define HAS_NGHBR_NOW(s) NGHBR_NOW(s) >= 0
 
-# define R1(z) 0x000101 * (255 - z)
-# define R2(z) 0x040007 * (31 - (z / 8))
-# define R(z) 0x010001 * (255 - z) //0x010101 - shaded white
-
 # define NEARZ 0.0001
 # define NEAR_SIDE 0.0001
 
@@ -68,11 +78,7 @@
 # define HAS_NEXT_QUE ((scrn->head + MAX_QUE + 1 - scrn->tail) % MAX_QUE)
 # define NOT_END (heights.endx >= heights.beginx)
 
-# define IS_START(s, i) s[i].status == 1
-# define IS_END(s, i) s[i].status == 2
-
 # define ACC 0.01
 # define COMPARE(a, b) ABS(a - b) < ACC
-
 
 #endif

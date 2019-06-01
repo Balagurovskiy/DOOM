@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 19:01:15 by obalagur          #+#    #+#             */
-/*   Updated: 2017/12/02 12:00:24 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/01 12:22:29 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	is_number(char c)
 {
 	return ((c >= '0' && c <= '9') ? 1 : 0);
 }
-# include <stdio.h>
+
 int			ft_atoi(const char *str)
 {
 	int			minus;

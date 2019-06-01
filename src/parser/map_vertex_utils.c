@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   map_vertex_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obalagur <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/22 13:06:29 by obalagur          #+#    #+#             */
-/*   Updated: 2018/06/22 13:06:32 by obalagur         ###   ########.fr       */
+/*   Created: 2019/06/01 12:37:14 by obalagur          #+#    #+#             */
+/*   Updated: 2019/06/01 12:41:16 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-t_map_vertex		*map_new_vertex()
+t_map_vertex		*map_new_vertex(void)
 {
 	t_map_vertex	*new_node;
 
@@ -23,9 +23,9 @@ t_map_vertex		*map_new_vertex()
 	return (new_node);
 }
 
-void			map_add_vertex(t_map_vertex **first, t_map_vertex *new)
+void				map_add_vertex(t_map_vertex **first, t_map_vertex *new)
 {
-	t_map_vertex *f;
+	t_map_vertex	*f;
 
 	if (*first != NULL)
 	{
@@ -44,9 +44,9 @@ void			map_add_vertex(t_map_vertex **first, t_map_vertex *new)
 		*first = new;
 }
 
-void			map_del_vertex(t_map_vertex **node)
+void				map_del_vertex(t_map_vertex **node)
 {
-	t_map_vertex *del;
+	t_map_vertex	*del;
 
 	if (*node)
 	{
@@ -54,7 +54,6 @@ void			map_del_vertex(t_map_vertex **node)
 		{
 			del = *node;
 			*node = (*node)->next;
-			// ft_memdel((void **)&(del->neighbor));
 			free(del);
 			del = NULL;
 		}

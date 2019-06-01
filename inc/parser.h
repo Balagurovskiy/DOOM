@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: obalagur <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/22 11:52:40 by obalagur          #+#    #+#             */
-/*   Updated: 2018/06/22 11:52:46 by obalagur         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
@@ -108,6 +97,8 @@ void 				connect_next_level(level_s *lvl, t_map *map);
 t_map 				*get_map(char *file_name);
 level_s 			connect_level(t_map *map);
 
+void				parse_texture_switch(char **txt_data, t_map **map, int *it);
+void				parse_texture(char *line, t_map **map);
 
 # define VRTX(s, v) lvl.sector[s].vertex[v]
 

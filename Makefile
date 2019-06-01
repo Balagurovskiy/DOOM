@@ -32,6 +32,7 @@ FILES =  main \
          parser/map_sector_utils \
          parser/map_vertex_utils \
          parser/parser \
+         parser/parser_textures \
          parser/parser_level \
          parser/parser_sector \
          parser/parser_str_utils \

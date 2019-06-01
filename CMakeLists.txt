@@ -24,6 +24,7 @@ add_executable(doom inc/doom.h
         src/parser/map_sector_utils.c
         src/parser/map_vertex_utils.c
         src/parser/parser.c
+        src/parser/parser_textures.c
         src/parser/parser_level.c
         src/parser/parser_sector.c
         src/parser/parser_str_utils.c
@@ -60,7 +61,7 @@ add_executable(doom inc/doom.h
                     src/actions.c
                     src/event_key_collision.c
                     src/event_key_bumping.c
-                    src/event.c
+        src/event.c
                     src/utils_intersection.c
                     src/event_keys.c
                     src/event_key_moves.c

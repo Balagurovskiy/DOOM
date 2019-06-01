@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
+/*   Updated: 2019/06/01 12:11:38 by obalagur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 
 #ifndef RENDER_H
@@ -139,7 +150,7 @@ perspective_s perspective_init(edge_s edge);
 //render_wall_intersection.c
 void view_intersection_with_wall(screen *scrn);
 
-
+SDL_Surface		*play_animation(SDL_Surface *anims[], int size);
 //render_scaler.c
 //scaler_s scaler_init(int a, int b, int c, int d, int f);
 //int scaler_next(scaler_s *s);

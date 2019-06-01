@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   doom.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
+/*   Updated: 2019/06/01 12:11:23 by obalagur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef DOOM_H
 # define DOOM_H
@@ -82,7 +92,7 @@ typedef struct level_s
 sectors* sprite_test();
 
 void render_screen(SDL_Surface *srf, player *pl, level_s *lvl, int is_obj);
-void events(sectors *sectors, player *player);
+void events(level_s *lvl, player *player, SDL_Window *win, SDL_Surface *surface);
 
 void change_level(level_s *lvl, player *p);
 void  goto_level(level_s *lvl, player *p, char *level_name);
@@ -103,7 +113,6 @@ void text_pattern_2(char *file, player *p, SDL_Surface *surface);
 char *save_file(char *file);
 
 int ft_timer();
-// void        sector_init(sectors* s, int sx[], int sy[], int n[]);
 
 #endif
 

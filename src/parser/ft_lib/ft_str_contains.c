@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_contains.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obalagur <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/16 15:56:23 by obalagur          #+#    #+#             */
-/*   Updated: 2018/06/16 15:56:27 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/01 12:23:31 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				ft_str_contains(char *source, char *target)
 	int s;
 	int t;
 
-	s = 0;	
+	s = 0;
 	if (source && target)
 	{
 		target_len = ft_strlen(target);

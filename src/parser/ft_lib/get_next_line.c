@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obalagur <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 19:35:11 by obalagur          #+#    #+#             */
-/*   Updated: 2018/01/20 19:35:15 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/01 12:24:46 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-//# include "libft.h"
+#include "parser.h"
 
 static t_list	*get_save(t_list *save, int fd)
 {

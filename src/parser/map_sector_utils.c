@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   map_sector_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: obalagur <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/22 13:06:29 by obalagur          #+#    #+#             */
-/*   Updated: 2018/06/22 13:06:32 by obalagur         ###   ########.fr       */
+/*   Created: 2019/06/01 12:37:05 by obalagur          #+#    #+#             */
+/*   Updated: 2019/06/01 12:41:03 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-t_map_sector		*map_new_sector()
+t_map_sector		*map_new_sector(void)
 {
 	t_map_sector	*new_node;
 
@@ -25,10 +25,9 @@ t_map_sector		*map_new_sector()
 	return (new_node);
 }
 
-
-void			map_add_sector(t_map_sector **first, t_map_sector *new)
+void				map_add_sector(t_map_sector **first, t_map_sector *new)
 {
-	t_map_sector *f;
+	t_map_sector	*f;
 
 	if (*first != NULL)
 	{
@@ -47,9 +46,9 @@ void			map_add_sector(t_map_sector **first, t_map_sector *new)
 		*first = new;
 }
 
-void			map_del_sector(t_map_sector **node)
+void				map_del_sector(t_map_sector **node)
 {
-	t_map_sector *del;
+	t_map_sector	*del;
 
 	if (*node)
 	{
