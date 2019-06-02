@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:40 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:17 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 #include "events.h"
 #include "utils.h"
 
-move_events		move_events_init(){
-	move_events me;
+t_move_events	move_events_init(void)
+{
+	t_move_events	me;
 
 	me.wsad[0] = 0;
 	me.wsad[1] = 0;
@@ -30,20 +31,21 @@ move_events		move_events_init(){
 	return (me);
 }
 
-void			move_player(xy d, player *player, sectors *sector)
+void			move_player(t_xy d, t_player *player, t_sectors *sector)
 {
-	unsigned int	s;
-	xy				p;
+	unsigned int		s;
+	t_xy				p;
 
 	p = new_xy(player->where.x, player->where.y);
 	s = 0;
-	while (s < PLAYER_SECT.npoints){
+	while (s < PLAYER_SECT.npoints)
+	{
 		if (PLAYER_SECT.neighbors[s] >= 0
 		&& intersect_box_handle(p, d, VERT, s)
 				&& point_side_handle(p, d, VERT, s) < 0)
 		{
 			player->sector = PLAYER_SECT.neighbors[s];
-			break;
+			break ;
 		}
 		s++;
 	}

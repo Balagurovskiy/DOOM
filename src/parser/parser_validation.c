@@ -6,13 +6,13 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:38:57 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:43:13 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:12 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-static int		vertex_validation(level_s lvl, int nsctr, int sctr, int vrtxs)
+static int		vertex_validation(t_level lvl, int nsctr, int sctr, int vrtxs)
 {
 	int	nvrtx;
 	int	next_vrtx;
@@ -37,7 +37,7 @@ static int		vertex_validation(level_s lvl, int nsctr, int sctr, int vrtxs)
 	return (0);
 }
 
-static void		neighbor_validation(level_s lvl, int sctr, int vrtxs)
+static void		neighbor_validation(t_level lvl, int sctr, int vrtxs)
 {
 	int	nsctr;
 
@@ -59,13 +59,13 @@ static void		neighbor_validation(level_s lvl, int sctr, int vrtxs)
 	}
 }
 
-static void		data_validation(level_s lvl, int sctr, int vrtxs)
+static void		data_validation(t_level lvl, int sctr, int vrtxs)
 {
 	int	excptn;
 	int	i;
 
 	excptn = 0;
-	if (lvl.sector[sctr].ceil < 0 || lvl.sector[sctr].ceil > 50)
+	if (lvl.sector[sctr].ceil < 7 || lvl.sector[sctr].ceil > 50)
 		excptn = 1;
 	if (lvl.sector[sctr].floor < 0 || lvl.sector[sctr].floor > 50)
 		excptn = 2;
@@ -84,7 +84,7 @@ static void		data_validation(level_s lvl, int sctr, int vrtxs)
 	}
 }
 
-void			sector_validation(level_s lvl)
+void			sector_validation(t_level lvl)
 {
 	int sctr;
 	int vrtxs;

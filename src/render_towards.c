@@ -6,18 +6,18 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:04 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:32 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "defines.h"
-# include "doom.h"
-# include "render.h"
-# include "render_wall.h"
+#include "defines.h"
+#include "doom.h"
+#include "render.h"
+#include "render_wall.h"
 
-edge_s		edge_init(player *player, sectors *sect, int s)
+t_edge			edge_init(t_player *player, t_sectors *sect, int s)
 {
-	edge_s edge;
+	t_edge edge;
 
 	if (s > sect->npoints)
 	{
@@ -28,10 +28,10 @@ edge_s		edge_init(player *player, sectors *sect, int s)
 	}
 	else
 	{
-		edge.v1.x = sect->vertex[s+0].x - player->where.x;
-		edge.v1.y = sect->vertex[s+0].y - player->where.y;
-		edge.v2.x = sect->vertex[s+1].x - player->where.x;
-		edge.v2.y = sect->vertex[s+1].y - player->where.y;
+		edge.v1.x = sect->vertex[s + 0].x - player->where.x;
+		edge.v1.y = sect->vertex[s + 0].y - player->where.y;
+		edge.v2.x = sect->vertex[s + 1].x - player->where.x;
+		edge.v2.y = sect->vertex[s + 1].y - player->where.y;
 	}
 	edge.pcos = player->anglecos;
 	edge.psin = player->anglesin;
@@ -42,7 +42,7 @@ edge_s		edge_init(player *player, sectors *sect, int s)
 	return (edge);
 }
 
-void		schedule(screen *scrn, heights_s heights, int s)
+void			schedule(t_screen *scrn, t_heights heights, int s)
 {
 	if (HAS_NGHBR_NOW(s) && NOT_END && HAS_NEXT_QUE)
 	{
@@ -54,34 +54,40 @@ void		schedule(screen *scrn, heights_s heights, int s)
 	}
 }
 
-void		render_towards(screen *scrn)
+static void		render_fron_walls(t_screen *scrn, int s)
 {
-	heights_s		heights;
-	perspective_s	perspect;
+	t_heights		heights;
+	t_perspective	perspect;
+
+	if (IS_FRONT(scrn->edge))
+	{
+		view_intersection_with_wall(scrn);
+		perspect = perspective_init(scrn->edge);
+		if (perspect.x1 < perspect.x2)
+		{
+			if (perspect.x2 > scrn->now.sx1 && perspect.x1 < scrn->now.sx2)
+			{
+				heights = heights_init(scrn, perspect, s);
+				render_the_wall(scrn, perspect, heights, s);
+				schedule(scrn, heights, s);
+			}
+		}
+	}
+}
+
+void			render_towards(t_screen *scrn)
+{
 	int				s;
 
 	s = 0;
-	while(s < (SECT_NOW->npoints + ((SECT_NOW->object >= 1) ? 1 : 0)))
+	while (s < (SECT_NOW->npoints + ((SECT_NOW->object >= 1) ? 1 : 0)))
 	{
 		if (s == SECT_NOW->npoints && SECT_NOW->object)
 			s++;
 		scrn->edge = edge_init(scrn->player, SECT_NOW, s);
 		scrn->txt_data.u0 = 0;
 		scrn->txt_data.u1 = scrn->txt->uppertextures->w - 1;
-		if (IS_FRONT(scrn->edge))
-		{
-			view_intersection_with_wall(scrn);
-			perspect = perspective_init(scrn->edge);
-			if (perspect.x1 < perspect.x2)
-			{
-				if (perspect.x2 > scrn->now.sx1 && perspect.x1 < scrn->now.sx2)
-				{
-					heights = heights_init(scrn, perspect, s);
-					render_the_wall(scrn, perspect, heights, s);
-					schedule(scrn, heights, s);
-				}
-			}
-		}
+		render_fron_walls(scrn, s);
 		s++;
 	}
 }

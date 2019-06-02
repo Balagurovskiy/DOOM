@@ -6,16 +6,16 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:44:48 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:50:37 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:45:59 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
+#include "parser.h"
 
-static xy	find_midd_point(sectors sct)
+static t_xy		find_midd_point(t_sectors sct)
 {
-	xy		start;
-	int		i;
+	t_xy		start;
+	int			i;
 
 	i = 0;
 	start = new_xy(0.0, 0.0);
@@ -30,10 +30,10 @@ static xy	find_midd_point(sectors sct)
 	return (start);
 }
 
-player	init_player(float a, sectors *s, unsigned int s_in, int num_s)
+t_player		init_player(float a, t_sectors *s, unsigned int s_in, int num_s)
 {
-	player	player;
-	xy		where;
+	t_player	player;
+	t_xy		where;
 
 	where = find_midd_point(s[s_in]);
 	player.sector = s_in;
@@ -51,5 +51,5 @@ player	init_player(float a, sectors *s, unsigned int s_in, int num_s)
 	player.exit_doom = 0;
 	player.action = 0;
 	player.key = 0;
-    return (player);
+	return (player);
 }

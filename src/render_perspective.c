@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:58 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:24 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static float	get_scale(float z, char side)
 	return (fside / ((COMPARE(ABS(z), 0.0)) ? 1.0 : z));
 }
 
-perspective_s	perspective_init(edge_s edge)
+t_perspective	perspective_init(t_edge edge)
 {
-	perspective_s	perspect;
+	t_perspective	perspect;
 
 	perspect.scale1.x = get_scale(edge.t1.z, 'x');
 	perspect.scale1.y = get_scale(edge.t1.z, 'y');

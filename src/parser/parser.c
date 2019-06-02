@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:37:42 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:41:48 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:03 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	parse_line(char **line, t_map_sector **map_sector)
 								0 : map_s_new->floor);
 	map_s_new->vertex = parse_sector(line, &(map_s_new->vertex_size));
 	map_s_new->object = parse_sector_object(line);
+	map_s_new->next_level_sector = -1;
 	map_s_new->next_level = parse_level(line, &(map_s_new->next_level_sector));
 	map_add_sector(map_sector, map_s_new);
 }

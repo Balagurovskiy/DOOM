@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:38 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:17 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include "events.h"
 #include "utils.h"
 
-int get_collision_count(xy p, xy d, player *player, sectors *sector)
+int			get_collision_count(t_xy p, t_xy d,
+								t_player *player,
+								t_sectors *sector)
 {
 	unsigned int	s;
 	int				collision_count;
@@ -26,34 +28,36 @@ int get_collision_count(xy p, xy d, player *player, sectors *sector)
 	{
 		p.x = p.x + d.x;
 		p.y = p.y + d.y;
-		if(intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, THICC))
+		if (IN_CIRCLE)
 			collision_count++;
 		s++;
 	}
 	return (collision_count);
 }
 
-void hor_collision_detection(move_events *me, player *player, sectors *sector)
+void		hor_collision_detection(t_move_events *me,
+									t_player *player,
+									t_sectors *sector)
 {
-	xy				p;
-	xy				d;
-	unsigned int	s;
-	int				collision_count;
+	t_xy				p;
+	t_xy				d;
+	unsigned int		s;
+	int					collision_count;
 
-	if(me->moving)
+	if (me->moving)
 	{
 		p = new_xy(player->where.x, player->where.y);
 		d = new_xy(player->velocity.x, player->velocity.y);
 		collision_count = get_collision_count(p, d, player, sector);
 		s = 0;
-		while (s < (&PLAYER_SECT)->npoints){
+		while (s < (&PLAYER_SECT)->npoints)
+		{
 			p.x = p.x + d.x;
 			p.y = p.y + d.y;
 			me->s = s;
 			me->can_bump = (collision_count == 1);
-			if (intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, THICC)
-				&& point_side_handle(p, d, VERT, s) < 0)
-					bumping(me, player, sector, &d);
+			if (IN_SIDE && IN_CIRCLE)
+				bumping(me, player, sector, &d);
 			s++;
 		}
 		move_player(new_xy(player->velocity.x, player->velocity.y),
@@ -62,9 +66,9 @@ void hor_collision_detection(move_events *me, player *player, sectors *sector)
 	}
 }
 
-static void vert_collision_switch(move_events *me,
-									player *player,
-									sectors *sector)
+static void	vert_collision_switch(t_move_events *me,
+									t_player *player,
+									t_sectors *sector)
 {
 	if (EYE_HEIGHT + PLAYER_SECT.floor > (PLAYER_SECT.ceil - 0.4))
 	{
@@ -77,7 +81,7 @@ static void vert_collision_switch(move_events *me,
 		player->where.z = PLAYER_SECT.floor + me->eyeheight;
 		player->velocity.z = 0;
 		me->falling = 0;
-		me->ground  = 1;
+		me->ground = 1;
 	}
 	else if (player->velocity.z > 0 && JUMP_HEIGHT > (PLAYER_SECT.ceil - 0.4))
 	{
@@ -91,16 +95,18 @@ static void vert_collision_switch(move_events *me,
 	}
 }
 
-void vert_collision_detection(move_events *me, player *player, sectors *sector)
+void		vert_collision_detection(t_move_events *me,
+								t_player *player,
+								t_sectors *sector)
 {
 	static float	max_fall = 0.0;
 	float			curr_height;
 
 	me->ground = !me->falling;
 	player->gravity = 0.09f;
-	if(me->falling)
+	if (me->falling)
 	{
-		player->velocity.z -= player->gravity; /* Add gravity */
+		player->velocity.z -= player->gravity;
 		curr_height = player->where.z - sector[player->sector].floor;
 		if (curr_height > max_fall)
 			max_fall = curr_height;

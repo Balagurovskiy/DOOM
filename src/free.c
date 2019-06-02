@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:47 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:19 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "doom.h"
 #include "libft.h"
 
-void	free_level(level_s *level)
+void	free_level(t_level *level)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ void	free_level(level_s *level)
 		ft_memdel((void **)&(level->sector));
 	}
 	i = 3;
-	while (i--)
+	while (--i >= 0)
 		ft_memdel((void **)&(level->next_level[i]));
 }
 
@@ -46,7 +46,7 @@ void	safe_sdlfree(SDL_Surface *s)
 		SDL_FreeSurface(s);
 }
 
-void	free_texture_set(texture_set_s *t)
+void	free_texture_set(t_texture_set *t)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ void	free_texture_set(texture_set_s *t)
 		i = 5;
 		while (--i >= 0)
 			safe_sdlfree(t->dec[i]);
-		i = 6;
+		i = 7;
 		while (--i >= 0)
 			safe_sdlfree(t->key[i]);
 	}

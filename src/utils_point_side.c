@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:15 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:37 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "doom.h"
 #include "utils.h"
 
-float	point_side(xy p, xy xy0, xy xy1)
+float	point_side(t_xy p, t_xy xy0, t_xy xy1)
 {
 	float x1_x0;
 	float y1_y0;
@@ -28,11 +28,11 @@ float	point_side(xy p, xy xy0, xy xy1)
 	return (VXS(x1_x0, y1_y0, px_x0, py_y0));
 }
 
-float	point_side_handle(xy p, xy d, xy *vert, int s)
+float	point_side_handle(t_xy p, t_xy d, t_xy *vert, int s)
 {
-	xy p_d;
-	xy xy0;
-	xy xy1;
+	t_xy p_d;
+	t_xy xy0;
+	t_xy xy1;
 
 	p_d.x = p.x + d.x;
 	p_d.y = p.y + d.y;

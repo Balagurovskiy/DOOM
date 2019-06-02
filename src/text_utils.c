@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:09 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:33 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void				render_massage(char *mssg, SDL_Surface *surface)
 		blit_massage_surface(mssg, surface, font, &location);
 }
 
-void				message(char *file, player *p, SDL_Surface *surface)
+void				message(char *file, t_player *p, SDL_Surface *surface)
 {
 	if (!p || !surface)
 	{

@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:37:34 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:41:34 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:02 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ t_map		*get_map(char *file_name)
 	return (map);
 }
 
-level_s		connect_level(t_map *map)
+t_level		connect_level(t_map *map)
 {
-	level_s	lvl;
+	t_level	lvl;
 
 	if (!map)
 		catch_exception(1);

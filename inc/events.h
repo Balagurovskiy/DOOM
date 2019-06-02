@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef EVENTS_H
 # define EVENTS_H
 
@@ -24,54 +23,73 @@
 # define ACCEL ve->acceleration
 # define VLCTY player->velocity
 
-typedef struct  move_events
+# define IS_HOLE_HIGH (hole.y < (player->where.z + HEAD_MARGIN))
+# define FOOT_HEIGHT player->where.z - me->eyeheight
+# define IS_HOLE_LOW (hole.x  > (FOOT_HEIGHT + KNEE_HEIGHT))
+
+# define VEL_SUM (d->x * xyd.x + d->y * xyd.y)
+# define VEL_POW (pow(xyd.x, 2.0) + pow(xyd.y, 2.0))
+# define SAFE_VEL_POW ((VEL_POW == 0.0) ? 1.0 : VEL_POW)
+
+# define IN_SIDE point_side_handle(p, d, VERT, s) < 0
+# define IN_CIRCLE intersert_circle_bound(VERT[s + 0], VERT[s + 1], p, THICC)
+
+typedef struct		s_move_events
 {
-    int wsad[4];
-    int ground;
-    int falling;
-    int moving;
-    int ducking;
+	int				wsad[4];
+	int				ground;
+	int				falling;
+	int				moving;
+	int				ducking;
 
-    float eyeheight;
-    float yaw;
+	float			eyeheight;
+	float			yaw;
 
-	int can_bump;
-	unsigned int s;
-}               move_events;
+	int				can_bump;
+	unsigned int	s;
+}					t_move_events;
 
-typedef struct  view_events
+typedef struct		s_view_events
 {
-    int x;
-    int y;
-    int pushing;
-    float acceleration;
-    float move_vec[2];
-}              view_events;
+	int			x;
+	int			y;
+	int			pushing;
+	float		acceleration;
+	float		move_vec[2];
+}					t_view_events;
 
-void events(level_s *lvl, player *player, SDL_Window *win, SDL_Surface *surface);
+void				events(t_level *lvl, t_player *player,
+							SDL_Window *win, SDL_Surface *surface);
 
-void view_event(move_events *me, view_events *ve, player *player, sectors *sectors);
+void				view_event(t_move_events *me, t_view_events *ve,
+								t_player *player, t_sectors *sectors);
 
-view_events view_events_init(move_events *me);
+t_view_events		view_events_init(t_move_events *me);
 
-void view_event(move_events *me, view_events *ve, player *player, sectors *sectors);
+void				view_event(t_move_events *me, t_view_events *ve,
+								t_player *player, t_sectors *sectors);
 
-view_events view_events_init(move_events *me);
+t_view_events		view_events_init(t_move_events *me);
 
-void vert_collision_detection(move_events *me, player *player, sectors *sector);
+void				vert_collision_detection(t_move_events *me,
+										t_player *player, t_sectors *sector);
 
-void hor_collision_detection(move_events *me, player *player, sectors *sectors);
+void				hor_collision_detection(t_move_events *me,
+										t_player *player, t_sectors *sectors);
 
-void bumping(move_events *me, player *player, sectors *sector, xy *d);
+void				bumping(t_move_events *me, t_player *player,
+							t_sectors *sector, t_xy *d);
 
-void move_player(xy d,player *player, sectors *sectors);
+void				move_player(t_xy d, t_player *player, t_sectors *sectors);
 
-void key_events(move_events *me, player *player);
+void				key_events(t_move_events *me, t_player *player);
 
-void jump_duck_key_event(move_events *me, player *player, unsigned int sym, SDL_Event e);
+void				jump_duck_key_event(t_move_events *me,
+							t_player *player, unsigned int sym, SDL_Event e);
 
-void move_key_event(move_events *me, unsigned int sym, SDL_Event e);
+void				move_key_event(t_move_events *me,
+									unsigned int sym, SDL_Event e);
 
-move_events move_events_init();
+t_move_events		move_events_init(void);
 
 #endif

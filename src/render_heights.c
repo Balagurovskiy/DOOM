@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:55 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:24 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,42 @@
 #include "doom.h"
 #include "render_heights.h"
 
-float set_heights(float height, float z, float yaw, float scale_y)
+float		set_heights(float height, float z, float yaw, float scale_y)
 {
 	return (H / 2 + (-YAW(height, z, yaw) * scale_y));
 }
 
-void set_heights_floor_ceil(heights_s *heights,
-							player *p,
-							sectors *s,
-							int nghbr)
+void		set_heights_floor_ceil(t_heights *heights,
+									t_player *p,
+									t_sectors *s,
+									int nghbr)
 {
 	heights->neighb_yceil = 0;
 	heights->neighb_yfloor = 0;
-	if (nghbr) {
+	if (nghbr)
+	{
 		heights->neighb_yceil = s->ceil - p->where.z;
 		heights->neighb_yfloor = s->floor - p->where.z;
 	}
-	if (nghbr == -2)  {
-		heights->yceil = s->ceil - p->where.z;//SECT_NOW
+	if (nghbr == -2)
+	{
+		heights->yceil = s->ceil - p->where.z;
 		heights->yfloor = s->floor - p->where.z;
 	}
 }
 
-void set_heights_x(heights_s *heights, perspective_s perspect, screen *scrn)
+void		set_heights_x(t_heights *heights,
+							t_perspective perspect,
+							t_screen *scrn)
 {
 	heights->beginx = MAX(perspect.x1, scrn->now.sx1);
 	heights->endx = MIN(perspect.x2, scrn->now.sx2);
 }
 
-void set_heights_y(heights_s *h, player *pl, edge_s edge, perspective_s p)
+void		set_heights_y(t_heights *h,
+							t_player *pl,
+							t_edge edge,
+							t_perspective p)
 {
 	float	y1a;
 	float	y1b;
@@ -65,9 +72,9 @@ void set_heights_y(heights_s *h, player *pl, edge_s edge, perspective_s p)
 	h->neighb_yb = scaler_init(set_scaler(p.x1, h->beginx, p.x2), y1b, y2b);
 }
 
-heights_s heights_init(screen *scrn, perspective_s perspect, int s)
+t_heights	heights_init(t_screen *scrn, t_perspective perspect, int s)
 {
-	heights_s	heights;
+	t_heights	heights;
 
 	set_heights_x(&heights, perspect, scrn);
 	set_heights_floor_ceil(&heights, scrn->player, SECT_NOW, -2);

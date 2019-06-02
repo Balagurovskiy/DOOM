@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:08 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:30 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "doom.h"
 #include "render.h"
 
-static void		init_texture_edges(screen *scrn)
+static void		init_texture_edges(t_screen *scrn)
 {
 	scrn->txt_data.org1.x = scrn->edge.t1.x;
 	scrn->txt_data.org1.y = scrn->edge.t1.z;
@@ -22,7 +22,7 @@ static void		init_texture_edges(screen *scrn)
 	scrn->txt_data.org2.y = scrn->edge.t2.z;
 }
 
-static void		switch_edges_to_intersections(screen *scrn, xy i1, xy i2)
+static void		switch_edges_to_intersections(t_screen *scrn, t_xy i1, t_xy i2)
 {
 	if (scrn->edge.t1.z < NEARZ)
 	{
@@ -39,7 +39,7 @@ static void		switch_edges_to_intersections(screen *scrn, xy i1, xy i2)
 	}
 }
 
-static void		switch_edges_to_intersections2(screen *scrn, xy i1, xy i2)
+static void		switch_edges_to_intersections2(t_screen *scrn, t_xy i1, t_xy i2)
 {
 	if (scrn->edge.t2.z < NEARZ)
 	{
@@ -56,7 +56,7 @@ static void		switch_edges_to_intersections2(screen *scrn, xy i1, xy i2)
 	}
 }
 
-static void		texture_intersection(screen *scrn)
+static void		texture_intersection(t_screen *scrn)
 {
 	if (ABS(T2X - T1X) > ABS(T2Z - T1Z))
 	{
@@ -70,10 +70,10 @@ static void		texture_intersection(screen *scrn)
 	}
 }
 
-void			view_intersection_with_wall(screen *scrn)
+void			view_intersection_with_wall(t_screen *scrn)
 {
-	xy	i1;
-	xy	i2;
+	t_xy	i1;
+	t_xy	i2;
 
 	i1 = intersect(EDGE_T(scrn->edge.t1), EDGE_T(scrn->edge.t2),
 				new_xy(-(NEAR_SIDE), NEARZ), new_xy(-FAR_SIDE, FARZ));

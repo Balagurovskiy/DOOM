@@ -10,28 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef RENDER_SCALER_H
 # define RENDER_SCALER_H
 
-typedef struct scaler_set
+typedef struct	s_scaler_set
 {
-    int a;
-    int b;
-    int c;
-}              scaler_set_s;
+	int	a;
+	int	b;
+	int	c;
+}				t_scaler_set;
 
-typedef struct scaler
+typedef struct	s_scaler
 {
-    int result;
-    int bop;
-    int fd;
-    int ca;
-    int cache;
-}              scaler_s;
+	int	result;
+	int	bop;
+	int	fd;
+	int	ca;
+	int	cache;
+}				t_scaler;
 
-scaler_set_s set_scaler(int a, int b, int c);
-scaler_s scaler_init(scaler_set_s ss, int d, int f);
-int scaler_next(scaler_s *s);
+t_scaler_set	set_scaler(int a, int b, int c);
+t_scaler		scaler_init(t_scaler_set ss, int d, int f);
+int				scaler_next(t_scaler *s);
 
 #endif

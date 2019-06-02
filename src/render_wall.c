@@ -6,19 +6,19 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:06 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:31 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "defines.h"
 #include "render_wall.h"
 
-wall_s			wall_init(screen *scrn,
-							heights_s *heights,
+t_wall			wall_init(t_screen *scrn,
+							t_heights *heights,
 							int x,
-							perspective_s persp)
+							t_perspective persp)
 {
-	wall_s	wall;
+	t_wall	wall;
 	float	p1;
 	float	p2;
 	float	p;
@@ -35,18 +35,18 @@ wall_s			wall_init(screen *scrn,
 	return (wall);
 }
 
-static void		render_wall_line(screen *scrn,
-								txt_line_s tl,
-								scaler_set_s ss,
+static void		render_wall_line(t_screen *scrn,
+								t_txt_line tl,
+								t_scaler_set ss,
 								int z)
 {
 	tl.scale_ty = scaler_init(ss, 0, (scrn->txt->current->w - 1));
 	textured_line(scrn, tl, scrn->txt->current, z);
 }
 
-void			set_neighbor_wall(wall_s *wall,
-				screen *scrn,
-				heights_s *heights,
+void			set_neighbor_wall(t_wall *wall,
+				t_screen *scrn,
+				t_heights *heights,
 				int x)
 {
 	wall->nya = scaler_next(&(heights->neighb_ya));
@@ -66,7 +66,7 @@ void			set_neighbor_wall(wall_s *wall,
 					wall->z);
 }
 
-SDL_Surface		*texture_switch(screen *scrn, int s)
+SDL_Surface		*texture_switch(t_screen *scrn, int s)
 {
 	if (SECT_NOW->npoints < s)
 	{
@@ -90,12 +90,12 @@ SDL_Surface		*texture_switch(screen *scrn, int s)
 	return (scrn->txt->uppertextures);
 }
 
-void			render_the_wall(screen *scrn,
-					perspective_s perspect,
-					heights_s heights,
+void			render_the_wall(t_screen *scrn,
+					t_perspective perspect,
+					t_heights heights,
 					int s)
 {
-	wall_s	wall;
+	t_wall	wall;
 	int		x;
 
 	x = heights.beginx;

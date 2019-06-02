@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:11 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:34 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include "doom.h"
 #include "libft.h"
 
-void	text_pattern_0(char *file, player *p, SDL_Surface *surface)
+void	text_pattern_0(char *file, t_player *p, SDL_Surface *surface)
 {
 	if (!ft_strequ((char const *)file, "level/0000.story"))
 		return ;
 	if (p->sector == 0 || p->sector <= 5)
 		render_massage("You are lost and need to find a way out...", surface);
 	if (p->sector == 12)
-		render_massage("Wow secret place", surface);
+		render_massage("Wow much secret so place", surface);
 	if (p->sector == 8 && !p->key)
 		render_massage("Damn! Need a key !", surface);
 	if (p->sector == 8 && p->key)
@@ -34,7 +34,7 @@ void	text_pattern_0(char *file, player *p, SDL_Surface *surface)
 		render_massage("Looks familiar...", surface);
 }
 
-void	text_pattern_01(char *file, player *p, SDL_Surface *surface)
+void	text_pattern_01(char *file, t_player *p, SDL_Surface *surface)
 {
 	if (!ft_strequ((char const *)file, "level/0001.story"))
 		return ;
@@ -52,7 +52,7 @@ void	text_pattern_01(char *file, player *p, SDL_Surface *surface)
 		render_massage("EEEEeeee booooyyyyy he he he", surface);
 }
 
-void	text_pattern_1(char *file, player *p, SDL_Surface *surface)
+void	text_pattern_1(char *file, t_player *p, SDL_Surface *surface)
 {
 	if (ft_strequ((char const *)file, "level/0100.story"))
 	{
@@ -72,7 +72,7 @@ void	text_pattern_1(char *file, player *p, SDL_Surface *surface)
 	}
 }
 
-void	text_pattern_2(char *file, player *p, SDL_Surface *surface)
+void	text_pattern_2(char *file, t_player *p, SDL_Surface *surface)
 {
 	if (!ft_strequ((char const *)file, "level/0200.story"))
 		return ;

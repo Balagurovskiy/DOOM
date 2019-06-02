@@ -6,14 +6,14 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:33 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:15 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "doom.h"
 #include "libft.h"
 
-void	door0000(player *p, level_s *lvl, char *file)
+void	door0000(t_player *p, t_level *lvl, char *file)
 {
 	if (ft_strequ((char const *)file, "level/0000.story"))
 	{

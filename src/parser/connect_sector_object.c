@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:36:49 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:40:49 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:00 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int		add_error(float *a, float *b, int doit, int sign)
 	return (0);
 }
 
-void	correction(sectors *s)
+void	correction(t_sectors *s)
 {
-	xy	*obj0;
-	xy	*obj1;
+	t_xy	*obj0;
+	t_xy	*obj1;
 
 	obj0 = &(s->object_xy[0]);
 	obj1 = &(s->object_xy[1]);
@@ -48,7 +48,7 @@ void	correction(sectors *s)
 		return ;
 }
 
-void	set_sector_object(sectors *s, t_map_sector *ms)
+void	set_sector_object(t_sectors *s, t_map_sector *ms)
 {
 	t_map_vertex	*mso;
 	int				i;

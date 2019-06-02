@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:43 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:18 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 #include "doom.h"
 #include "events.h"
 
-void	move_key_event(move_events *me, unsigned int sym, SDL_Event e)
+void	move_key_event(t_move_events *me, unsigned int sym, SDL_Event e)
 {
-	if(sym == 'w')
+	if (sym == 'w')
 		me->wsad[0] = e.type == SDL_KEYDOWN;
-	if(sym == 's')
+	if (sym == 's')
 		me->wsad[1] = e.type == SDL_KEYDOWN;
-	if(sym == 'a')
+	if (sym == 'a')
 		me->wsad[2] = e.type == SDL_KEYDOWN;
-	if(sym == 'd')
+	if (sym == 'd')
 		me->wsad[3] = e.type == SDL_KEYDOWN;
 }
 
-void	jump_duck_key_event(move_events *me,
-						player *player,
+void	jump_duck_key_event(t_move_events *me,
+						t_player *player,
 						unsigned int sym,
 						SDL_Event e)
 {
-	if(sym == ' ' && !me->ducking)
+	if (sym == ' ' && !me->ducking)
 	{
 		if (me->ground)
 		{
@@ -39,7 +39,7 @@ void	jump_duck_key_event(move_events *me,
 			me->falling = 1;
 		}
 	}
-	if(sym == SDLK_RCTRL || sym == SDLK_LCTRL)
+	if (sym == SDLK_RCTRL || sym == SDLK_LCTRL)
 	{
 		if (e.type == SDL_KEYDOWN)
 		{
@@ -52,21 +52,21 @@ void	jump_duck_key_event(move_events *me,
 	}
 }
 
-void	key_events(move_events *me, player *player)
+void	key_events(t_move_events *me, t_player *player)
 {
-	SDL_Event e;
-	unsigned int sym;
+	SDL_Event		e;
+	unsigned int	sym;
 
-	while(SDL_PollEvent(&e))
+	while (SDL_PollEvent(&e))
 	{
 		sym = e.key.keysym.sym;
 		if (e.type == SDL_KEYDOWN || e.type == SDL_KEYUP)
 		{
 			move_key_event(me, sym, e);
-			if(sym == 'e')
+			if (sym == 'e')
 				player->action = e.type == SDL_KEYDOWN;
 			jump_duck_key_event(me, player, sym, e);
-			if(sym == SDLK_ESCAPE)
+			if (sym == SDLK_ESCAPE)
 				player->exit_doom = 1;
 		}
 		if (e.type == SDL_QUIT)

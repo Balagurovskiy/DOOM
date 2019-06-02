@@ -16,38 +16,41 @@
 # include "render.h"
 # include "render_heights.h"
 
-
-typedef struct ceiling_floor
+typedef struct	s_ceiling_floor
 {
-    float hei;
-    float mapx;
-    float mapz;
-    int with_shade;
-    int x;
-    int y;
-    int z;
-}              ceiling_floor_s;
+	float	hei;
+	float	mapx;
+	float	mapz;
+	int		with_shade;
+	int		x;
+	int		y;
+	int		z;
+}				t_ceiling_floor;
 
-typedef struct wall
+typedef struct	s_wall
 {
-    int z;
-    int ya;
-    int yb;
-    int cya;
-    int cyb;
-    int nya;
-    int nyb;
-    int cnya;
-    int cnyb;
-}              wall_s;
+	int	z;
+	int	ya;
+	int	yb;
+	int	cya;
+	int	cyb;
+	int	nya;
+	int	nyb;
+	int	cnya;
+	int	cnyb;
+}				t_wall;
 
-int		fade_to_black(int col, double curr, double max);
+int				fade_to_black(int col, double curr, double max);
 
-//render_wall.c
-void render_the_wall(screen *scrn, perspective_s perspect, heights_s heights, int s);
-perspective_s perspective_init(edge_s edge);
-void view_intersection_with_wall(screen *scrn);
-//render_floor_ceil.c
-void render_floor_ceil(screen *scrn, wall_s wall, heights_s heights, int x);
+void			render_the_wall(t_screen *scrn,
+								t_perspective perspect,
+								t_heights heights,
+								int s);
+t_perspective	perspective_init(t_edge edge);
+void			view_intersection_with_wall(t_screen *scrn);
+void			render_floor_ceil(t_screen *scrn,
+									t_wall wall,
+									t_heights heights,
+									int x);
 
 #endif

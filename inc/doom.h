@@ -13,106 +13,128 @@
 #ifndef DOOM_H
 # define DOOM_H
 
-#include "defines.h"
-#include "utils.h"
+# include "defines.h"
+# include "utils.h"
 
-
-/* Sectors: Floor and ceiling height; list of edge vertices and neighbors */
-typedef struct sectors
+/*
+** Sectors: Floor and ceiling height; list of edge vertices and neighbors
+*/
+typedef struct		s_sectors
 {
-    float floor;
-    float ceil;
-    xy *vertex; // Each vertex has an x and y coordinate
-    int *neighbors;           // Each edge may have a corresponding neighboring sector
-    unsigned int npoints;               // How many vertexes there are
+	float			floor;
+	float			ceil;
+	t_xy			*vertex;
+	int				*neighbors;
+	unsigned int	npoints;
 
-    int object;
-    xy  object_xy[2];
-}           sectors;
+	int				object;
+	t_xy			object_xy[2];
+}					t_sectors;
 
-/* Player: location */
-typedef struct player
+/*
+** Player data
+** 	Current position
+** 	Current motion vector
+** 	Looking towards (and sin() and cos() thereof)
+** 	Which sector the t_player is currently in
+*/
+typedef struct		s_player
 {
-    xyz where;      // Current position
-    xyz velocity;   // Current motion vector
-    float angle;
-    float anglesin;
-    float anglecos;
-    float yaw;   // Looking towards (and sin() and cos() thereof)
-    unsigned int sector;                        // Which sector the player is currently in
-    unsigned int total_sectors;
-    
-    int exit_doom;
+	t_xyz			where;
+	t_xyz			velocity;
+	float			angle;
+	float			anglesin;
+	float			anglecos;
+	float			yaw;
+	unsigned int	sector;
+	unsigned int	total_sectors;
 
-    int health;
-    
-    int action;
-    int key;
+	int				exit_doom;
 
-    float gravity;
-}           player;
+	int				health;
 
-typedef struct player_save
+	int				action;
+	int				key;
+
+	float			gravity;
+}					t_player;
+
+/*
+** save player data for next level
+*/
+typedef struct		s_player_save
 {
-    int next_start;    
-    char *next_lvl_temp;
-    float angle;
-    int key;
-    int health;
+	int				next_start;
+	char			*next_lvl_temp;
+	float			angle;
+	int				key;
+	int				health;
 
-}           player_save;
+}					t_player_save;
 
-typedef struct  texture_set_s
+typedef struct		s_texture_set
 {
-    SDL_Surface *floortexture;
-    SDL_Surface *ceiltexture;
-    SDL_Surface *uppertextures;
-    SDL_Surface *lowertextures;
+	SDL_Surface		*floortexture;
+	SDL_Surface		*ceiltexture;
+	SDL_Surface		*uppertextures;
+	SDL_Surface		*lowertextures;
 
-    SDL_Surface *sky;
-    SDL_Surface *door;
-    SDL_Surface *dec[5];
-    SDL_Surface *key[7];
-    
-    SDL_Surface *current;
-}               texture_set_s;
+	SDL_Surface		*sky;
+	SDL_Surface		*door;
+	SDL_Surface		*dec[5];
+	SDL_Surface		*key[7];
 
+	SDL_Surface		*current;
+}					t_texture_set;
 
-typedef struct level_s
+typedef struct		s_level
 {
-    sectors* sector;
-    texture_set_s texture;
-    int sectors_size;
-    int start[3];
-    int end[3];
-    char *next_level[3];
-}           level_s;
+	t_sectors		*sector;
+	t_texture_set	texture;
+	int				sectors_size;
+	int				start[3];
+	int				end[3];
+	char			*next_level[3];
+}					t_level;
 
+# define START_POS (ps.next_start >= 0)
+# define START_IN (ps.next_start < lvl->sectors_size)
+# define NEXT_LVLV_IS_VALID (map_temp && START_POS && START_IN)
 
-sectors* sprite_test();
+void				render_screen(SDL_Surface *srf,
+									t_player *pl,
+									t_level *lvl,
+									int is_obj);
+void				events(t_level *lvl,
+							t_player *player,
+							SDL_Window *win,
+							SDL_Surface *surface);
 
-void render_screen(SDL_Surface *srf, player *pl, level_s *lvl, int is_obj);
-void events(level_s *lvl, player *player, SDL_Window *win, SDL_Surface *surface);
+void				change_level(t_level *lvl, t_player *p);
+void				goto_level(t_level *lvl, t_player *p, char *level_name);
 
-void change_level(level_s *lvl, player *p);
-void  goto_level(level_s *lvl, player *p, char *level_name);
-void action_controller(player *player, level_s *lvl, char *file);
-void door0000(player *p, level_s *lvl, char *file);
+void				action_controller(t_player *player,
+										t_level *lvl, char *file);
+void				door0000(t_player *p, t_level *lvl, char *file);
 
-void        free_level(level_s *level);
-void        free_texture_set(texture_set_s *t);
-void        music(char *tag);
+void				free_level(t_level *level);
+void				free_texture_set(t_texture_set *t);
 
-void render_massage(char *mssg, SDL_Surface *surface);
-void message(char *file, player *p, SDL_Surface *surface);
-void text_pattern_0(char *file, player *p, SDL_Surface *surface);
-void text_pattern_01(char *file, player *p, SDL_Surface *surface);
-void text_pattern_1(char *file, player *p, SDL_Surface *surface);
-void text_pattern_2(char *file, player *p, SDL_Surface *surface);
+void				music(char *tag);
 
-char *save_file(char *file);
+void				render_massage(char *mssg, SDL_Surface *surface);
+void				message(char *file, t_player *p, SDL_Surface *surface);
+void				text_pattern_0(char *file, t_player *p,
+								SDL_Surface *surface);
+void				text_pattern_01(char *file, t_player *p,
+								SDL_Surface *surface);
+void				text_pattern_1(char *file, t_player *p,
+								SDL_Surface *surface);
+void				text_pattern_2(char *file, t_player *p,
+								SDL_Surface *surface);
 
-int ft_timer();
+char				*save_file(char *file);
+
+int					ft_timer();
 
 #endif
-

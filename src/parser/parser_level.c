@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:37:51 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:42:02 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:05 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ char	*parse_level(char **line, int *nxt_sector)
 	{
 		lvl_info = ft_splinter(level, ",{}");
 		it = 0;
-		(*nxt_sector) = -1;
 		parse_level_info(lvl_info, &it, &nxt_level, nxt_sector);
 		if (it != 0 || !level || !lvl_info)
 		{

@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:48 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:20 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		ft_timer(void)
 
 void	doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 {
-	player		player;
-	level_s		lvl;
+	t_player		player;
+	t_level			lvl;
 
 	music("#init");
 	message("#init", NULL, NULL);
@@ -57,7 +57,7 @@ void	doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 	{
 		player = init_player(0, lvl.sector, 0, lvl.sectors_size);
 		player.health = 3;
-		while(!player.exit_doom && !catch_exception(0))
+		while (!player.exit_doom && !catch_exception(0))
 		{
 			action_controller(&player, &lvl, save_file("#get"));
 			render_screen(surface, &player, &lvl, 0);
@@ -65,7 +65,6 @@ void	doom_init(SDL_Window *win, SDL_Surface *surface, char *file)
 			events(&lvl, &player, win, surface);
 			change_level(&lvl, &player);
 			SDL_UpdateWindowSurface(win);
-			SDL_Delay(10);
 		}
 	}
 	free_level(&lvl);
@@ -80,15 +79,14 @@ int		main(int argc, char **argv)
 	SDL_Surface		*surface;
 
 	win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED,
-						   SDL_WINDOWPOS_CENTERED,
-						   W, H, SDL_WINDOW_OPENGL);
+							SDL_WINDOWPOS_CENTERED,
+							W, H, SDL_WINDOW_OPENGL);
 	surface = SDL_GetWindowSurface(win);
 	SDL_SetHintWithPriority(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, "0.5",
-							 SDL_HINT_OVERRIDE);
+							SDL_HINT_OVERRIDE);
 	SDL_SetRelativeMouseMode(SDL_TRUE);
 	SDL_ShowCursor(SDL_DISABLE);
 	TTF_Init();
-
 	if (argc == 2 && ft_str_contains(argv[1], ".doom\0"))
 		doom_init(win, surface, argv[1]);
 	else

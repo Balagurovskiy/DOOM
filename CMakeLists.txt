@@ -61,7 +61,8 @@ add_executable(doom inc/doom.h
                     src/actions.c
                     src/event_key_collision.c
                     src/event_key_bumping.c
-        src/event.c
+                    src/event.c
+                    src/level.c
                     src/utils_intersection.c
                     src/event_keys.c
                     src/event_key_moves.c
@@ -77,4 +78,4 @@ add_executable(doom inc/doom.h
         src/render_perspective.c
                     src/event_mouse_view.c
                     src/utils_xyz.c
-                    )
+        )

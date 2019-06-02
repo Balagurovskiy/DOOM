@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:35 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:16 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "events.h"
 #include "libft.h"
 
-void	death(SDL_Window *win, SDL_Surface *surface, player *player, level_s *lvl)
+void	death(SDL_Window *win, SDL_Surface *surface,
+				t_player *player, t_level *lvl)
 {
 	if (player->health == 0)
 	{
@@ -31,11 +32,12 @@ void	death(SDL_Window *win, SDL_Surface *surface, player *player, level_s *lvl)
 	}
 }
 
-void events(level_s *lvl, player *player, SDL_Window *win, SDL_Surface *surface)
+void	events(t_level *lvl, t_player *player,
+				SDL_Window *win, SDL_Surface *surface)
 {
-	static move_events		me;
-	static view_events		ve;
-	static int				init_time = 1;
+	static t_move_events		me;
+	static t_view_events		ve;
+	static int					init_time = 1;
 
 	death(win, surface, player, lvl);
 	if (init_time)

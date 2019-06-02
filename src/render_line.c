@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:56 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:25 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "doom.h"
 #include "render.h"
 
-txt_line_s		set_textured_line(int x, int y1, int y2)
+t_txt_line		set_textured_line(int x, int y1, int y2)
 {
-	txt_line_s tl;
+	t_txt_line tl;
 
 	tl.x = x;
 	tl.y1 = y1;
@@ -52,7 +52,7 @@ int				fade_to_black(int color, double current, double max)
 	return (rgb[0] + ((int)rgb[1] << 8) + (((int)rgb[2]) << 16));
 }
 
-void			textured_line(screen *scrn, txt_line_s tl,
+void			textured_line(t_screen *scrn, t_txt_line tl,
 								SDL_Surface *t, int z)
 {
 	int	y;

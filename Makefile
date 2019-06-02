@@ -7,6 +7,7 @@ FILES =  main \
         text_utils \
         actions \
         action_utils \
+        level \
         \
          event_key_collision \
          event_key_bumping \

@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:13:13 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:36 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "doom.h"
 #include "utils.h"
 
-int			intersect_box(xy xy0, xy xy1, xy xy2, xy xy3){
+int			intersect_box(t_xy xy0, t_xy xy1, t_xy xy2, t_xy xy3)
+{
 	int	overlap_x;
 	int	overlap_y;
 
@@ -23,10 +24,11 @@ int			intersect_box(xy xy0, xy xy1, xy xy2, xy xy3){
 	return (overlap_x && overlap_y);
 }
 
-int			intersect_box_handle(xy p, xy d, xy* vert, int s){
-	xy	p_d;
-	xy	vert0;
-	xy	vert1;
+int			intersect_box_handle(t_xy p, t_xy d, t_xy *vert, int s)
+{
+	t_xy	p_d;
+	t_xy	vert0;
+	t_xy	vert1;
 
 	p_d.x = p.x + d.x;
 	p_d.y = p.y + d.y;
@@ -37,11 +39,11 @@ int			intersect_box_handle(xy p, xy d, xy* vert, int s){
 	return (intersect_box(p, p_d, vert0, vert1));
 }
 
-int			point_is_on_line(xy point, xy l0, xy ln)
+int			point_is_on_line(t_xy point, t_xy l0, t_xy ln)
 {
-	xy vector_l;
-	xy vector_p;
-	float cross_prod;
+	t_xy	vector_l;
+	t_xy	vector_p;
+	float	cross_prod;
 
 	vector_l = new_xy((ln.x - l0.x), (ln.y - l0.y));
 	vector_p = new_xy((point.x - l0.x), (point.y - l0.y));
@@ -54,7 +56,8 @@ int			point_is_on_line(xy point, xy l0, xy ln)
 		return (0);
 }
 
-xy			intersect(xy xy1, xy xy2, xy xy3, xy xy4){
+t_xy		intersect(t_xy xy1, t_xy xy2, t_xy xy3, t_xy xy4)
+{
 	float	vxs_12;
 	float	vxs_34;
 	float	y0;
@@ -62,18 +65,19 @@ xy			intersect(xy xy1, xy xy2, xy xy3, xy xy4){
 	float	xy;
 
 	vxs_12 = VXS(xy1.x, xy1.y, xy2.x, xy2.y);
-	vxs_34= VXS(xy3.x, xy3.y, xy4.x, xy4.y);
+	vxs_34 = VXS(xy3.x, xy3.y, xy4.x, xy4.y);
 	x0 = VXS(vxs_12, (xy1.x - xy2.x), vxs_34, (xy3.x - xy4.x));
 	y0 = VXS(vxs_12, (xy1.y - xy2.y), vxs_34, (xy3.y - xy4.y));
 	xy = VXS((xy1.x - xy2.x), (xy1.y - xy2.y),
 			(xy3.x - xy4.x), (xy3.y - xy4.y));
 	xy = ((COMPARE(ABS(xy), 0.0)) ? 1.0 : xy);
-
 	return (new_xy((x0 / xy), (y0 / xy)));
-
 }
 
-int			intersert_circle_bound(xy line_p0, xy line_pn, xy center, float radius)
+int			intersert_circle_bound(t_xy line_p0,
+									t_xy line_pn,
+									t_xy center,
+									float radius)
 {
 	float	dx;
 	float	dy;

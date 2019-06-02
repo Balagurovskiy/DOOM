@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef RENDER_H
 # define RENDER_H
 
@@ -44,114 +43,83 @@
 # define IS_NOT_SKY IS_ABOVE_SKY || (cf->y >= wall.cya)
 # define IS_CASUAL_CEIL IS_ABOVE_SKY && cf->y < wall.cya
 
-
-typedef struct  item
+typedef struct		s_item
 {
-    int             sectorno;
-    float             sx1;
-    float             sx2;
-}               item;
+	int		sectorno;
+	float	sx1;
+	float	sx2;
+}					t_item;
 
-typedef  struct edge
+typedef struct		s_edge
 {
-    xy              v1;
-    xy              v2;
+	t_xy		v1;
+	t_xy		v2;
 
-    float           pcos;
-    float           psin;
+	float		pcos;
+	float		psin;
 
-    xyz             t1;
-    xyz             t2;
-}               edge_s;
+	t_xyz		t1;
+	t_xyz		t2;
+}					t_edge;
 
-typedef struct  txt_data_s
+typedef struct		s_txt_data
 {
-     int            u0;
-     int            u1;
+	int		u0;
+	int		u1;
 
-     xy             org1;
-     xy             org2;
+	t_xy	org1;
+	t_xy	org2;
 
-     int            txtx;
-}               txt_data_s;
+	int		txtx;
+}					t_txt_data;
 
-typedef struct  screen
+typedef struct		s_screen
 {
-    item            queue[MAX_QUE];
-    item            *head;
-    item            *tail;
-    item            now;
+	t_item			queue[MAX_QUE];
+	t_item			*head;
+	t_item			*tail;
+	t_item			now;
 
-    int             ytop[W];
-    int             ybottom[W];
+	int				ytop[W];
+	int				ybottom[W];
 
-    player          *player;
-    sectors         *sector;
-    SDL_Surface     *surface;
-    int             isobj;
+	t_player		*player;
+	t_sectors		*sector;
+	SDL_Surface		*surface;
 
-    texture_set_s   *txt;
-    txt_data_s      txt_data;
+	t_texture_set	*txt;
+	t_txt_data		txt_data;
 
-    edge_s          edge;
+	t_edge			edge;
+}					t_screen;
 
-}               screen;
-
-typedef struct  line_s
+typedef struct		s_txt_line
 {
-    int x;
-    int y1;
-    int y2;
-    int top;
-    int middle;
-    int bottom;
-}               line_s;
+	int				x;
+	int				y1;
+	int				y2;
+	t_scaler		scale_ty;
+}					t_txt_line;
 
-typedef struct  txt_line_s
+typedef struct		s_perspective
 {
-    int x;
-    int y1;
-    int y2;
-    scaler_s scale_ty;
-    SDL_Surface *texture;
-}               txt_line_s;
+	t_xy	scale1;
+	t_xy	scale2;
 
-typedef struct perspective
-{
-    xy scale1;
-    xy scale2;
+	float	x1;
+	float	x2;
+}					t_perspective;
 
-    float x1;
-    float x2;
-}               perspective_s;
+void				render_towards(t_screen *scrn);
 
+t_txt_line			set_textured_line(int x, int y1, int y2);
+void				textured_line(t_screen *scrn,
+							t_txt_line tl, SDL_Surface *t, int z);
 
-//render.c
-//void render_screen(SDL_Surface *srf, player *pl, level_s *lvl);
+t_perspective		perspective_init(t_edge edge);
 
-//render_towards.c
-void render_towards(screen *scrn);
+void				view_intersection_with_wall(t_screen *scrn);
 
+SDL_Surface			*play_animation(SDL_Surface *anims[], int size);
 
-//render_heights.c
-//heights_s heights_init(screen *scrn, perspective_s perspect, int s);
-
-//render_line.c
-void shaded_line(SDL_Surface *surface, int x, int y1, int y2, int top, int middle, int bottom);
-
-txt_line_s set_textured_line(int x, int y1, int y2);
-void textured_line(screen *scrn, txt_line_s tl, SDL_Surface *t, int z);
-
-
-
-//render_perspective.c
-perspective_s perspective_init(edge_s edge);
-
-//render_wall_intersection.c
-void view_intersection_with_wall(screen *scrn);
-
-SDL_Surface		*play_animation(SDL_Surface *anims[], int size);
-//render_scaler.c
-//scaler_s scaler_init(int a, int b, int c, int d, int f);
-//int scaler_next(scaler_s *s);
 #endif

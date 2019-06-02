@@ -6,7 +6,7 @@
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/01 12:12:53 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:23 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "parser.h"
 #include "render_wall.h"
 
-static void		switch_to_casual_ceil(screen *scrn, ceiling_floor_s *cf)
+static void		switch_to_casual_ceil(t_screen *scrn, t_ceiling_floor *cf)
 {
 	float	rtx;
 	float	rtz;
@@ -26,7 +26,7 @@ static void		switch_to_casual_ceil(screen *scrn, ceiling_floor_s *cf)
 	cf->mapz = rtz + scrn->player->where.y;
 }
 
-static void		init_f_c(screen *scrn, ceiling_floor_s *cf)
+static void		init_f_c(t_screen *scrn, t_ceiling_floor *cf)
 {
 	float	lim;
 
@@ -35,8 +35,8 @@ static void		init_f_c(screen *scrn, ceiling_floor_s *cf)
 	cf->mapx = (cf->mapz) * (W / 2 - cf->x) / (W * H_FOV);
 }
 
-static void		put_txt_pixel(screen *scrn,
-								ceiling_floor_s *cf,
+static void		put_txt_pixel(t_screen *scrn,
+								t_ceiling_floor *cf,
 								SDL_Surface *t)
 {
 	int	txtx;
@@ -53,10 +53,10 @@ static void		put_txt_pixel(screen *scrn,
 	}
 }
 
-static void		render_f_c_loop(screen *scrn,
-							wall_s wall,
-							heights_s heights,
-							ceiling_floor_s *cf)
+static void		render_f_c_loop(t_screen *scrn,
+							t_wall wall,
+							t_heights heights,
+							t_ceiling_floor *cf)
 {
 	SDL_Surface	*t;
 
@@ -74,10 +74,10 @@ static void		render_f_c_loop(screen *scrn,
 	put_txt_pixel(scrn, cf, t);
 }
 
-void			render_floor_ceil(screen *scrn, wall_s wall,
-									heights_s heights, int x)
+void			render_floor_ceil(t_screen *scrn, t_wall wall,
+									t_heights heights, int x)
 {
-	ceiling_floor_s	cf;
+	t_ceiling_floor	cf;
 
 	cf.x = x;
 	cf.y = scrn->ytop[cf.x] - 1;
