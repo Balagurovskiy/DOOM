@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   text_utils.c                                       :+:      :+:    :+:   */
+/*   hud.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 12:09:11 by obalagur          #+#    #+#             */
-/*   Updated: 2019/06/02 12:46:33 by obalagur         ###   ########.fr       */
+/*   Updated: 2019/06/02 12:46:13 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "defines.h"
 #include "doom.h"
 #include "libft.h"
 #include "parser.h"
@@ -25,36 +24,21 @@ static SDL_Color	set_color(int r, int g, int b)
 	return (color);
 }
 
-static SDL_Rect		get_location(void)
+static SDL_Rect		set_location(int x, int y, int w, int h)
 {
 	SDL_Rect location;
 
-	location.x = 5;
-	location.y = H + 25;
-	location.w = 100;
-	location.h = 100;
+	location.x = x;
+	location.y = y;
+	location.w = w;
+	location.h = h;
 	return (location);
 }
 
-void				blit_massage_surface(char *mssg,
-										SDL_Surface *surface,
-										TTF_Font *font,
-										SDL_Rect *location)
-{
-	SDL_Surface *surf_massage;
-
-	surf_massage = TTF_RenderText_Shaded(font, mssg,
-								set_color(255, 255, 255),
-								set_color(0, 0, 0));
-	SDL_BlitSurface(surf_massage, NULL, surface, location);
-	if (surf_massage)
-		SDL_FreeSurface(surf_massage);
-}
-
-void				render_massage(char *mssg, SDL_Surface *surface)
+void				render_hud_text(char *mssg, SDL_Surface *surface,
+												SDL_Rect location)
 {
 	static TTF_Font *font = NULL;
-	static SDL_Rect location;
 
 	if (ft_strequ(mssg, "#init"))
 	{
@@ -65,7 +49,6 @@ void				render_massage(char *mssg, SDL_Surface *surface)
 			catch_exception(1);
 			return ;
 		}
-		location = get_location();
 	}
 	else if (ft_strequ(mssg, "#del"))
 	{
@@ -78,17 +61,39 @@ void				render_massage(char *mssg, SDL_Surface *surface)
 		blit_massage_surface(mssg, surface, font, &location);
 }
 
-void				message(char *file, t_player *p, SDL_Surface *surface)
+void				hud_pattern(t_player *p, SDL_Surface *surface)
 {
+	SDL_Rect	location;
+	char		*hud_ints;
+
+	location = set_location(W / 4, H, 50, 20);
+	render_hud_text("NOTES", surface, location);
+	location = set_location(W / 2, H, 50, 20);
+	render_hud_text("HEALTH", surface, location);
+	location.y = H + 25;
+	hud_ints = ft_itoa(p->health);
+	render_hud_text(hud_ints, surface, location);
+	ft_memdel((void **)&hud_ints);
+	location = set_location((W - W / 4), H, 50, 20);
+	render_hud_text("KEYS", surface, location);
+	location.y = H + 25;
+	hud_ints = ft_itoa(p->key);
+	render_hud_text(hud_ints, surface, location);
+	ft_memdel((void **)&hud_ints);
+}
+
+void				draw_hud(char *tag, t_player *p, SDL_Surface *surface)
+{
+	SDL_Rect	location;
+
+	location = set_location(0, H, W, 20);
+	SDL_FillRect(surface, &location, 0xAC9E9C);
+	location = set_location(0, H + 20, W, 40);
+	SDL_FillRect(surface, &location, 0x0);
 	if (!p || !surface)
 	{
-		render_massage(file, NULL);
-		draw_hud(file, NULL, NULL);
+		render_hud_text(tag, NULL, location);
 		return ;
 	}
-	draw_hud(file, p, surface);
-	text_pattern_0(file, p, surface);
-	text_pattern_01(file, p, surface);
-	text_pattern_1(file, p, surface);
-	text_pattern_2(file, p, surface);
+	hud_pattern(p, surface);
 }

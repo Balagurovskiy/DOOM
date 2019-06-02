@@ -52,6 +52,7 @@ add_executable(doom inc/doom.h
         src/parser/ft_lib/ft_splinter.c
         src/parser/ft_lib/ft_putstr.c
         src/parser/ft_lib/ft_memcpy.c
+        src/parser/ft_lib/ft_itoa.c
                     src/main.c
                     src/music.c
                     src/texts.c
@@ -78,4 +79,4 @@ add_executable(doom inc/doom.h
         src/render_perspective.c
                     src/event_mouse_view.c
                     src/utils_xyz.c
-        )
+        src/hud.c)

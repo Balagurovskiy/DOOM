@@ -80,7 +80,7 @@ int		main(int argc, char **argv)
 
 	win = SDL_CreateWindow("doom", SDL_WINDOWPOS_CENTERED,
 							SDL_WINDOWPOS_CENTERED,
-							W, H, SDL_WINDOW_OPENGL);
+							W, H + 50, SDL_WINDOW_OPENGL);
 	surface = SDL_GetWindowSurface(win);
 	SDL_SetHintWithPriority(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, "0.5",
 							SDL_HINT_OVERRIDE);

@@ -1,3 +1,6 @@
-texture:{txt/floor2.ppm,txt/ceil2.ppm,txt/floor.ppm,txt/wall2.ppm,1024};
-ceil:16;floor:0;sector:{0,0,-1}{80,16,-1}{96,64,1}{0,96,-1};id:0;
-ceil:16;floor:0;sector:{0,96,0}{96,64,-1}{96,128,-1}{176,128,-1}{128,192,-1};id:1;
+texture:{textures/walls/floor2.png,textures/walls/ceil2.png,textures/walls/wall3.png,textures/walls/lower2.png};
+ceil:20;floor:10;sector:{1,1,-1}{3,0,-1}{4,2,1}{2,3,-1};
+ceil:20;floor:8;sector:{2,3,0}{4,2,-1}{4,4,2}{2,5,-1};
+ceil:19;floor:7;sector:{2,5,1}{4,4,3}{3,6,-1};
+ceil:18;floor:6;sector:{3,6,2}{4,4,-1}{5,5,-1}{5,7,-1};object:{5,7,3}{3,6,3};
+

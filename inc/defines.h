@@ -24,13 +24,13 @@
 /*
 ** window size
 */
-# define W 820
+# define W 640
 /*
-** 1280 640
+** 1280 820 640
 */
-# define H 640
+# define H 480
 /*
-** 720 480
+** 720 640 480
 */
 /*
 ** Camera height from floor when standing

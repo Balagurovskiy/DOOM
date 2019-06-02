@@ -122,6 +122,10 @@ void				free_texture_set(t_texture_set *t);
 
 void				music(char *tag);
 
+void				blit_massage_surface(char *mssg,
+										SDL_Surface *surface,
+										TTF_Font *font,
+										SDL_Rect *location);
 void				render_massage(char *mssg, SDL_Surface *surface);
 void				message(char *file, t_player *p, SDL_Surface *surface);
 void				text_pattern_0(char *file, t_player *p,
@@ -132,6 +136,8 @@ void				text_pattern_1(char *file, t_player *p,
 								SDL_Surface *surface);
 void				text_pattern_2(char *file, t_player *p,
 								SDL_Surface *surface);
+
+void				draw_hud(char *tag, t_player *p, SDL_Surface *surface);
 
 char				*save_file(char *file);
 

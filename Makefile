@@ -8,6 +8,7 @@ FILES =  main \
         actions \
         action_utils \
         level \
+        hud \
         \
          event_key_collision \
          event_key_bumping \
@@ -63,7 +64,8 @@ FILES =  main \
          parser/ft_lib/ft_splinter \
          parser/ft_lib/ft_putstr \
          parser/ft_lib/ft_memcpy \
-         parser/ft_lib/ft_strsub
+         parser/ft_lib/ft_strsub \
+         parser/ft_lib/ft_itoa
 
  
 H = 	doom \
