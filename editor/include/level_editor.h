@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   level_editor.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkachano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 19:09:21 by mkachano          #+#    #+#             */
-/*   Updated: 2019/05/25 19:09:26 by mkachano         ###   ########.fr       */
+/*   Updated: 2019/06/04 20:10:40 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "SDL_ttf.h"
 # include "SDL_mixer.h"
 # include <dirent.h>
-# include <stdio.h>
 # include "../libft/libft.h"
 # include <errno.h>
 # include <stdlib.h>

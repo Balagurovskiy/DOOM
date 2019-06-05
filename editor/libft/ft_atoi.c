@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkachano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:09:42 by mkachano          #+#    #+#             */
-/*   Updated: 2017/11/11 17:09:44 by mkachano         ###   ########.fr       */
+/*   Updated: 2019/06/04 20:10:35 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 int		ft_atoi(const char *str)

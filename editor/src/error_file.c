@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkachano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/25 20:59:53 by mkachano          #+#    #+#             */
-/*   Updated: 2019/05/25 20:59:55 by mkachano         ###   ########.fr       */
+/*   Updated: 2019/06/04 20:15:12 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ void		error_folder(char *path)
 	free(tmp);
 	exit(1);
 }
-

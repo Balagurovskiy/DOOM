@@ -102,6 +102,7 @@ FRAMEWORKS	=	-F./frameworks \
  
 
 all:  $(NAME)
+	@make -C editor
 
 $(NAME): $(OBJ)
 	@gcc -o $(NAME) $(FLAG) $(SPEED) $(OBJ) $(FRAMEWORKS) -g
@@ -111,11 +112,12 @@ $(OBJ): obj/%.o : src/%.c $(HDRS)
 	@gcc -o $@ $(FLAG2) $(HEADERS) $(INCLUDES) -c $<
 
 clean:
+	@make clean -C editor
 	@rm -f $(OBJ)
 	 
 
 fclean :
+	@make fclean -C editor
 	@rm -f $(NAME)
-	@rm -rf $(OBJ)
-	 
+	@rm -rf $(OBJ) 
 re: fclean all

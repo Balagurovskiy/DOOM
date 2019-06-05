@@ -1,8 +1,0 @@
-.DS_Store
-.idea
-cmake-build-debug
-CMakeList.txt
-CMakeLists.txt
-obj/*
-libft/*.o
-libft/libft.a

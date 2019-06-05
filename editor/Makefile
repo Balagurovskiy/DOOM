@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mkachano <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/05 11:23:29 by mkachano          #+#    #+#              #
-#    Updated: 2019/05/05 11:23:30 by mkachano         ###   ########.fr        #
+#    Updated: 2019/06/04 20:28:31 by obalagur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = level_editor
+NAME = ../level_editor
 
 SRC_DIR :=	./src/
 OBJ_DIR :=	./obj/
@@ -51,15 +51,15 @@ LIBFT_FLAGS := 	-lft -L $(LIBFT_DIR)
 
 # SDL_FLAGS	=	-I/Library/Frameworks/SDL2.framework/Headers -F/Library/Frameworks
 INCLUDES	=	-I $(INC_DIR)\
-				-I ./frameworks/SDL2.framework/Versions/A/Headers \
-				-I ./frameworks/SDL2_ttf.framework/Versions/A/Headers \
-				-I ./frameworks/SDL2_image.framework/Versions/A/Headers \
-				-I ./frameworks/SDL2_mixer.framework/Headers \
-				-F ./frameworks
+				-I ../frameworks/SDL2.framework/Versions/A/Headers \
+				-I ../frameworks/SDL2_ttf.framework/Versions/A/Headers \
+				-I ../frameworks/SDL2_image.framework/Versions/A/Headers \
+				-I ../frameworks/SDL2_mixer.framework/Headers \
+				-F ../frameworks
 
 # OGL_FLAGS	=	-framework OpenGL -framework AppKit
-FRAMEWORKS	=	-F ./frameworks \
-				-rpath ./frameworks \
+FRAMEWORKS	=	-F ../frameworks \
+				-rpath ../frameworks \
 				-framework OpenGL -framework AppKit -framework OpenCl \
 				-framework SDL2 -framework SDL2_ttf -framework SDL2_image \
 				-framework SDL2_mixer

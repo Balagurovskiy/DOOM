@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkachano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: obalagur <obalagur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 03:27:48 by mkachano          #+#    #+#             */
-/*   Updated: 2017/11/26 03:27:52 by mkachano         ###   ########.fr       */
+/*   Updated: 2019/06/04 20:09:57 by obalagur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
